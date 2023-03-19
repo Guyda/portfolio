@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Mr+Dafoe&display=swap");
+@import 'base';
+@import 'bulma/css/bulma.min.css';
+@import 'colors';
+@import 'fonts';
+@import 'locoscroll';
+
+main {
+
+  section {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .bg-dark {
+    &::before {
+      background: #999;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+  }
+
+  .content {
+    z-index: 200;
+  }
+
+  .ledge {
+    position: absolute;
+    border: 1px dotted;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      // background:#ddd;
+      width: 400vw;
+      height: 400vw;
+      margin-left: -300vw;
+      transform-origin: 100% 0;
+      will-change: transform, opacity;
+      opacity: 0;
+      animation-duration: 1.33s;
+      animation-timing-function: cubic-bezier(0.6, 0.04, 0.3, 1);
+      animation-fill-mode: forwards;
+      animation-delay: 1s;
+      z-index: 1;
+    }
+
+    &.animate::before {
+      animation-name: ledge-animation;
+    }
+  }
+
+  .home {
+    background-color: $bg-home;
+    color: $font-light;
+  }
+
+  section.bg-dark {
+    &::before {
+      background-color: $bg-home;
+    }
+  }
+}
+
+@keyframes ledge-animation {
+  0% {
+    transform: rotate(-30deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(-15deg);
+    opacity: 1;
+  }
+}
