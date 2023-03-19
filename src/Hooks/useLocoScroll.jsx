@@ -3,6 +3,23 @@ import LocomotiveScroll from 'locomotive-scroll';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
+const triggers = [
+  {
+    trigger: ".ledge",
+    start: "top 66%",
+    toggleClass: 'animate',
+    once:true,
+    // markers:true
+  },
+  {
+    trigger: ".footer-wrapper",
+    start: "top bottom",
+    toggleClass: 'animate',
+    once:true,
+    // markers:true
+  }
+]
+
 const useLocoScroll = (start) => {
   gsap.registerPlugin(ScrollTrigger);
 
@@ -52,14 +69,8 @@ const useLocoScroll = (start) => {
       }
     };
 
-    ScrollTrigger.create({
-      trigger: ".ledge",
-      start: "top 75%",
-      toggleClass: 'animate',
-      once:true,
-      // markers:true
-    });
-
+    // triggers
+    triggers.map(k => ScrollTrigger.create(k));
 
     ScrollTrigger.addEventListener('refresh', lsUpdate);
     ScrollTrigger.defaults({ scroller: "[data-scroll-container]" });

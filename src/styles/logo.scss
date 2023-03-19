@@ -1,0 +1,69 @@
+.logo {
+  font-family: 'Mr Dafoe', cursive;
+  position:relative;
+
+  filter:blur(10px);
+  opacity:0;
+  transform:translateY(10%);
+  
+  animation-name:typingIn;
+  animation-duration: 1.66s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(.7, 0, .2, 1);
+    
+  .wrapper {
+    transform:rotate(-12deg);
+    position:relative;
+    white-space: nowrap;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+    align-items:center;
+    text-align:center;
+    width:560px;
+    
+    .bracket {
+      font-size:88px;
+      display:inline-block;
+      margin-top:60px;
+      
+      &.open {
+        text-align:right;
+        width:60px;
+        margin-right:-100px;
+        padding-right:16px;
+      }
+      &.close {
+        margin-left:-100px;
+        text-align:left;
+        width: 100px;
+      }
+    }
+    
+    .word {
+      display:block;
+      font-size:160px;
+      overflow:hidden;
+      text-align:center;
+      margin:0;
+      width:100%;
+      height:100%;
+      padding:0 0;
+    }
+  }
+}
+
+@keyframes typingIn {
+  from { 
+    transform:translateY(10%);
+  }
+  15% {
+    filter:blur(10px); 
+    opacity:0; 
+  }
+  to { 
+    filter:blur(0px); 
+    opacity:1; 
+    transform:translateY(0%);
+  }
+}

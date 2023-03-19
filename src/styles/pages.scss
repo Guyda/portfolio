@@ -1,0 +1,20 @@
+.home {
+  background-color: $bg-blue;
+
+  .logo{
+    color: $font-light;
+  }
+
+  .block-content {
+    .headline, p {
+      color:$font-light;
+    }
+    .mark {
+      color:$bg-blue-accent;
+    }
+  }
+
+  .dark::before {
+    background-color: $bg-blue-dark;
+  }
+}
