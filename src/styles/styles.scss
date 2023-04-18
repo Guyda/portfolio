@@ -1,18 +1,37 @@
 // FONTS
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Mr+Dafoe&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Titan+One&display=swap");
+@import "devicon/devicon.min.css";
 
 // FRAMEWORKS
-@import 'bulma/css/bulma.min.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-// BASE
-@import 'normalize';
-@import 'colors';
-@import 'fonts';
-@import 'base';
+@layer base {
+  :root {
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    font-size: 16px;
 
-// COMPONENTS
-@import 'logo';
-@import 'footer';
-@import 'sections';
-@import 'pages';
+    color: rgba(20, 20, 20, 0.87);
+    background-color: #f2f2f2;
 
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+
+    --cloud-timing: 6s;
+  }
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  @apply bg-tomato;
+}

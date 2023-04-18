@@ -1,14 +1,16 @@
+import Footer from "./Components/Footer";
+import Nav from "./Components/Nav";
 import Home from "./Pages/Home";
-import Footer from './Components/Footer';
 
 export default function App() {
   return (
-    <div id="smooth-wrapper">
-      <main id="smooth-content">
+    <div id="smooth-wrapper" data-scroll-container>
+      <Nav />
+      <main id="smooth-content ">
+        {/* ROUTES */}
         <Home />
       </main>
       <Footer />
     </div>
-  )
-
+  );
 }
