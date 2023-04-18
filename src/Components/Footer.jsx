@@ -1,4 +1,9 @@
+import useTrigger from "../Hooks/useTrigger";
+
 export default function Footer() {
+
+  const f = useTrigger({trigger:'.footer-wrapper',start:'top bottom', toggleClass:'animate'});
+
   return (
     <footer className="footer-wrapper">
       <div className="footer-container">

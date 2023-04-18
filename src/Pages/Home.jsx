@@ -1,14 +1,18 @@
+import useTrigger from "../Hooks/useTrigger";
+
 export default function Home(){
+
+  const t = useTrigger({trigger:'.ledge',start:'top 66%', toggleClass:'animate'});
 
   return (
     <div className="home">
 
       <section className="intro">
-        <div class="logo">
-          <span class="wrapper">
-            <span class="bracket open">&lt;</span>
-            <span class="word">Guyda</span>   
-            <span class="bracket close">/&gt;</span>
+        <div className="logo">
+          <span className="wrapper">
+            <span className="bracket open">&lt;</span>
+            <span className="word">Guyda</span>   
+            <span className="bracket close">/&gt;</span>
           </span>
         </div>
       </section>
