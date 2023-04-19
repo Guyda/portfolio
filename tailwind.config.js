@@ -15,6 +15,7 @@ export default {
       colors: {
         tomato: "#e7524c",
         cream: "#fffade",
+        dark: "#343434",
       },
       animation: {
         float: "float var(--cloud-timing) ease-in-out infinite",

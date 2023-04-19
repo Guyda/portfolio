@@ -2,12 +2,12 @@ import { gsap } from "gsap";
 import Cloud from "./Cloud";
 import RollingText from "./RollingText";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 
 export default function Intro() {
   gsap.registerPlugin(ScrollTrigger);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const tl = gsap
       .timeline({
         scrollTrigger: {
@@ -24,7 +24,7 @@ export default function Intro() {
   }, []);
 
   return (
-    <div className="relative box-border block w-screen max-h-screen mt-[20vh] mb-[20vh]">
+    <div className="relative box-border block w-screen min-h-screen pt-[25vh] pb-[25vh]">
       <Cloud className="intro-content" />
       <div className="intro-content relative w-full">
         <RollingText

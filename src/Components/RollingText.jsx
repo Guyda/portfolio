@@ -1,11 +1,11 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 gsap.registerPlugin(ScrollTrigger);
 // Heavily inspired by: https://codepen.io/GreenSock/pen/rNjvgjo?editors=1010
 
 export default function RollingText({ text = [] }) {
-  useEffect(() => {
+  useLayoutEffect(() => {
     const rolls = text.map((k) =>
       roll("." + k.el, { duration: k.duration }, k.reverse)
     );
