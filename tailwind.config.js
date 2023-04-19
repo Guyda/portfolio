@@ -8,6 +8,10 @@ export default {
         caveat: ['"Caveat"', ...defaultTheme.fontFamily.serif],
         titan: ['"Titan One"', ...defaultTheme.fontFamily.mono],
       },
+      fontSize: {
+        "18xl": "clamp(80px, 18vw, 240px)",
+        "25xl": "clamp(120px, 25vw, 360px)",
+      },
       colors: {
         tomato: "#e7524c",
         cream: "#fffade",
