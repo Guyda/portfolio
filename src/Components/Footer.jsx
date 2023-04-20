@@ -23,24 +23,6 @@ export default function Footer() {
   return (
     <footer aria-label="Site Footer" className="bg-dark z-10">
       <div className="max-w-screen-xl px-4 pt-4 pb-8 mx-auto">
-        {/* <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-5xl">
-            Customise Your Product
-          </h2>
-
-          <p className="max-w-sm mx-auto mt-4 text-gray-500 dark:text-gray-400">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum
-            maiores ipsum eos temporibus ea nihil.
-          </p>
-
-          <a
-            href="#"
-            className="inline-block px-12 py-3 mt-8 text-sm font-medium text-white border border-indigo-600 rounded-full hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500"
-          >
-            Get Started
-          </a>
-        </div> */}
-
         <div className="pt-8 sm:flex sm:items-center sm:justify-center">
           <ul className="flex justify-center gap-6 mt-8 sm:mt-0 lg:justify-end">
             {socials.map((k) => (
