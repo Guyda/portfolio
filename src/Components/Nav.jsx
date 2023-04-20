@@ -1,25 +1,37 @@
-// import useScrollPosition from "../Hooks/useScrollPosition";
+import useScrollPosition from "../Hooks/useScrollPosition";
 
 import { useState } from "react";
 
 export default function Nav() {
-  // const scrollPosition = useScrollPosition();
   const [isOpen, setIsOpen] = useState(false);
+
+  const scrollPosition = useScrollPosition();
+
+  const bgTrigger = scrollPosition > 50;
+  const btnBg = bgTrigger ? "bg-dark bg-opacity-80" : "bg-transparent";
+  const siteName = bgTrigger
+    ? "translate-y-[-100px] ease-in-out opacity-0"
+    : "";
 
   return (
     <header
       aria-label="Site Header"
-      className="bg-transparent fixed top-0 z-50 w-screen pt-10 pb-10"
+      className="bg-transparent fixed top-0 z-50 w-screen pt-5 pb-5"
     >
       <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-1 items-center justify-center justify-between">
-          <a className="block" href="/">
+          <a
+            className={`site-name block transform transition-all duration-500 ${siteName}`}
+            href="/"
+          >
             <span className="sr-only">Home</span>
-            <span className="text-2xl text-cream font-caveat">Guyda Bru</span>
+            <span className="text-[2rem] text-cream font-caveat">
+              Guyda Bru
+            </span>
           </a>
           <nav aria-label="Site Nav">
             <button
-              className={`hamburger bg-dark w-20 h-20 flex flex-col justify-center items-center rounded-full transform transition-all ring-0 ring-gray-300 hover:ring-8 group-focus:ring-4 ring-opacity-30 duration-200 group ${
+              className={`hamburger ${btnBg} w-20 h-20 flex flex-col justify-center items-center rounded-full transform transition-all ring-0 ring-gray-300 hover:ring-8 hover:bg-dark group-focus:ring-4 ring-opacity-30 duration-300 delay-150 group ${
                 isOpen ? "is-active" : ""
               }`}
               onClick={() => setIsOpen(!isOpen)}

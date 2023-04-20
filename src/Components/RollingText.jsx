@@ -1,8 +1,8 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { useEffect, useLayoutEffect } from "react";
+import { useLayoutEffect } from "react";
 gsap.registerPlugin(ScrollTrigger);
-// Heavily inspired by: https://codepen.io/GreenSock/pen/rNjvgjo?editors=1010
+// Strongly/Heavily inspired by: https://codepen.io/GreenSock/pen/rNjvgjo?editors=1010
 
 export default function RollingText({ text = [] }) {
   useLayoutEffect(() => {
@@ -66,7 +66,9 @@ export default function RollingText({ text = [] }) {
         <div
           key={w.el}
           aria-hidden
-          className={`whitespace-nowrap font-titan block relative box-border select-none text-[0]`}
+          className={`whitespace-nowrap font-titan block relative box-border select-none text-[0] ${
+            w.tilt ? "rotate-[-5deg]" : ""
+          }`}
         >
           <div
             className={`${w.el} inline-block p-0 m-0 text-cream uppercase pl-[10px] pr-[10px] leading-none ${w.size}`}

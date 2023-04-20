@@ -1,0 +1,102 @@
+#projects {
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  .project {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+    width: 100%;
+    height: 320px;
+
+    cursor: pointer;
+
+    .image {
+      position: absolute;
+      z-index: 200;
+
+      width: auto;
+      height: 100%;
+      display: block;
+      margin: 0;
+      padding: 0;
+      border: 0;
+
+      will-change: transform, opacity;
+      top: 50%;
+      left: 66%;
+      opacity: 0;
+      transform: translate(-50%, -50%);
+
+      transition: transform 0.8s cubic-bezier(0.7, 0, 0.2, 1),
+        opacity 0.8s cubic-bezier(0.7, 0, 0.2, 1);
+
+      img {
+        width: auto;
+        height: 100%;
+        display: block;
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+    }
+
+    .info {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      margin: 0 0 0 0;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+    }
+
+    .years,
+    .title {
+      position: absolute;
+      white-space: nowrap;
+      display: inline-block;
+      line-height: 1;
+      margin: -30px 0 0 0;
+      padding: 0;
+
+      will-change: transform, left;
+      transform: translateX(-50%);
+      top: 50%;
+      left: 50%;
+      transition: left 0.8s cubic-bezier(0.7, 0, 0.2, 1);
+    }
+
+    .years {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-top: -50px;
+      padding: 0 0.25rem;
+    }
+
+    .title {
+      font-weight: 700;
+      font-size: clamp(2.5em, 6vw, 5rem);
+    }
+
+    &:hover {
+      .image {
+        transform: translate(-40%, -50%);
+        opacity: 1;
+      }
+      .years {
+        left: 40%;
+      }
+      .title {
+        left: 45%;
+      }
+      .preview {
+        opacity: 1;
+      }
+    }
+  }
+}
