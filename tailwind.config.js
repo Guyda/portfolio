@@ -17,9 +17,13 @@ export default {
         cream: "#fffade",
         dark: "#343434",
       },
+      transitionTimingFunction: {
+        bezier: "cubic-bezier(0.7, 0, 0.2, 1)",
+      },
       animation: {
         float: "float var(--cloud-timing) ease-in-out infinite",
         floatshadow: "floatshadow var(--cloud-timing) ease-in-out infinite",
+        ticker: "ticker 8s infinite",
       },
       keyframes: {
         float: {
@@ -31,6 +35,16 @@ export default {
           "0%": { opacity: "0.45" },
           "50%": { opacity: "0.2" },
           "100%": { opacity: "0.45" },
+        },
+        ticker: {
+          "15%": { transform: "translateY(-20%)" },
+          "25%": { transform: "translateY(-20%)" },
+          "40%": { transform: "translateY(-40%)" },
+          "50%": { transform: "translateY(-40%)" },
+          "65%": { transform: "translateY(-60%)" },
+          "75%": { transform: "translateY(-60%)" },
+          "90%": { transform: "translateY(-80%)" },
+          "100%": { transform: "translateY(-80%)" },
         },
       },
     },

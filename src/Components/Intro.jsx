@@ -14,20 +14,19 @@ export default function Intro() {
         scrollTrigger: {
           trigger: ".intro-content",
           scrub: true,
-          start: "center center",
+          start: "bottom bottom",
+          end: "bottom top",
           // markers: true,
         },
       })
-      .to(".intro-content", {
-        stagger: 0.2,
-        y: -200,
-      });
+      .to(".intro-content", { yPercent: -50, stagger: 0.25 });
+    return () => tl.revert();
   }, []);
 
   return (
-    <div className="relative box-border block w-screen min-h-screen translate-y-[200px]">
+    <div className="relative box-border block w-screen min-h-screen ">
       <Cloud className="intro-content" />
-      <div className="intro-content relative w-full">
+      <div className="intro-content relative w-full translate-y-1/3">
         <RollingText
           text={[
             {

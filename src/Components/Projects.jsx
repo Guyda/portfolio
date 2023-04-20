@@ -6,19 +6,19 @@ import { useLayoutEffect } from "react";
 export default function Projects() {
   gsap.registerPlugin(ScrollTrigger);
 
-  useLayoutEffect(() => {
-    const tl = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".projects-content",
-          scrub: true,
-          // start: "center center",
-        },
-      })
-      .to(".projects-content", {
-        y: -100,
-      });
-  }, []);
+  // useLayoutEffect(() => {
+  //   const tl = gsap
+  //     .timeline({
+  //       scrollTrigger: {
+  //         trigger: ".projects-content",
+  //         scrub: true,
+  //         // start: "center center",
+  //       },
+  //     })
+  //     .to(".projects-content", {
+  //       y: -100,
+  //     });
+  // }, []);
 
   const projects = [
     {
@@ -64,19 +64,19 @@ export default function Projects() {
           {projects.map((p) => (
             <div
               key={p.image}
-              className="flex flex-col justify-center relative w-full h-[320px] group cursor-pointer "
+              className="flex flex-col justify-center relative w-full h-[320px] cursor-pointer group "
             >
-              <div className="absolute z-[200] w-auto h-full block m-0 p-0 border-0 will-change-[transform, opacity] top-1/2 left-2/3 opacity-0 transform -translate-y-1/2 translate-x-1/2 transition duration-700 group-hover:translate-x-[40%] group-hover:opacity-100">
+              <div className="absolute z-[200] w-auto h-full block m-0 p-0 border-0 will-change-[transform, opacity] top-1/2 left-2/3 opacity-0 transform -translate-y-1/2 translate-x-1/2 transition duration-700 ease-bezier group-hover:translate-x-[40%] group-hover:opacity-100 ">
                 <img
                   className="w-auto h-full block m-0 p-0 border-0 "
                   src={p.image}
                 />
               </div>
               <div className="relative flex flex-col m-0 w-full h-full">
-                <span className="absolute inline-block m-0 mt-[-50px] p-0 will-change-[transsform, left] transform translate-x-1/2 top-1/2 left-1/2 transition-all group-hover:left-[40%]">
+                <span className="absolute inline-block m-0 mt-[-50px] p-0 will-change-[transsform, left] transform translate-x-1/2 top-1/2 left-1/2 duration-500 transition-all ease-bezier group-hover:left-[40%]">
                   {p.year}
                 </span>
-                <h3 className="absolute inline-block m-0 mt-[-30px] p-0 will-change-[transsform, left] transform translate-x-1/2 top-1/2 left-1/2 transition-all group-hover:left-[45%]">
+                <h3 className="absolute inline-block m-0 mt-[-30px] p-0 will-change-[transsform, left] transform translate-x-1/2 top-1/2 left-1/2 transition-all duration-500 ease-bezier group-hover:left-[45%]">
                   {p.title}
                 </h3>
               </div>

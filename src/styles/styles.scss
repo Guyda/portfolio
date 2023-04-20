@@ -25,16 +25,13 @@
 
     --cloud-timing: 6s;
   }
-}
 
-body,
-html {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  @apply bg-tomato;
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    @apply bg-tomato;
+  }
 }
-
-@import "./TickerText.scss";
-@import "./Projects.scss";
