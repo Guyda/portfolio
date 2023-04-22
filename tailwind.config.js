@@ -9,7 +9,7 @@ export default {
         titan: ['"Titan One"', ...defaultTheme.fontFamily.mono],
       },
       fontSize: {
-        "18xl": "clamp(80px, 18vw, 240px)",
+        "18xl": "clamp(80px, 18vw, 260px)",
         "25xl": "clamp(120px, 25vw, 360px)",
         projects: "clamp(2.5em, 6vw, 5rem)",
       },

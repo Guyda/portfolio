@@ -1,7 +1,7 @@
 export default function TickerText() {
   return (
     <>
-      <div className="ticker-text flex justify-end w-1/2 m-0 mx-auto text-[2rem] font-caveat">
+      <div className="ticker-text flex justify-center w-1/2 m-0 mx-auto text-[2rem] font-caveat">
         <span className="static text-dark font-normal">
           With a tablespoon or two of
         </span>

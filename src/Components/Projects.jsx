@@ -6,19 +6,21 @@ import { useLayoutEffect } from "react";
 export default function Projects() {
   gsap.registerPlugin(ScrollTrigger);
 
-  useLayoutEffect(() => {
-    const tl = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".projects-content ",
-          scrub: true,
-          // start: "center center",
-        },
-      })
-      .to(".projects-content ", {
-        yPercent: -100,
-      });
-  }, []);
+  // useLayoutEffect(() => {
+  //   const tl = gsap
+  //     .timeline({
+  //       scrollTrigger: {
+  //         trigger: ".projects-content ",
+  //         scrub: true,
+  //         // start: "center center",
+  //       },
+  //     })
+  //     .to(".projects-content ", {
+  //       yPercent: -100,
+  //     });
+
+  //   return () => tl.revert();
+  // }, []);
 
   const projects = [
     {
@@ -39,7 +41,7 @@ export default function Projects() {
     <div className="relative box-border block w-screen min-h-screen pt-[15vh] pb-[15vh]">
       <div className="relative w-full">
         <div className="projects-content">
-          <RollingText
+          {/* <RollingText
             text={[
               {
                 el: "projectsText01",
@@ -51,7 +53,12 @@ export default function Projects() {
                 tilt: 5,
               },
             ]}
-          />
+          /> */}
+          <div className="whitespace-nowrap block relative box-border font-titan text-[0] rotate-[-5deg]">
+            <div className="text1 inline-block text-cream leading-none text-18xl">
+              Projects
+            </div>
+          </div>
         </div>
 
         <div className="projects-intro relative left-1/3 max-w-[600px] mt-[100px] mb-[100px] text-dark text-[20px]">
