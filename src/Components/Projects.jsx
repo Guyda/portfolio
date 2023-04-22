@@ -55,7 +55,7 @@ export default function Projects() {
             ]}
           /> */}
           <div className="whitespace-nowrap block relative box-border font-titan text-[0] rotate-[-5deg]">
-            <div className="text1 inline-block text-cream leading-none text-18xl">
+            <div className="inline-block text-cream leading-none text-18xl">
               Projects
             </div>
           </div>

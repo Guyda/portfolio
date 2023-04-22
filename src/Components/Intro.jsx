@@ -1,10 +1,8 @@
 import { gsap } from "gsap";
 import Cloud from "./Cloud";
-import RollingText from "./RollingText";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useLayoutEffect } from "react";
 import TickerText from "./TickerText";
-import { roll } from "../Helpers";
 
 export default function Intro() {
   gsap.registerPlugin(ScrollTrigger);
@@ -13,9 +11,9 @@ export default function Intro() {
     const tl_cloud = gsap
       .timeline({
         scrollTrigger: {
-          trigger: ".intro",
+          trigger: ".intro-section",
           scrub: true,
-          start: "top center",
+          start: "top top",
           // markers: true,
         },
       })
@@ -26,14 +24,15 @@ export default function Intro() {
     const tl_texts = gsap
       .timeline({
         scrollTrigger: {
-          trigger: ".intro",
+          trigger: ".intro-section",
           scrub: true,
-          start: "top center",
+          start: "top top",
           // markers: true,
         },
       })
       .to(".intro-content", {
         yPercent: -50,
+        opacity: 0,
       });
 
     return () => {
@@ -43,26 +42,11 @@ export default function Intro() {
   }, []);
 
   return (
-    <div className="intro relative box-border w-screen min-h-screen flex flex-col items-center justify-center">
-      <div className="intro-cloud absolute z-20 -translate-y-1/2">
+    <div className="intro-section relative box-border w-screen min-h-screen flex flex-col items-center justify-center">
+      <div className="intro-cloud absolute z-20 top-1/2 -translate-y-1/2">
         <Cloud />
       </div>
-
-      {/* <div className="intro-content w-full absolute text-center font-titan select-none uppercase top-1/2 -translate-y-1/4">
-        <RollingText
-          text={[
-            {
-              el: "projectsText01",
-              aria: "Sr. Developer",
-              words: "Sr. Developer",
-              size: "text-25xl",
-              duration: 80,
-            },
-          ]}
-        />
-        <TickerText />
-      </div> */}
-      <div className="intro-content w-full absolute text-center font-titan select-none  top-1/2 -translate-y-1/4">
+      <div className="intro-content w-full absolute text-center font-titan select-none  top-1/2 -translate-y-1/2">
         <div className="whitespace-nowrap block relative box-border text-[0]">
           <div className="text1 inline-block text-cream leading-none text-25xl">
             Sr. Dev
