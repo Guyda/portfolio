@@ -26,9 +26,7 @@ export default function Nav() {
             href="/"
           >
             <span className="sr-only">Home</span>
-            <span className="text-[2rem] text-cream font-caveat">
-              Guyda Bru
-            </span>
+            <span className="text-ecru font-zilla text-[22px]">Guyda Bru</span>
           </a>
           <nav aria-label="Site Nav">
             <MagneticButton

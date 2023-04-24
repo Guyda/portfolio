@@ -5,8 +5,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        caveat: ['"Caveat"', ...defaultTheme.fontFamily.serif],
-        titan: ['"Titan One"', ...defaultTheme.fontFamily.mono],
+        lexend: ['"Lexend"', ...defaultTheme.fontFamily.sans],
+        zilla: ['"Zilla Slab"', ...defaultTheme.fontFamily.serif],
       },
       fontSize: {
         "18xl": "clamp(80px, 18vw, 260px)",
@@ -16,6 +16,10 @@ export default {
       colors: {
         tomato: "#e7524c",
         cream: "#fffade",
+        ecru: "#F3F4E8",
+        watermelon: "#FC485A",
+        persianblue: "#1541B3",
+        goldenyellow: "#FBE10F",
         dark: "#343434",
       },
       transitionTimingFunction: {
@@ -25,6 +29,8 @@ export default {
         float: "float var(--cloud-timing) ease-in-out infinite",
         floatshadow: "floatshadow var(--cloud-timing) ease-in-out infinite",
         ticker: "ticker 8s infinite",
+        scrollerDot1: "scrollerDot1 1s ease-out infinite;",
+        scrollerDot2: "scrollerDot2 1s ease-out infinite;",
       },
       keyframes: {
         float: {
@@ -46,6 +52,16 @@ export default {
           "75%": { transform: "translateY(-60%)" },
           "90%": { transform: "translateY(-80%)" },
           "100%": { transform: "translateY(-80%)" },
+        },
+        scrollerDot1: {
+          "0%": { opacity: 1, transform: "translateY(0)" },
+          "65%": { opacity: 1, transform: "translateY(20%)" },
+          "100%": { opacity: 0, transform: "translateY(20%)" },
+        },
+        scrollerDot2: {
+          "0%": { opacity: 0 },
+          "85%": { opacity: 1 },
+          "100%": { opacity: 1 },
         },
       },
     },

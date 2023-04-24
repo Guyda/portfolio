@@ -1,6 +1,5 @@
 export default function Cloud() {
   return (
-    // <div className="cloud absolute w-auto top-1/2 left-1/4 transform -translate-x-1/2 -translate-y-1/2 m-0 mt-[200px] p-0 z-20">
     <div className="cloud w-auto">
       <div className="origin-center animate-float">
         <svg
