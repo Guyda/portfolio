@@ -116,13 +116,13 @@ export function horizontalLoop(items, config) {
   return tl;
 }
 
-export const roll = (targets, vars, reverse) => {
+export function roll(targets, vars, reverse) {
   vars = vars || {};
   vars.ease || (vars.ease = "none");
   const tl = gsap.timeline({
       repeat: -1,
       onReverseComplete() {
-        this.totalTime(this.rawTime() + this.duration() * 5);
+        this.totalTime(this.rawTime() + this.duration() * 10); // otherwise when the playhead gets back to the beginning, it'd stop. So push the playhead forward 10 iterations (it could be any number)
       },
     }),
     elements = gsap.utils.toArray(targets),
@@ -145,10 +145,98 @@ export const roll = (targets, vars, reverse) => {
     tl.to([el, clones[i]], { xPercent: reverse ? 100 : -100, ...vars }, 0)
   );
   window.addEventListener("resize", () => {
-    let time = tl.totalTime();
-    tl.totalTime(0);
-    positionClones();
-    tl.totalTime(time);
+    let time = tl.totalTime(); // record the current time
+    tl.totalTime(0); // rewind and clear out the timeline
+    positionClones(); // reposition
+    tl.totalTime(time); // jump back to the proper time
   });
   return tl;
-};
+}
+
+function mq() {
+
+      if ($(".mq").length) {
+        // function mqInit() {
+
+        var m = 1;
+
+        $(".mq").each(function () {
+          var w = $(this).outerWidth();
+          var block = $(this);
+          var marquees = $(this).find(".mq__item");
+          var s = $(this).attr("data-speed") * 10;
+          var dir = "-=";
+          var mw = marquees.outerWidth();
+          var mp = marquees.parent();
+          var ow = $(this).outerWidth();
+          var mqtl = gsap.timeline({
+            // scrollTrigger:{
+            //   trigger: block,
+            //   start: 'top 95%',
+            //   end: "bottom top",
+            //   toggleActions: "play pause resume reset"
+            // }
+          });
+
+          if ($(this).hasClass("mq--work")) {
+            if (m % 2 == 0) {
+              dir = "+=";
+            }
+
+            m++;
+          }
+
+          var nclone = Math.floor(w / mw) + 3;
+          var inner = mp.html();
+
+          mp.css("width", nclone * mw + "px");
+
+          for (var i = 0; i < nclone; i++) {
+            inner += mp.html();
+          }
+
+          mp.html(inner);
+
+          mqtl.to(mp, {
+            duration: s,
+            // z: 0.01,
+            rotate: 0.01,
+            repeat: -1,
+            x: dir + mw,
+            modifiers: {
+              x: (x) => gsap.utils.wrap(-mw, 0, parseFloat(x)) + "px",
+            },
+            ease: "linear",
+          });
+
+          $(this).on("click", function () {
+            mqtl.pause();
+          });
+
+          $(this).on("mouseenter", function () {
+            gsap.to(mqtl, {
+              timeScale: 0.01,
+            });
+          });
+
+          $(this).on("mouseleave", function () {
+            gsap.to(mqtl, {
+              timeScale: 1,
+            });
+          });
+        });
+
+        // }
+      }
+
+      //
+      // if ($('.hero--contact').length ) {
+      //   var splitParent = new SplitText('.hero--contact h1', {type:'lines', linesClass: "bl"}),
+      //   splitTitle = new SplitText(splitParent.lines, {type:'lines', linesClass: "lines" });
+      //
+      //
+      //
+      // }
+    });
+  })(jQuery);
+}
