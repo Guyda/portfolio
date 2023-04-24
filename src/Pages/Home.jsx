@@ -5,7 +5,7 @@ export default function Home() {
   const projects = [
     {
       el: "projects-pma",
-      words: "Philamuseum of Art",
+      words: "Philadelphia Museum of Art",
     },
     {
       el: "projects-jgj",
@@ -49,7 +49,7 @@ export default function Home() {
       </section>
 
       {/* PROJECTS */}
-      <section className="block w-full overflow-hidden bg-watermelon py-20">
+      <section className="block w-full bg-watermelon py-20">
         {projects.map((p, i) => (
           <RollingText key={"projects_" + i} {...p} reverse={i % 2 == 0} />
         ))}

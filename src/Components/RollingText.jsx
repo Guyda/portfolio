@@ -1,8 +1,7 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { useLayoutEffect, useRef } from "react";
+import { useEffect } from "react";
 import { roll } from "../Helpers";
-import useOnScreen from "../Hooks/useOnScreen";
 // Strongly/Heavily inspired by: https://codepen.io/GreenSock/pen/rNjvgjo?editors=1010
 
 export default function RollingText({
@@ -10,19 +9,19 @@ export default function RollingText({
   words,
   duration = 60,
   reverse = false,
-  tilt = null,
   size = "text-18xl",
+  trigger = "[data-scroll-container]",
 }) {
   gsap.registerPlugin(ScrollTrigger);
 
   if (!el || !words) return null;
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     let direction = 1; // 1 = forward, -1 = backward scroll
 
-    const roll1 = roll("#" + el, { duration: 10 }, reverse),
+    const roll1 = roll("." + el + "1", { duration }, reverse),
       scroll = ScrollTrigger.create({
-        trigger: document.querySelector("[data-scroll-container]"),
+        trigger: document.querySelector(trigger),
         onUpdate(self) {
           if (self.direction !== direction) {
             direction *= -1;
@@ -33,21 +32,19 @@ export default function RollingText({
   }, []);
 
   return (
-    <>
+    <div className={`w-full overflow-hidden`}>
       <span className="sr-only">{words}</span>
+
       <div
         aria-hidden
-        className={`whitespace-nowrap font-lexend block relative box-border select-none text-[0] py-[1rem] ${
-          tilt ? "rotate-[-5deg]" : ""
-        }`}
+        className={` relative flex items-center font-lexend font-black`}
       >
-        <div
-          id={el}
-          className={`projecttexts inline-block p-0 m-0 text-ecru font-black pl-[10px] pr-[10px] leading-none ${size}`}
+        <span
+          className={`${el}1 relative block leading-none whitespace-nowrap pointer-none m-0 p-0 ${size} will-change-[transform] select-none text-ecru px-[4rem] box-border`}
         >
-          {words}
-        </div>
+          {words}&nbsp;
+        </span>
       </div>
-    </>
+    </div>
   );
 }
