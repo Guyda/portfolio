@@ -19,8 +19,11 @@ export default function RollingText({
   useEffect(() => {
     let direction = 1; // 1 = forward, -1 = backward scroll
 
-    const roll1 = roll("." + el + "1", { duration }, reverse),
-      scroll = ScrollTrigger.create({
+    let _el = "." + el + "1";
+    let element = document.querySelector(_el);
+
+    const roll1 = roll(_el, { duration }, reverse),
+      tl = ScrollTrigger.create({
         trigger: document.querySelector(trigger),
         onUpdate(self) {
           if (self.direction !== direction) {
@@ -33,20 +36,21 @@ export default function RollingText({
 
   return (
     <div
-      className={`w-full overflow-hidden`}
-      data-cursor="-link"
-      data-cursor-text="View"
+      className="w-full overflow-hidden"
+      data-cursor="-projects"
+      data-cursor-text={`<div class="flex flex-col items-center justify-center space-between">
+          <span class="font-lexend">View</span><span class="font-zilla">${words}</span></div>`}
     >
       <span className="sr-only">{words}</span>
 
       <div
         aria-hidden
-        className={`rollingtexts relative flex items-center font-lexend text-ecru font-black hover:cursor-pointer hover:after:content-[''] hover:after:bg-goldenyellow hover:after:w-full hover:after:h-full hover:after:absolute hover:after:z-0 py-[2rem] hover:text-watermelon will-change-[all] transition-all duration-300`}
+        className={`rollingtexts relative flex items-center font-lexend text-ecru font-black hover:cursor-none	 hover:after:content-[''] hover:after:bg-goldenyellow hover:after:w-full hover:after:h-full hover:after:absolute hover:after:z-0 py-[2rem] hover:text-watermelon will-change-[all] transition-all duration-300`}
       >
         <span
           className={`${el}1 relative block leading-none whitespace-nowrap pointer-none m-0 p-0 ${size} will-change-[transform] select-none px-[4rem] box-border z-10`}
         >
-          {words}&nbsp;
+          {words}
         </span>
       </div>
     </div>

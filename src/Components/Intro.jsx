@@ -18,7 +18,7 @@ export default function Intro() {
         },
       })
       .to(".intro-cloud", {
-        yPercent: -100,
+        yPercent: 75,
       });
 
     const tl_texts = gsap
@@ -72,7 +72,7 @@ export default function Intro() {
   }, []);
 
   return (
-    <section className="block min-h-screen overflow-hidden bg-watermelon">
+    <section className="block min-h-screen ">
       <div className="intro-section relative box-border py-[160px] flex flex-col items-center z-100 ">
         <div className="intro-content block w-full text-center font-lexend select-none z-10">
           <h1 className="whitespace-nowrap block relative box-border text-[0] font-bold">

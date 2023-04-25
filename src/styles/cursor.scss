@@ -45,23 +45,27 @@ $mf-color-text: #fff !default;
     }
   }
 
-  &.-link {
+  &.-projects {
     &:before {
-      transform: scale(2);
+      transform: scale(3) !important;
+    }
+
+    .mf-cursor-text {
+      width: 130px;
+      height: 100px;
+      top: -50px;
+      left: -65px;
+      text-align: center;
     }
   }
 
   &.-difference {
     @supports (mix-blend-mode: difference) {
-      mix-blend-mode: difference;
       opacity: 1;
-
       &:before {
         transform: scale(1.5);
+        mix-blend-mode: difference;
       }
-      // &:before {
-      //   background: invert($mf-color-base);
-      // }
     }
   }
 

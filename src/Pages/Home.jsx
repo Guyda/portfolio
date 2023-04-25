@@ -21,12 +21,12 @@ export default function Home() {
     },
   ];
   return (
-    <>
+    <div className="bg-watermelon">
       {/* TOP */}
       <Intro />
 
       {/* INTERTEXT */}
-      <section className="block w-full py-20 bg-watermelon">
+      <section className="block w-full py-40">
         <div className="max-w-screen-lg mx-auto text-ecru px-[1rem]">
           <div className="grid sm:grid-cols-1 md:grid-cols-2 md:gap-x-20 ">
             <div className="grid-cols-1">
@@ -49,11 +49,16 @@ export default function Home() {
       </section>
 
       {/* PROJECTS */}
-      <section className="block w-full bg-watermelon py-20">
+      <section className="block w-full bg-watermelon py-40">
+        <div className="max-w-screen-xl mx-auto text-ecru px-[1rem]">
+          <h3 className="text-[28px] font-bold sm:pb-[1rem] font-lexend text-[28px]">
+            Selected Projects
+          </h3>
+        </div>
         {projects.map((p, i) => (
           <RollingText key={"projects_" + i} {...p} reverse={i % 2 == 0} />
         ))}
       </section>
-    </>
+    </div>
   );
 }
