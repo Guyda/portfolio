@@ -9,7 +9,7 @@ export default function RollingText({
   words,
   duration = 60,
   reverse = false,
-  size = "text-18xl",
+  size = "text-projects",
   trigger = "[data-scroll-container]",
 }) {
   gsap.registerPlugin(ScrollTrigger);
@@ -37,10 +37,10 @@ export default function RollingText({
 
       <div
         aria-hidden
-        className={` relative flex items-center font-lexend font-black`}
+        className={` relative flex items-center font-lexend text-ecru font-black hover:cursor-pointer hover:after:content-[''] hover:after:bg-goldenyellow hover:after:w-full hover:after:h-full hover:after:absolute hover:after:z-0 py-[2rem] hover:text-watermelon will-change-[all] transition-all duration-300`}
       >
         <span
-          className={`${el}1 relative block leading-none whitespace-nowrap pointer-none m-0 p-0 ${size} will-change-[transform] select-none text-ecru px-[4rem] box-border`}
+          className={`${el}1 relative block leading-none whitespace-nowrap pointer-none m-0 p-0 ${size} will-change-[transform] select-none px-[0] box-border z-10`}
         >
           {words}&nbsp;
         </span>

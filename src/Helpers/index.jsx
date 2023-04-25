@@ -8,7 +8,7 @@ export function roll(targets, vars, reverse) {
       repeat: -1,
       // repeatDelay: 3,
       onReverseComplete() {
-        this.totalTime(this.rawTime() + this.duration() * 10); // otherwise when the playhead gets back to the beginning, it'd stop. So push the playhead forward 10 iterations (it could be any number)
+        this.totalTime(this.rawTime() + this.duration() * 20); // otherwise when the playhead gets back to the beginning, it'd stop. So push the playhead forward 10 iterations (it could be any number)
       },
     }),
     elements = gsap.utils.toArray(targets),

@@ -34,4 +34,14 @@
     padding: 0;
     @apply bg-tomato;
   }
+
+  .intro-gradient {
+    background: linear-gradient(
+      180deg,
+      #fc485a 35.01%,
+      #d14452 58.33%,
+      #ff5061 61.98%,
+      #fc485a 85.39%
+    );
+  }
 }
