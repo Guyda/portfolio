@@ -45,10 +45,20 @@ $mf-color-text: #fff !default;
     }
   }
 
+  &.-link {
+    &:before {
+      transform: scale(2);
+    }
+  }
+
   &.-difference {
     @supports (mix-blend-mode: difference) {
       mix-blend-mode: difference;
+      opacity: 1;
 
+      &:before {
+        transform: scale(1.5);
+      }
       // &:before {
       //   background: invert($mf-color-base);
       // }

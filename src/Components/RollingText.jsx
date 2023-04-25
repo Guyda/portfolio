@@ -32,7 +32,11 @@ export default function RollingText({
   }, []);
 
   return (
-    <div className={`w-full overflow-hidden`}>
+    <div
+      className={`w-full overflow-hidden`}
+      data-cursor="-link"
+      data-cursor-text="View"
+    >
       <span className="sr-only">{words}</span>
 
       <div

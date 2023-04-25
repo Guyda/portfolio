@@ -1,20 +1,19 @@
+import MouseFollower from "mouse-follower";
 import gsap from "gsap";
 import { useEffect } from "react";
 
-export default function useCustomCursor() {
+const useCustomCursor = () => {
+  MouseFollower.registerGSAP(gsap);
+
   useEffect(() => {
-    // const cursor = document.getElementById("cursor");
-    gsap.set("#cursor", { xPercent: -50, yPercent: -50 });
-
-    window.addEventListener("mousemove", (e) => {
-      gsap.to("#cursor", {
-        x: e.clientX,
-        y: e.clientY,
-        ease: "power2.out",
-        duration: 0.5,
-      });
+    const cursor = new MouseFollower({
+      speed: 0.55,
+      visible: false,
+      visibleOnState: true,
     });
-
-    return window.removeEventListener("mousemove", () => {});
   }, []);
-}
+
+  return null;
+};
+
+export default useCustomCursor;
