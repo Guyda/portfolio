@@ -45,7 +45,17 @@ export default function Cursor() {
       hideMediaTimeout: 300,
     });
 
-    // return cursor.destroy();
+    // const el = document.querySelector(".rollingtexts");
+
+    // el.addEventListener("mouseenter", () => {
+    //   cursor.addState("-difference"); // you can pass multiple states separated by whitespace
+    // });
+
+    // el.addEventListener("mouseleave", () => {
+    //   cursor.removeState("-difference");
+    // });
+
+    // return el.removeEventListener("mouseenter mouseleave", () => {});
   }, []);
 
   return <></>;

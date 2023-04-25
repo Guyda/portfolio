@@ -1,5 +1,5 @@
 import { gsap } from "gsap";
-import { useLayoutEffect } from "react";
+import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/all";
 import Cloud from "./Cloud";
 import TickerText from "./TickerText";
@@ -8,7 +8,7 @@ import { Scroller } from "./Icons";
 export default function Intro() {
   gsap.registerPlugin(ScrollTrigger);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const tl_cloud = gsap
       .timeline({
         scrollTrigger: {
@@ -37,14 +37,15 @@ export default function Intro() {
     const tl_scroller = gsap
       .timeline({
         scrollTrigger: {
-          trigger: ".intro-section",
+          trigger: ".intro-scroller",
           scrub: true,
-          start: "top top",
-          end: "bottom bottom",
+          start: "bottom bottom",
+          end: "bottom 80%",
+          // markers: true,
         },
       })
       .to(".intro-scroller", {
-        yPercent: -100,
+        yPercent: -200,
         opacity: 0,
         display: "none",
       });
@@ -55,7 +56,7 @@ export default function Intro() {
           trigger: ".intro-section",
           scrub: true,
           start: "top top",
-          end: "bottom bottom",
+          end: "bottom center",
         },
       })
       .to(".intro-gradient", {
@@ -71,8 +72,8 @@ export default function Intro() {
   }, []);
 
   return (
-    <section className="block w-full h-full overflow-hidden">
-      <div className="intro-section relative box-border w-screen py-[160px] flex flex-col items-center z-100 bg-watermelon">
+    <section className="block min-h-screen overflow-hidden bg-watermelon">
+      <div className="intro-section relative box-border py-[160px] flex flex-col items-center z-100 ">
         <div className="intro-content block w-full text-center font-lexend select-none z-10">
           <h1 className="whitespace-nowrap block relative box-border text-[0] font-bold">
             <span className="text1 block text-ecru leading-none text-[77px]">
@@ -84,13 +85,13 @@ export default function Intro() {
           </h1>
           <TickerText />
         </div>
-        <div className="intro-cloud z-20 my-[100px]">
+        <div className="intro-cloud z-20 mt-[100px]">
           <Cloud />
         </div>
-        <div className="intro-scroller fixed bottom-[1rem] left-1/2">
+        <div className="intro-scroller fixed bottom-[1rem] left-1/2 z-10">
           <Scroller />
         </div>
-        <div className="absolute top-0 left-0 w-full h-full intro-gradient z-0 opacity-50" />
+        <div className="absolute top-0 left-0 w-full h-screen intro-gradient z-0 opacity-50"></div>
       </div>
     </section>
   );

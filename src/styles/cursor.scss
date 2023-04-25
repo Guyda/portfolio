@@ -45,6 +45,16 @@ $mf-color-text: #fff !default;
     }
   }
 
+  &.-difference {
+    @supports (mix-blend-mode: difference) {
+      mix-blend-mode: difference;
+
+      // &:before {
+      //   background: invert($mf-color-base);
+      // }
+    }
+  }
+
   &.-pointer {
     &:before {
       transform: scale(0.15);
