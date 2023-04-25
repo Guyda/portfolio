@@ -73,7 +73,7 @@ export default function Projects() {
           {projects.map((p) => (
             <div
               key={p.image}
-              className="flex flex-col justify-center relative min-h-[320px] mx-auto cursor-pointer group "
+              className="flex flex-col justify-center relative min-h-[320px] mx-auto cursor-pointer group link"
             >
               <div className="absolute z-[200] w-auto h-full block m-0 p-0 will-change-[transform, opacity] top-1/2 left-2/3 opacity-0 transform -translate-y-1/2 -translate-x-1/2 transition duration-700 ease-bezier group-hover:translate-x-[0%] group-hover:opacity-100 ">
                 <img className="w-auto h-full block m-0 p-0 " src={p.image} />
