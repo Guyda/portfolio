@@ -39,7 +39,7 @@ export default function RollingText({
       className="w-full overflow-hidden"
       data-cursor="-projects"
       data-cursor-text={`<div class="flex flex-col items-center justify-center space-between">
-          <span class="font-lexend">View</span><span class="font-zilla">${words}</span></div>`}
+          <span class="font-lexend text-sm leading-none pb-[8px]">View</span><span class="font-zilla text-lg leading-tight">${words}</span></div>`}
     >
       <span className="sr-only">{words}</span>
 
@@ -48,7 +48,7 @@ export default function RollingText({
         className={`rollingtexts relative flex items-center font-lexend text-ecru font-black hover:cursor-none	 hover:after:content-[''] hover:after:bg-goldenyellow hover:after:w-full hover:after:h-full hover:after:absolute hover:after:z-0 py-[2rem] hover:text-watermelon will-change-[all] transition-all duration-300`}
       >
         <span
-          className={`${el}1 relative block leading-none whitespace-nowrap pointer-none m-0 p-0 ${size} will-change-[transform] select-none px-[4rem] box-border z-10`}
+          className={`${el}1 relative block leading-none whitespace-nowrap pointer-none m-0 p-0 ${size} will-change-[transform] select-none px-[2rem] sm:px-[3rem] md:px-[4rem] box-border z-10`}
         >
           {words}
         </span>

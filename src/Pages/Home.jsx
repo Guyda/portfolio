@@ -30,7 +30,7 @@ export default function Home() {
         <div className="max-w-screen-lg mx-auto text-ecru px-[1rem]">
           <div className="grid sm:grid-cols-1 md:grid-cols-2 md:gap-x-20 ">
             <div className="grid-cols-1">
-              <h2 className="text-[28px] font-bold sm:pb-[1rem] font-lexend text-[28px]">
+              <h2 className="text-[2rem] font-bold pb-[1rem] sm:pb-[1rem] font-lexend lg:text-[1.88rem] leading-none md:leading-tight">
                 Making the internet a prettier place, one line of code at a
                 time.
               </h2>
@@ -51,7 +51,7 @@ export default function Home() {
       {/* PROJECTS */}
       <section className="block w-full bg-watermelon py-40">
         <div className="max-w-screen-xl mx-auto text-ecru px-[1rem]">
-          <h3 className="text-[28px] font-bold sm:pb-[1rem] font-lexend text-[28px]">
+          <h3 className="block text-[28px] font-normal text-center sm:pb-[1rem] font-lexend text-[28px] md:pb-[2rem]">
             Selected Projects
           </h3>
         </div>

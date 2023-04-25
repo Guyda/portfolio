@@ -1,13 +1,14 @@
 export default function Cloud() {
   return (
-    <div className="cloud w-auto">
-      <div className="origin-center animate-float">
+    <div className="relative cloud top-1/2 -translate-y-1/2">
+      <div className="origin-center animate-float w-full max-w-[500px] mx-auto">
         <svg
           width="550"
           height="345"
           viewBox="0 0 550 345"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          style={{ width: "100%", height: "auto" }}
         >
           <g clipPath="url(#clip0_682_895)">
             <path

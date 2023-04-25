@@ -11,7 +11,10 @@ export default {
       fontSize: {
         "18xl": "clamp(80px, 18vw, 200px)",
         "25xl": "clamp(120px, 25vw, 360px)",
-        projects: "clamp(5rem, 18vw, 12rem)",
+        projects: "clamp(3rem, 18vw, 12rem)",
+        sitename: "clamp(1rem, 18px, 1.25rem)",
+        titlesr: "clamp(.77rem, 77px, 7vw)",
+        title: "clamp(1.2rem, 120px, 11vw)",
       },
       colors: {
         tomato: "#e7524c",

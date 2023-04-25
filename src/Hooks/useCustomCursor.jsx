@@ -6,11 +6,13 @@ const useCustomCursor = () => {
   MouseFollower.registerGSAP(gsap);
 
   useEffect(() => {
-    const cursor = new MouseFollower({
-      speed: 0.55,
-      visible: false,
-      visibleOnState: true,
-    });
+    if (window.matchMedia("(pointer:fine)").matches) {
+      const cursor = new MouseFollower({
+        speed: 0.55,
+        visible: false,
+        visibleOnState: true,
+      });
+    }
   }, []);
 
   return null;

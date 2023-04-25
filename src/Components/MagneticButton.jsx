@@ -85,7 +85,7 @@ const MagneticButton = ({
   return (
     <div
       ref={$root}
-      className={`magnetic-button p-0 bg-tranparent touch-none rounded-full w-[200px] h-[200px] mr-[-50px] flex items-center justify-center  ${className}`}
+      className={`${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
       onTouchMove={handleMouseMove}
