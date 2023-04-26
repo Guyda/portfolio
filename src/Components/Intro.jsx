@@ -91,7 +91,7 @@ export default function Intro() {
         <div className="intro-scroller fixed bottom-[1rem] right-[3rem] z-10">
           <Scroller />
         </div>
-        <div className="absolute top-0 left-0 w-full h-screen intro-gradient z-0 opacity-50"></div>
+        <div className="absolute top-0 left-0 w-full h-screen intro-gradient z-0 opacity-100"></div>
       </div>
     </section>
   );

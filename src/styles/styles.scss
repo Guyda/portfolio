@@ -36,13 +36,15 @@
   }
 
   .intro-gradient {
-    background: linear-gradient(
-      180deg,
-      #fc485a 45.01%,
-      #d14452 68.33%,
-      #ff5061 71.98%,
-      #fc485a 95.39%
-    );
+    // background: linear-gradient(
+    //   180deg,
+    //   #fc485a 45.01%,
+    //   #d14452 68.33%,
+    //   #ff5061 71.98%,
+    //   #fc485a 95.39%
+    // );
+    background: radial-gradient(444% 444% at 50% -344.58%, #FC485A 0%, #FC485A 85.43%, #DA4655 91.22%, #FD4F61 93.67%, #FC485A 100%);
   }
 }
+
 @import "cursor";
