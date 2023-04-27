@@ -2,6 +2,7 @@ import useScrollPosition from "../Hooks/useScrollPosition";
 import Hamburger from "./Hamburger";
 import { useState } from "react";
 import MagneticButton from "./MagneticButton";
+import { Link } from "react-router-dom";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,9 +16,9 @@ export default function Nav() {
     : // "ease-in-out mix-blend-exclusion opacity-70 bg-dark px-2 py-1 rounded-lg hover:opacity-100"
       "";
   const links = [
-    { name: "Projects", url: "/" },
-    { name: "About", url: "/" },
-    { name: "Contact", url: "/" },
+    { name: "Projects", url: "/projects" },
+    { name: "About", url: "/about" },
+    { name: "Contact", url: "/contact" },
   ];
 
   const settings = {
@@ -37,17 +38,17 @@ export default function Nav() {
             {...settings}
             className="site-name magnetic-button p-0 bg-tranparent touch-none w-[100px] h-[60px] mr-[0] flex items-center justify-center"
           >
-            <a
+            <Link
               data-cursor="-lg"
               className={`will-change-[transform, opacity] block transform transition-all duration-500 ${siteName}`}
-              href="/"
+              to="/"
             >
               <span className="sr-only">Home</span>
 
               <span className="text-ecru font-zilla text-sitename">
                 Guyda Bru
               </span>
-            </a>
+            </Link>
           </MagneticButton>
 
           <nav aria-label="Site Nav">
@@ -61,9 +62,9 @@ export default function Nav() {
                     {...settings}
                     className="magnetic-button p-0 bg-tranparent touch-none w-[90px] h-[30px] mr-[0] flex items-center justify-center"
                   >
-                    <a href={l.url} className="text-ecru">
+                    <Link to={l.url} className="text-ecru">
                       {l.name}
-                    </a>
+                    </Link>
                   </MagneticButton>
                 </li>
               ))}
