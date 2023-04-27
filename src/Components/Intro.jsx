@@ -18,7 +18,7 @@ export default function Intro() {
         },
       })
       .to(".intro-cloud", {
-        yPercent: 80,
+        yPercent: 70,
       });
 
     const tl_texts = gsap

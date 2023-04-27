@@ -55,7 +55,7 @@ export default function Footer() {
                   href={k.url}
                   rel="noreferrer"
                   target="_blank"
-                  className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                  className="text-ecru transition hover:opacity-75"
                 >
                   <i className={`${k.icon} ${k.class}`} />
                 </a>

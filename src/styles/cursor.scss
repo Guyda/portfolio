@@ -31,17 +31,9 @@ $mf-color-text: #fff !default;
     transition: transform 0.25s ease-in-out, opacity 0.1s;
   }
 
-  &.-inverse {
-    color: invert($mf-color-base);
-  }
-
-  &.-exclusion {
-    @supports (mix-blend-mode: exclusion) {
-      mix-blend-mode: exclusion;
-
-      &:before {
-        background: invert($mf-color-base);
-      }
+  &.-lg {
+    &:before {
+      transform: scale(1) !important;
     }
   }
 
@@ -59,12 +51,25 @@ $mf-color-text: #fff !default;
     }
   }
 
+  &.-inverse {
+    color: invert($mf-color-base);
+  }
+
+  &.-exclusion {
+    @supports (mix-blend-mode: exclusion) {
+      mix-blend-mode: exclusion !important;
+      &:before {
+        background: invert($mf-color-base);
+      }
+    }
+  }
+
   &.-difference {
     @supports (mix-blend-mode: difference) {
-      opacity: 1;
+      mix-blend-mode: difference;
       &:before {
-        transform: scale(1.5);
         mix-blend-mode: difference;
+        // background-color: #f0f;
       }
     }
   }

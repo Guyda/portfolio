@@ -1,14 +1,14 @@
 export default function Cloud() {
   return (
-    <div className="relative cloud top-1/2 -translate-y-1/2">
-      <div className="origin-center animate-float w-full max-w-[500px] mx-auto">
+    <div className="relative flex flex-col justify-center items-center min-h-[400px] cloud overflow-hidden h-full top-1/2 -translate-y-1/2">
+      <div className="origin-center animate-float w-full max-w-[550px] mx-auto z-30">
         <svg
           width="550"
           height="345"
           viewBox="0 0 550 345"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          style={{ width: "100%", height: "auto" }}
+          style={{ width: "100%", height: "auto", padding: "0 2rem" }}
         >
           <g clipPath="url(#clip0_682_895)">
             <path
@@ -276,7 +276,7 @@ export default function Cloud() {
           </defs>
         </svg>
       </div>
-      <div className="absolute b-16 left-1/2 -translate-x-1/2 bg-black w-36 h-4 rounded-full z-10 animate-floatshadow blur-lg" />
+      <div className="bg-black w-36 h-4 rounded-full z-10 animate-floatshadow mt-[8px] blur-lg" />
     </div>
   );
 }

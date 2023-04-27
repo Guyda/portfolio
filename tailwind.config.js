@@ -42,9 +42,9 @@ export default {
           "100%": { transform: "translateY(40px) rotate(5deg)" },
         },
         floatshadow: {
-          "0%": { opacity: "0.45" },
-          "50%": { opacity: "0.2" },
-          "100%": { opacity: "0.45" },
+          "0%": { opacity: "0.3" },
+          "50%": { opacity: "0.15" },
+          "100%": { opacity: "0.3" },
         },
         ticker: {
           "15%": { transform: "translateY(-20%)" },

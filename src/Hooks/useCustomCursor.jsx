@@ -11,6 +11,9 @@ const useCustomCursor = () => {
         speed: 0.55,
         visible: false,
         visibleOnState: true,
+        // stateDetection: {
+        //   "-hidden": "a, button",
+        // },
       });
     }
   }, []);

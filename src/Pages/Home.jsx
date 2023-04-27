@@ -41,7 +41,7 @@ export default function Home() {
                 I take pride in creating websites that not only look great but
                 also function exceptionally well. I'm all about optimizing
                 websites for speed and SEO, ensuring that your website is always
-                performing at its best.{" "}
+                performing at its best.
               </p>
             </div>
           </div>
@@ -50,8 +50,8 @@ export default function Home() {
 
       {/* PROJECTS */}
       <section className="block w-full bg-watermelon py-40">
-        <div className="max-w-screen-xl mx-auto text-ecru px-[1rem]">
-          <h3 className="block text-[28px] font-normal text-center sm:pb-[1rem] font-lexend text-[28px] md:pb-[2rem]">
+        <div className="max-w-5xl mx-auto text-ecru px-[1rem]">
+          <h3 className="block font-normal sm:pb-[1rem] font-lexend text-[24px] md:pb-[2rem]">
             Selected Projects
           </h3>
         </div>
