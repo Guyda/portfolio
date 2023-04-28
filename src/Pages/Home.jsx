@@ -1,7 +1,6 @@
 import Intro from "../Components/Intro";
 import RollingText from "../Components/RollingText";
-import { motion } from "framer-motion";
-import { animation } from "../Helpers";
+
 
 export default function Home() {
   const projects = [
@@ -23,7 +22,7 @@ export default function Home() {
     },
   ];
   return (
-    <motion.div className="bg-watermelon" {...animation}>
+    <div className="bg-watermelon">
       {/* TOP */}
       <Intro />
 
@@ -61,6 +60,6 @@ export default function Home() {
           <RollingText key={"projects_" + i} {...p} reverse={i % 2 == 0} />
         ))}
       </section>
-    </motion.div>
+    </div>
   );
 }

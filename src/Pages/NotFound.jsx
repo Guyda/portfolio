@@ -1,9 +1,8 @@
-import { motion } from "framer-motion";
-import { animation } from "../Helpers";
+
 
 export default function NotFound() {
   return (
-    <motion.div {...animation}>
+    <div>
       <section className="block min-h-screen bg-tomato">
         <div className="intro-section relative box-border py-[15vh] flex flex-col items-center z-100 ">
           <div className="intro-content block w-full text-center font-lexend select-none z-10">
@@ -15,6 +14,6 @@ export default function NotFound() {
           </div>
         </div>
       </section>
-    </motion.div>
+    </div>
   );
 }

@@ -54,3 +54,123 @@
 }
 
 @import "cursor";
+
+
+// main {
+//   min-height: 100%;
+//   display: grid;
+//   grid-template: "main";
+//   flex: 1;
+//   position: relative;
+//   overflow: hidden;
+//   background-color: white;
+// }
+
+// main > * {
+//   grid-area: main; /* Transition: make sections overlap on same cell */
+//   flex: 1 1 auto;
+//   background-color: white;
+//   position: relative;
+//   height: 100vh; /* To be fixed */
+// }
+
+main > :first-child {
+  z-index: 1; /* Prevent flickering on first frame when transition classes not added yet */
+}
+
+/* Transitions */
+.next-exit-active {
+  // animation: leaveToLeft 500ms both cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation: fadeOut 1000ms forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+  z-index: 0;
+}
+
+.next-enter-active {
+  // animation: enterFromRight 500ms both cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation: fadeIn 3000ms forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+  clip-path: circle(0% at 6% 6%);
+  z-index: 100;
+}
+
+// .prev-exit-active {
+//   animation: leaveToRight 500ms both cubic-bezier(0.165, 0.84, 0.44, 1);
+//   z-index: 1;
+// }
+
+// .prev-enter-active {
+//   animation: enterFromLeft 3000ms both cubic-bezier(0.165, 0.84, 0.44, 1);
+//   z-index: 0;
+// }
+
+
+@keyframes fadeOut {
+  from {
+    z-index:0;
+    clip-path: circle(140% at 6% 6%);
+  }
+  to {
+    z-index:0;
+    clip-path: circle(0% at 6% 6%);
+    // filter: brightness(0.5);
+  }
+}
+@keyframes fadeIn {
+  from {
+    // opacity:0;
+    clip-path: circle(0% at 6% 6%);
+  }
+  to {
+    clip-path: circle(140% at 6% 6%);
+    // opacity:1;
+    // filter: brightness(0.5);
+  }
+}
+
+@keyframes enterFromLeft {
+  from {
+    transform: translateX(-25%);
+    filter: brightness(0.5);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes leaveToLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-25%);
+    filter: brightness(0.5);
+  }
+}
+
+@keyframes enterFromLeft {
+  from {
+    transform: translateX(-25%);
+    filter: brightness(0.5);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes leaveToRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes enterFromRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+

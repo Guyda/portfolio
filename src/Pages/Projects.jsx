@@ -1,6 +1,5 @@
 import RollingText from "../Components/RollingText";
-import { motion } from "framer-motion";
-import { animation } from "../Helpers";
+
 
 export default function Projects() {
   const projects = [
@@ -22,7 +21,7 @@ export default function Projects() {
     },
   ];
   return (
-    <motion.div {...animation}>
+    <div>
       <section className="block w-full bg-persianblue py-40">
         <div className="max-w-5xl mx-auto text-ecru px-[1rem]">
           <h3 className="block font-normal sm:pb-[1rem] font-lexend text-[24px] md:pb-[2rem]">
@@ -33,6 +32,6 @@ export default function Projects() {
           <RollingText key={"projects_" + i} {...p} reverse={i % 2 == 0} />
         ))}
       </section>
-    </motion.div>
+    </div>
   );
 }
