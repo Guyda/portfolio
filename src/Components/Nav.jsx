@@ -13,8 +13,7 @@ export default function Nav() {
   const btnBg = bgTrigger ? "bg-dark bg-opacity-80" : "bg-transparent";
   const siteName = bgTrigger
     ? "translate-y-[-100px] ease-in-out opacity-0"
-    : // "ease-in-out mix-blend-exclusion opacity-70 bg-dark px-2 py-1 rounded-lg hover:opacity-100"
-      "";
+    : "";
   const links = [
     { name: "Projects", url: "/projects" },
     { name: "About", url: "/about" },

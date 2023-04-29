@@ -24,6 +24,7 @@
     -webkit-text-size-adjust: 100%;
 
     --cloud-timing: 6s;
+    --bezier: cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 
   html,
@@ -54,6 +55,52 @@
     overflow: hidden;
     overflow-y: auto;
     z-index: 10;
+  }
+
+  .page-title {
+    will-change: transform, clip-path;
+    transform-origin: bottom left;
+    transform: translateY(25%) rotate(5deg);
+    clip-path: inset(0 0 100% 0);
+    animation: revealTitle 1s var(--bezier) forwards;
+    animation-delay: 0.3s;
+  }
+
+  .page-title-delayed {
+    will-change: transform, clip-path;
+    transform-origin: bottom left;
+    transform: translateY(25%) rotate(5deg);
+    clip-path: inset(0 0 100% 0);
+    animation: revealTitle 1s var(--bezier) forwards;
+    animation-delay: 0.5s;
+  }
+
+  .page-fadein {
+    will-change: opacity, transform;
+    opacity: 0;
+    animation: fadeIn 0.66s var(--bezier) forwards;
+    animation-delay: 0.8s;
+  }
+}
+
+@keyframes revealTitle {
+  0% {
+    transform: translateY(25%) rotate(5deg);
+    clip-path: inset(0 0 100% 0);
+  }
+  100% {
+    transform: translateY(0%) rotate(0deg);
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(25%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
   }
 }
 

@@ -5,10 +5,9 @@ import "./Styles/styles.scss";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import { BrowserRouter } from "react-router-dom";
 
-const options = { duration: 1.5 };
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ReactLenis root options={{ ...options }}>
+    <ReactLenis root options={{ duration: 1.5 }}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
