@@ -49,20 +49,8 @@ export function roll(targets, vars, reverse) {
   return tl;
 }
 
-export const animation = {
-  initial: {
-    zIndex: 100,
-    clipPath: "circle(0% at 6% 6%)",
-    // position: "fixed",
-    // overflow: "none",
-  },
-  animate: {
-    clipPath: "circle(140% at 6% 6%)",
-    // transition: { duration: 1 },
-    ease: [0.5, 0.71, 1, 1.5],
-    // position: "relative",
-    // overflow: "auto",
-  },
-  transition: { duration: 0.6 },
-  // exit: { opacity: 0, zIndex: 90 },
+export const removeClassByPrefix = (el, prefix) => {
+  var regx = new RegExp("\\b" + prefix + ".*?\\b", "g");
+  el.className = el.className.replace(regx, "");
+  return el;
 };

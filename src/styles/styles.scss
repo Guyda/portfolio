@@ -49,38 +49,12 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
+    overflow-y: auto;
     z-index: 10;
   }
 }
 
 @import "cursor";
-
-.fade-enter {
-  // opacity: 0;
-  z-index: 100;
-  clip-path: circle(0% at 6% 6%);
-  // transform: translateX(-100%);
-}
-.fade-enter-active {
-  // opacity: 1;
-  z-index: 100;
-  clip-path: circle(140% at 6% 6%);
-  // transform: translateX(0%);
-}
-.fade-exit {
-  // opacity: 1;
-  z-index: 1;
-  // transform: translateX(0%);
-}
-.fade-exit-active {
-  // opacity: 0;
-  z-index: 1;
-  // transform: translateX(100%);
-}
-.fade-enter-active,
-.fade-exit-active {
-  transition: clip-path 500ms, opacity 500ms, transform 500ms;
-}
