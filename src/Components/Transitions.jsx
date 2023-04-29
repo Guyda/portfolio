@@ -1,12 +1,8 @@
-import {
-  SwitchTransition,
-  CSSTransition,
-  TransitionGroup,
-  Transition,
-} from "react-transition-group";
+import { SwitchTransition, Transition } from "react-transition-group";
 import { gsap } from "gsap";
 import { useLocation } from "react-router-dom";
 import useMousePosition from "../Hooks/useMousePosition";
+// import useScrollPosition from "../Hooks/useScrollPosition";
 import { useRef } from "react";
 import { removeClassByPrefix } from "../Helpers";
 
@@ -16,9 +12,14 @@ const Transitions = ({ children, color }) => {
   const nodeRef = useRef(null);
   const parentRef = useRef(null);
   const body = document.body;
+  // const posY = useScrollPosition();
 
   const onEnter = () => {
     parentRef.current.classList.add("page-fixed");
+    parentRef.current.style.top = 0;
+    // console.log({ posY, scr: window.scrollY });
+    // document.body.style.position = 'fixed';
+    // parentRef.current.style.top = -`${window.pageYOffset}px`;
 
     let t = (mouse.mouseY / window.innerHeight) * 100;
     let l = (mouse.mouseX / window.innerWidth) * 100;
@@ -46,6 +47,8 @@ const Transitions = ({ children, color }) => {
 
   const onEntered = () => {
     parentRef.current.classList.remove("page-fixed");
+    nodeRef.current.style.top = 0;
+    // window.scrollTo(0, 0);
     gsap.set(nodeRef.current, {
       clearProps: "all",
     });

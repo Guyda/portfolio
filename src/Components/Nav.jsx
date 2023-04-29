@@ -2,7 +2,7 @@ import useScrollPosition from "../Hooks/useScrollPosition";
 import Hamburger from "./Hamburger";
 import { useState } from "react";
 import MagneticButton from "./MagneticButton";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,7 +37,7 @@ export default function Nav() {
             {...settings}
             className="site-name magnetic-button p-0 bg-tranparent touch-none w-[100px] h-[60px] mr-[0] flex items-center justify-center"
           >
-            <Link
+            <NavLink
               data-cursor="-lg"
               className={`will-change-[transform, opacity] block transform transition-all duration-500 ${siteName}`}
               to="/"
@@ -47,7 +47,7 @@ export default function Nav() {
               <span className="text-ecru font-zilla text-sitename">
                 Guyda Bru
               </span>
-            </Link>
+            </NavLink>
           </MagneticButton>
 
           <nav aria-label="Site Nav">
@@ -61,9 +61,12 @@ export default function Nav() {
                     {...settings}
                     className="magnetic-button p-0 bg-tranparent touch-none w-[90px] h-[30px] mr-[0] flex items-center justify-center"
                   >
-                    <Link to={l.url} className="text-ecru">
+                    <NavLink
+                      to={l.url}
+                      className="text-ecru pb-[4px] border-b-4 border-transparent aria-[current=page]:border-dark aria-[current=page]:text-dark"
+                    >
                       {l.name}
-                    </Link>
+                    </NavLink>
                   </MagneticButton>
                 </li>
               ))}

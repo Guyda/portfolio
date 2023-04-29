@@ -4,6 +4,7 @@ import Home from "./Pages/Home";
 import NotFound from "./Pages/NotFound";
 import Projects from "./Pages/Projects";
 import Transitions from "./Components/Transitions";
+import Project from "./Pages/Project";
 
 export const routes = [
   {
@@ -22,6 +23,15 @@ export const routes = [
     element: (
       <Transitions color="persianblue">
         <Projects />
+      </Transitions>
+    ),
+  },
+  {
+    path: "/projects/:id",
+    name: "project",
+    element: (
+      <Transitions color="dark">
+        <Project />
       </Transitions>
     ),
   },

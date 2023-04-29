@@ -1,25 +1,8 @@
 import Intro from "../Components/Intro";
 import RollingText from "../Components/RollingText";
+import { projects } from "../Helpers";
 
 export default function Home() {
-  const projects = [
-    {
-      el: "projects-pma",
-      words: "Philadelphia Museum of Art",
-    },
-    {
-      el: "projects-jgj",
-      words: "Johnson Publication",
-    },
-    {
-      el: "projects-fwgs",
-      words: "Fine Wine & Good Spirits",
-    },
-    {
-      el: "projects-hh",
-      words: "Happier Holidays",
-    },
-  ];
   return (
     <div className="bg-watermelon">
       {/* TOP */}

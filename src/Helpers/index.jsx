@@ -50,7 +50,34 @@ export function roll(targets, vars, reverse) {
 }
 
 export const removeClassByPrefix = (el, prefix) => {
-  var regx = new RegExp("\\b" + prefix + ".*?\\b", "g");
-  el.className = el.className.replace(regx, "");
+  for (let i = 0; i < el.classList.length; i++) {
+    let value = el.classList[i];
+    if (value.startsWith(prefix)) {
+      el.classList.remove(value);
+    }
+  }
   return el;
 };
+
+export const projects = [
+  {
+    el: "projects-pma",
+    url: "/projects/pma",
+    words: "Philadelphia Museum of Art",
+  },
+  {
+    el: "projects-jgj",
+    url: "/projects/jgj",
+    words: "Johnson Publication",
+  },
+  {
+    el: "projects-fwgs",
+    url: "/projects/fwgs",
+    words: "Fine Wine & Good Spirits",
+  },
+  {
+    el: "projects-hh",
+    url: "/projects/hh",
+    words: "Happier Holidays",
+  },
+];

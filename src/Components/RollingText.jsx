@@ -2,6 +2,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect } from "react";
 import { roll } from "../Helpers";
+import { Link } from "react-router-dom";
 // Strongly/Heavily inspired by: https://codepen.io/GreenSock/pen/rNjvgjo?editors=1010
 
 export default function RollingText({
@@ -11,6 +12,7 @@ export default function RollingText({
   reverse = false,
   size = "text-projects",
   trigger = "[data-scroll-container]",
+  url = "/projects",
 }) {
   gsap.registerPlugin(ScrollTrigger);
 
@@ -43,8 +45,8 @@ export default function RollingText({
     >
       <span className="sr-only">{words}</span>
 
-      <div
-        aria-hidden
+      <Link
+        to={url}
         className={`rollingtexts relative flex items-center font-lexend text-ecru font-black hover:cursor-none	 hover:after:content-[''] hover:after:bg-goldenyellow hover:after:w-full hover:after:h-full hover:after:absolute hover:after:z-0 py-[2rem] hover:text-watermelon will-change-[all] transition-all duration-300`}
       >
         <span
@@ -52,7 +54,7 @@ export default function RollingText({
         >
           {words}
         </span>
-      </div>
+      </Link>
     </div>
   );
 }
