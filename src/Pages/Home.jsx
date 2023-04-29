@@ -1,7 +1,6 @@
 import Intro from "../Components/Intro";
 import RollingText from "../Components/RollingText";
 
-
 export default function Home() {
   const projects = [
     {

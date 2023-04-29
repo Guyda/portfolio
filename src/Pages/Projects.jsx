@@ -1,6 +1,5 @@
 import RollingText from "../Components/RollingText";
 
-
 export default function Projects() {
   const projects = [
     {
