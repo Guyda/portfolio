@@ -2,7 +2,6 @@ import { SwitchTransition, Transition } from "react-transition-group";
 import { gsap } from "gsap";
 import { useLocation } from "react-router-dom";
 import useMousePosition from "../Hooks/useMousePosition";
-// import useScrollPosition from "../Hooks/useScrollPosition";
 import { useRef } from "react";
 import { removeClassByPrefix } from "../Helpers";
 
@@ -12,14 +11,10 @@ const Transitions = ({ children, color }) => {
   const nodeRef = useRef(null);
   const parentRef = useRef(null);
   const body = document.body;
-  // const posY = useScrollPosition();
 
   const onEnter = () => {
-    parentRef.current.classList.add("page-fixed");
-    parentRef.current.style.top = 0;
-    // console.log({ posY, scr: window.scrollY });
-    // document.body.style.position = 'fixed';
-    // parentRef.current.style.top = -`${window.pageYOffset}px`;
+    nodeRef.current.classList.add("page-fixed");
+    body.classList.add("overflow-hidden");
 
     let t = (mouse.mouseY / window.innerHeight) * 100;
     let l = (mouse.mouseX / window.innerWidth) * 100;
@@ -28,11 +23,11 @@ const Transitions = ({ children, color }) => {
     tl.set(nodeRef.current, {
       webkitClipPath: "circle(0% at " + l + "% " + t + "%)",
       clipPath: "circle(0% at " + l + "% " + t + "%)",
-      height: "100vh",
+      height: "100%",
       position: "fixed",
       top: "0",
       left: "0",
-      width: "100%",
+      width: "100vw",
       willChange: "clip-path",
       visibility: "visible",
       zIndex: "99999",
@@ -46,9 +41,14 @@ const Transitions = ({ children, color }) => {
   };
 
   const onEntered = () => {
-    parentRef.current.classList.remove("page-fixed");
-    nodeRef.current.style.top = 0;
+    nodeRef.current.classList.remove("page-fixed");
+
+    body.classList.remove("overflow-hidden");
     // window.scrollTo(0, 0);
+    window.scrollTo(window.pageXOffset, 1);
+    window.scrollTo(window.pageXOffset, 0);
+    window.dispatchEvent(new Event("resize"));
+
     gsap.set(nodeRef.current, {
       clearProps: "all",
     });

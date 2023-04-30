@@ -7,7 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ReactLenis root options={{ duration: 1.5 }}>
+    <ReactLenis root>
       <BrowserRouter>
         <App />
       </BrowserRouter>
