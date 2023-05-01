@@ -25,6 +25,9 @@ export default {
         goldenyellow: "#FBE10F",
         dark: "#343434",
       },
+      backgroundImage: {
+        "hero-bg": "url('/bg-gradient.png')",
+      },
       transitionTimingFunction: {
         bezier: "cubic-bezier(0.7, 0, 0.2, 1)",
       },

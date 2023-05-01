@@ -19,7 +19,6 @@ export default function Intro() {
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
-      console.log("intro", { transitionEnded });
       if (transitionEnded) {
         const tl_cloud = gsap
           .timeline({
@@ -112,7 +111,7 @@ export default function Intro() {
           <Scroller />
         </div>
         <div
-          className="absolute top-0 left-0 w-full h-screen intro-gradient z-0 opacity-100"
+          className="absolute top-0 left-0 w-full h-screen z-0 opacity-100 bg-hero-bg bg-repeat-x bg-contain"
           ref={introGradient}
         />
       </div>

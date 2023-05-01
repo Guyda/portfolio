@@ -51,9 +51,8 @@ const Transitions = ({ children, color }) => {
 
   const onEntered = () => {
     nodeRef.current.classList.remove("page-fixed");
-
     body.classList.remove("overflow-hidden");
-    // window.scrollTo(0, 0);
+
     window.scrollTo(window.pageXOffset, 1);
     window.scrollTo(window.pageXOffset, 0);
     window.dispatchEvent(new Event("resize"));

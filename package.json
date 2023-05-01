@@ -8,6 +8,9 @@
     "build": "vite build",
     "preview": "vite preview"
   },
+  "browserslist": [
+    "last 2 versions, not dead, > 0.2%"
+  ],
   "dependencies": {
     "@studio-freight/react-lenis": "^0.0.15",
     "devicon": "^2.15.1",

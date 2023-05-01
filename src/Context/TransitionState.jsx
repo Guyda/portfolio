@@ -6,7 +6,6 @@ export const TransitionCtxProvider = ({ children }) => {
   const [transitionEnded, setTransitionEnded] = useState(true);
 
   const handleTransitionStatus = (value) => {
-    console.log("handleTransitionStatus", { value });
     setTransitionEnded(value);
   };
 
