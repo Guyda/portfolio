@@ -2,8 +2,9 @@ import { SwitchTransition, Transition } from "react-transition-group";
 import { gsap } from "gsap";
 import { useLocation } from "react-router-dom";
 import useMousePosition from "../Hooks/useMousePosition";
-import { useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { removeClassByPrefix } from "../Helpers";
+import { TransitionContext } from "../Context/TransitionState";
 
 const Transitions = ({ children, color }) => {
   const location = useLocation();
@@ -11,8 +12,14 @@ const Transitions = ({ children, color }) => {
   const nodeRef = useRef(null);
   const parentRef = useRef(null);
   const body = document.body;
+  const { handleTransitionStatus } = useContext(TransitionContext);
+
+  useEffect(() => {
+    handleTransitionStatus(true);
+  }, []);
 
   const onEnter = () => {
+    handleTransitionStatus(false);
     nodeRef.current.classList.add("page-fixed");
     body.classList.add("overflow-hidden");
 
@@ -20,24 +27,26 @@ const Transitions = ({ children, color }) => {
     let l = (mouse.mouseX / window.innerWidth) * 100;
 
     let tl = gsap.timeline();
-    tl.set(nodeRef.current, {
-      webkitClipPath: "circle(0% at " + l + "% " + t + "%)",
-      clipPath: "circle(0% at " + l + "% " + t + "%)",
-      height: "100%",
-      position: "fixed",
-      top: "0",
-      left: "0",
-      width: "100vw",
-      willChange: "clip-path",
-      visibility: "visible",
-      zIndex: "99999",
-      opacity: 1,
-    }).to(nodeRef.current, {
-      webkitClipPath: "circle(200% at " + l + "% " + t + "%)",
-      clipPath: "circle(200% at " + l + "% " + t + "%)",
-      ease: "Power4.inOut",
-      duration: 1.5,
-    });
+    return tl
+      .set(nodeRef.current, {
+        webkitClipPath: "circle(0% at " + l + "% " + t + "%)",
+        clipPath: "circle(0% at " + l + "% " + t + "%)",
+        height: "100%",
+        position: "fixed",
+        top: "0",
+        left: "0",
+        width: "100vw",
+        willChange: "clip-path",
+        visibility: "visible",
+        zIndex: "99999",
+        opacity: 1,
+      })
+      .to(nodeRef.current, {
+        webkitClipPath: "circle(200% at " + l + "% " + t + "%)",
+        clipPath: "circle(200% at " + l + "% " + t + "%)",
+        ease: "Power4.inOut",
+        duration: 1.5,
+      });
   };
 
   const onEntered = () => {
@@ -54,6 +63,8 @@ const Transitions = ({ children, color }) => {
     });
     removeClassByPrefix(body, "bg-");
     body.classList.add("bg-" + color);
+
+    return handleTransitionStatus(true);
   };
 
   return (

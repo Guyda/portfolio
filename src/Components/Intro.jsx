@@ -1,75 +1,82 @@
 import { gsap } from "gsap";
-import { useEffect } from "react";
+import { useContext, useEffect, useLayoutEffect } from "react";
 import { ScrollTrigger } from "gsap/all";
 import Cloud from "./Cloud";
 import TickerText from "./TickerText";
 import { Scroller } from "./Icons";
+import { TransitionContext } from "../Context/TransitionState";
 
 export default function Intro() {
   gsap.registerPlugin(ScrollTrigger);
 
+  const { transitionEnded } = useContext(TransitionContext);
+
   useEffect(() => {
-    const tl_cloud = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".intro-section",
-          scrub: true,
-          start: "top top",
-        },
-      })
-      .to(".intro-cloud", {
-        yPercent: 70,
-      });
+    let ctx = gsap.context(() => {
+      console.log("intro", { transitionEnded });
+      if (transitionEnded) {
+        setTimeout(() => {
+          const tl_cloud = gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: ".intro-section",
+                scrub: true,
+                start: "top top",
+              },
+            })
+            .to(".intro-cloud", {
+              yPercent: 70,
+            });
 
-    const tl_texts = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".intro-section",
-          scrub: true,
-          start: "top top",
-        },
-      })
-      .to(".intro-content", {
-        yPercent: -0,
-        opacity: 0,
-      });
+          const tl_title = gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: ".intro-section",
+                scrub: true,
+                start: "top top",
+              },
+            })
+            .to(".intro-content", {
+              yPercent: -0,
+              opacity: 0,
+            });
 
-    const tl_scroller = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".intro-scroller",
-          scrub: true,
-          start: "bottom bottom",
-          end: "bottom 80%",
-          // markers: true,
-        },
-      })
-      .to(".intro-scroller", {
-        yPercent: -100,
-        opacity: 0,
-        display: "none",
-      });
+          const tl_scroller = gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: ".intro-scroller",
+                scrub: true,
+                start: "bottom bottom",
+                end: "bottom 80%",
+                // markers: true,
+              },
+            })
+            .to(".intro-scroller", {
+              yPercent: -100,
+              opacity: 0,
+              display: "none",
+            });
 
-    const tl_bg = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".intro-section",
-          scrub: true,
-          start: "top top",
-          end: "bottom center",
-        },
-      })
-      .to(".intro-gradient", {
-        opacity: 0,
-      });
-
+          const tl_bg = gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: ".intro-section",
+                scrub: true,
+                start: "top top",
+                end: "bottom center",
+              },
+            })
+            .to(".intro-gradient", {
+              opacity: 0,
+            });
+        }, 300);
+      }
+    });
     return () => {
-      tl_texts.revert();
-      tl_cloud.revert();
-      tl_scroller.revert();
-      tl_bg.revert();
+      ctx.revert();
+      ctx.kill();
     };
-  }, []);
+  }, [transitionEnded]);
 
   return (
     <section className="block min-h-screen ">

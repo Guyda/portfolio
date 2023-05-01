@@ -4,12 +4,15 @@ import App from "./App";
 import "./Styles/styles.scss";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import { BrowserRouter } from "react-router-dom";
+import { TransitionCtxProvider } from "./Context/TransitionState";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ReactLenis root>
       <BrowserRouter>
-        <App />
+        <TransitionCtxProvider>
+          <App />
+        </TransitionCtxProvider>
       </BrowserRouter>
     </ReactLenis>
   </React.StrictMode>
