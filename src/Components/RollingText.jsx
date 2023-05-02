@@ -1,8 +1,9 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { roll } from "../Helpers";
 import { Link } from "react-router-dom";
+import useOnScreen from "../Hooks/useOnScreen";
 // Strongly/Heavily inspired by: https://codepen.io/GreenSock/pen/rNjvgjo?editors=1010
 
 export default function RollingText({
@@ -16,13 +17,15 @@ export default function RollingText({
 }) {
   gsap.registerPlugin(ScrollTrigger);
 
+  const line = useRef(null);
+  const onScreen = useOnScreen(line);
+
   if (!el || !words) return null;
 
   useEffect(() => {
-    let direction = 1; // 1 = forward, -1 = backward scroll
+    let direction = 1;
 
     let _el = "." + el + "1";
-    let element = document.querySelector(_el);
 
     const roll1 = roll(_el, { duration }, reverse),
       tl = ScrollTrigger.create({
@@ -30,14 +33,41 @@ export default function RollingText({
         onUpdate(self) {
           if (self.direction !== direction) {
             direction *= -1;
-            gsap.to([roll1], { timeScale: direction, overwrite: true });
+            gsap.to([roll1], {
+              timeScale: direction,
+              overwrite: true,
+            });
           }
         },
       });
   }, []);
 
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      const tl_line = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: line.current,
+            scrub: true,
+            start: "top bottom",
+            end: "top 75%",
+          },
+        })
+        .from(line.current, {
+          yPercent: 50,
+          autoAlpha: 0,
+        });
+    });
+
+    return () => {
+      ctx.revert();
+      ctx.kill();
+    };
+  }, []);
+
   return (
     <div
+      ref={line}
       className="w-full overflow-hidden"
       data-cursor="-projects"
       data-cursor-text={`<div class="flex flex-col items-center justify-center space-between">
