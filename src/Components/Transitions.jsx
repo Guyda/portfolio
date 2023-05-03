@@ -6,7 +6,7 @@ import { useContext, useEffect, useRef } from "react";
 import { removeClassByPrefix } from "../Helpers";
 import { TransitionContext } from "../Context/TransitionState";
 
-const Transitions = ({ children, color }) => {
+const Transitions = ({ children }) => {
   const location = useLocation();
   const mouse = useMousePosition();
   const nodeRef = useRef(null);
@@ -23,6 +23,8 @@ const Transitions = ({ children, color }) => {
     nodeRef.current.classList.add("page-fixed");
     body.classList.add("overflow-hidden");
 
+    parentRef.current.classList.add("z-[1]");
+
     let t = (mouse.mouseY / window.innerHeight) * 100;
     let l = (mouse.mouseX / window.innerWidth) * 100;
 
@@ -38,7 +40,7 @@ const Transitions = ({ children, color }) => {
         width: "100vw",
         willChange: "clip-path",
         visibility: "visible",
-        zIndex: "99999",
+        zIndex: "800",
         opacity: 1,
       })
       .to(nodeRef.current, {
@@ -60,8 +62,8 @@ const Transitions = ({ children, color }) => {
     gsap.set(nodeRef.current, {
       clearProps: "all",
     });
-    removeClassByPrefix(body, "bg-");
-    body.classList.add("bg-" + color);
+    // removeClassByPrefix(body, "bg-");
+    // body.classList.add("bg-" + color);
 
     return handleTransitionStatus(true);
   };

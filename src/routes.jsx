@@ -12,8 +12,8 @@ export const routes = [
     path: "/",
     name: "home",
     element: (
-      <Transitions color="watermelon">
-        <Home />
+      <Transitions>
+        <Home bg="watermelon" accent="goldenyellow" />
       </Transitions>
     ),
   },
@@ -21,8 +21,8 @@ export const routes = [
     path: "/projects",
     name: "projects",
     element: (
-      <Transitions color="persianblue">
-        <Projects />
+      <Transitions>
+        <Projects bg="persianblue" accent="pink" />
       </Transitions>
     ),
   },
@@ -30,7 +30,7 @@ export const routes = [
     path: "/projects/:id",
     name: "project",
     element: (
-      <Transitions color="dark">
+      <Transitions>
         <Project />
       </Transitions>
     ),
@@ -39,8 +39,8 @@ export const routes = [
     path: "/about",
     name: "about",
     element: (
-      <Transitions color="tomato">
-        <About />
+      <Transitions>
+        <About bg="daisybush" accent="pearlaqua" />
       </Transitions>
     ),
   },
@@ -48,7 +48,7 @@ export const routes = [
     path: "/contact",
     name: "contact",
     element: (
-      <Transitions color="goldenyellow">
+      <Transitions>
         <Contact />
       </Transitions>
     ),

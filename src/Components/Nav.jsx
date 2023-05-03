@@ -29,7 +29,7 @@ export default function Nav() {
   return (
     <header
       aria-label="Site Header"
-      className="bg-transparent fixed top-0 z-[400] w-screen pt-5 pb-5"
+      className="bg-transparent fixed top-0 z-[999] w-screen pt-5 pb-5"
     >
       <div className="mx-auto flex h-12 max-w-5xl items-center gap-8 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-1 items-center justify-center justify-between">
@@ -63,7 +63,7 @@ export default function Nav() {
                   >
                     <NavLink
                       to={l.url}
-                      className="text-ecru pb-[4px] border-b-4 border-transparent aria-[current=page]:border-dark aria-[current=page]:text-dark"
+                      className="text-ecru pb-[6px] border-b-[3px] transition-all will-change-[border] duration-500 border-transparent aria-[current=page]:border-ecru aria-[current=page]:text-ecru"
                     >
                       {l.name}
                     </NavLink>

@@ -17,13 +17,14 @@ export default {
         title: "clamp(1.2rem, 120px, 11vw)",
       },
       colors: {
-        tomato: "#e7524c",
-        cream: "#fffade",
         ecru: "#F3F4E8",
+        dark: "#343434",
         watermelon: "#FC485A",
         persianblue: "#1541B3",
         goldenyellow: "#FBE10F",
-        dark: "#343434",
+        daisybush: "#4F2398",
+        pearlaqua: "#8FD6B4",
+        pink: "#FC6C85",
       },
       backgroundImage: {
         "hero-bg": "url('/bg-gradient.png')",
