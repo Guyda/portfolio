@@ -1,3 +1,4 @@
+import Footer from "../Components/Footer";
 import Intro from "../Components/Intro";
 import RollingText from "../Components/RollingText";
 import { projects } from "../Helpers";
@@ -42,6 +43,7 @@ export default function Home() {
           <RollingText key={"projects_" + i} {...p} reverse={i % 2 == 0} />
         ))}
       </section>
+      <Footer />
     </div>
   );
 }

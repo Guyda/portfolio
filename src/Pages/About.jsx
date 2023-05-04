@@ -1,6 +1,8 @@
+import Footer from "../Components/Footer";
+
 export default function About({ bg, accent }) {
   return (
-    <div className={"bg-" + bg}>
+    <div className="bg-daisybush">
       <section className="block h-[80vh] ">
         <div className="intro-section relative box-border z-100 ">
           <div className="intro-content block w-full text-center select-none z-10 h-screen flex flex-col items-center justify-center">
@@ -8,12 +10,7 @@ export default function About({ bg, accent }) {
               <span className="text1 block text-ecru leading-none text-titlesr page-title ">
                 A Jack of
               </span>
-              <span
-                className={
-                  "text2 block leading-none text-title mt-[-.5rem] md:mt-[-1rem] page-title-delayed  text-" +
-                  accent
-                }
-              >
+              <span className="text2 block leading-none text-title mt-[-.5rem] md:mt-[-1rem] page-title-delayed  text-pearlaqua">
                 All Trades
               </span>
             </h1>
@@ -31,7 +28,7 @@ export default function About({ bg, accent }) {
           <div className="absolute top-0 left-0 w-full h-screen z-0 opacity-50 bg-hero-bg bg-repeat-x bg-contain" />
         </div>
       </section>
-      <section className="block w-full py-40">
+      <section className={"block w-full py-40"}>
         <div className="max-w-prose mx-auto text-ecru px-[1rem]">
           <p className="font-zilla text-[18px] mb-[1rem]  text-center leading-relaxed">
             During my time in advertising I have been responsible for designing,
@@ -93,6 +90,7 @@ export default function About({ bg, accent }) {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

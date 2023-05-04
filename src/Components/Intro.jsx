@@ -105,7 +105,7 @@ export default function Intro() {
           <Cloud />
         </div>
         <div
-          className="intro-scroller fixed bottom-[1rem] right-[3rem] z-10"
+          className="intro-scroller fixed bottom-[1rem] right-auto z-10"
           ref={introScroller}
         >
           <Scroller />

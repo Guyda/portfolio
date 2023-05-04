@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import Footer from "./Components/Footer";
 import Nav from "./Components/Nav";
 import useCustomCursor from "./Hooks/useCustomCursor";
 import { routes } from "./routes";
@@ -16,7 +15,6 @@ export default function App() {
           ))}
         </Routes>
       </main>
-      <Footer />
     </div>
   );
 }

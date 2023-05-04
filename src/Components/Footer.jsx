@@ -1,6 +1,50 @@
-import MagneticButton from "./MagneticButton";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/all";
+import { useContext, useLayoutEffect, useRef } from "react";
+import { TransitionContext } from "../Context/TransitionState";
 
 export default function Footer() {
+  gsap.registerPlugin(ScrollTrigger);
+  const { transitionEnded } = useContext(TransitionContext);
+
+  const ftWarped = useRef();
+  const ftBlock = useRef();
+  const ftContent = useRef();
+
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      if (transitionEnded) {
+        const tl_footer = gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: ftBlock.current,
+              // scrub: true,
+              // markers: true,
+              start: "top 95%",
+              // end: "95% bottom",
+              toggleActions: "play restart play reverse",
+              // once: false,
+            },
+          })
+          .fromTo(
+            ftContent.current,
+            {
+              marginTop: "50px",
+            },
+            {
+              duration: 0.6,
+              ease: "Power2.Out",
+              marginTop: 0,
+            }
+          );
+      }
+    });
+    return () => {
+      ctx.revert();
+      ctx.kill();
+    };
+  }, [transitionEnded]);
+
   const socials = [
     {
       name: "Github",
@@ -23,9 +67,16 @@ export default function Footer() {
   ];
 
   return (
-    <footer aria-label="Site Footer" className="bg-persianblue z-10">
-      <div className="max-w-xl px-4 pt-16 pb-16 mx-auto sm:px-6 lg:px-8 lg:pt-32">
-        <div className="flex items-center justify-center flex-col py-24 space-between text-center">
+    <footer
+      aria-label="Site Footer"
+      ref={ftBlock}
+      className="z-10 relative h-[300px] overflow-hidden"
+    >
+      <div
+        ref={ftContent}
+        className="w-full absolute top-0 left-0 w-full h-[300px] z-10 bg-ecru py-[4rem] "
+      >
+        {/* <div className="flex items-center justify-center flex-col py-24 space-between text-center">
           <h2 className="text-ecru font-lexend text-[2rem] sm:text-[3rem] pb-[1rem]">
             Let's Keep in Touch!
           </h2>
@@ -46,22 +97,30 @@ export default function Footer() {
               contact@guyda.com
             </button>
           </MagneticButton>
-        </div>
-        <div className="flex items-center justify-center">
-          <ul className="flex justify-center gap-6 mt-8 sm:mt-0">
+        </div> */}
+        <div className="flex flex-col items-center justify-center">
+          <ul className="align-center justify-center inline-flex flex-row gap-8 pb-[2rem]">
             {socials.map((k) => (
               <li key={k.name}>
                 <a
                   href={k.url}
                   rel="noreferrer"
                   target="_blank"
-                  className="text-ecru transition hover:opacity-75"
+                  className="text-watermelon transition hover:opacity-75"
                 >
                   <i className={`${k.icon} ${k.class}`} />
                 </a>
               </li>
             ))}
           </ul>
+          <div>
+            <span className="font-zilla text-center text-watermelon block mx-auto text-[20px]">
+              Guyda Bru
+            </span>
+            <span className="font-lexend font-bold text-watermelon block mx-auto text-[32px]">
+              Full-Stack Developer
+            </span>
+          </div>
         </div>
         <div className="pt-8 border-dark flex items-center justify-center">
           <nav aria-label="Footer Navigation">
@@ -69,7 +128,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#"
-                  className="font-lexend text-ecru transition hover:opacity-75"
+                  className="font-lexend text-watermelon transition hover:opacity-75"
                 >
                   &copy;guyda.com 2023
                 </a>
@@ -78,6 +137,10 @@ export default function Footer() {
           </nav>
         </div>
       </div>
+      <div
+        ref={ftWarped}
+        className="bg-warped absolute block top-0 left-0 z-1 w-full origin-center h-[50px] bg-ecru rounded-tl-[50%] rounded-tr-[50%]"
+      />
     </footer>
   );
 }
