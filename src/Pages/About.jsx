@@ -1,9 +1,10 @@
 import Footer from "../Components/Footer";
+import { Scroller } from "../Components/Icons";
 
-export default function About({ bg, accent }) {
+export default function About() {
   return (
     <div className="bg-daisybush">
-      <section className="block h-[80vh] ">
+      <section className="block h-screen ">
         <div className="intro-section relative box-border z-100 ">
           <div className="intro-content block w-full text-center select-none z-10 h-screen flex flex-col items-center justify-center">
             <h1 className="whitespace-nowrap w-full overflow-hidden relative box-border font-lexend  text-[0] font-bold flex flex-col">
@@ -24,7 +25,6 @@ export default function About({ bg, accent }) {
               </span>
             </div>
           </div>
-
           <div className="absolute top-0 left-0 w-full h-screen z-0 opacity-50 bg-hero-bg bg-repeat-x bg-contain" />
         </div>
       </section>

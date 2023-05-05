@@ -93,10 +93,10 @@ export default function Intro() {
         >
           <h1 className="whitespace-nowrap w-full overflow-hidden relative box-border text-[0] font-bold flex flex-col">
             <span className="text1 block text-ecru leading-none text-titlesr page-title ">
-              Sr.
+              Full-Stack
             </span>
             <span className="text2 block text-goldenyellow leading-none text-title mt-[-.5rem] md:mt-[-1rem] page-title-delayed">
-              Web Developer
+              Developer
             </span>
           </h1>
           <TickerText />

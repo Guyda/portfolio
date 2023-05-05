@@ -2,17 +2,17 @@ import Footer from "../Components/Footer";
 import RollingText from "../Components/RollingText";
 import { projects } from "../Helpers";
 
-export default function Projects({ bg, accent }) {
+export default function Projects() {
   return (
-    <div className={"bg-" + bg}>
-      <section className="block h-[80vh] ">
+    <div className="bg-persianblue">
+      <section className="block h-screen ">
         <div className="intro-section relative box-border z-100 ">
           <div className="intro-content block w-full text-center select-none z-10 h-screen flex flex-col items-center justify-center">
             <h1 className="whitespace-nowrap w-full overflow-hidden relative box-border font-lexend  text-[0] font-bold flex flex-col">
               <span className="text1 block text-ecru leading-none text-titlesr page-title ">
                 Selected
               </span>
-              <span className="text2 block leading-none pb-[1rem] text-title mt-[-.5rem] md:mt-[-1rem] page-title-delayed  text-pearlaqua">
+              <span className="text2 block leading-none pb-[1rem] text-title mt-[-.5rem] md:mt-[-1rem] page-title-delayed text-pearlaqua">
                 Projects
               </span>
             </h1>

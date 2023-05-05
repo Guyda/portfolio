@@ -3,7 +3,7 @@ import { ScrollTrigger } from "gsap/all";
 import { useContext, useLayoutEffect, useRef } from "react";
 import { TransitionContext } from "../Context/TransitionState";
 
-export default function Footer() {
+export default function Footer({ motion = true }) {
   gsap.registerPlugin(ScrollTrigger);
   const { transitionEnded } = useContext(TransitionContext);
 
@@ -13,7 +13,7 @@ export default function Footer() {
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
-      if (transitionEnded) {
+      if (transitionEnded && motion) {
         const tl_footer = gsap
           .timeline({
             scrollTrigger: {

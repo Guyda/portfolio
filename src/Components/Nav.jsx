@@ -1,24 +1,30 @@
 import useScrollPosition from "../Hooks/useScrollPosition";
 import Hamburger from "./Hamburger";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import MagneticButton from "./MagneticButton";
 import { NavLink } from "react-router-dom";
 import useWindowSize from "../Hooks/useWindowSize";
+import Footer from "./Footer";
+import { gsap } from "gsap";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const mobileNav = useRef(null);
+  const hamFooter = useRef(null);
 
   const scrollPosition = useScrollPosition();
   const windowWidth = useWindowSize();
   const { width } = windowWidth;
 
-  const bgTrigger = scrollPosition > 50;
+  const bgTrigger = scrollPosition > 50 || isOpen;
   const smScreen = width < 768;
-  const btnBg = bgTrigger ? "bg-dark bg-opacity-80" : "bg-transparent";
+  const btnBg = bgTrigger ? "bg-dark bg-opacity-50" : "bg-transparent";
   const siteName = bgTrigger
     ? "translate-y-[-100px] ease-in-out opacity-0"
     : "";
   const links = [
+    { name: "Intro", url: "/" },
     { name: "Projects", url: "/projects" },
     { name: "About", url: "/about" },
     { name: "Contact", url: "/contact" },
@@ -30,12 +36,51 @@ export default function Nav() {
     speed: 0.3,
     borderRadius: "50%",
   };
+
+  useEffect(() => {
+    const body = document.body;
+    if (isOpen) {
+      body.classList.add("overflow-hidden");
+    } else {
+      body.classList.remove("overflow-hidden");
+    }
+
+    gsap.to(mobileNav.current, {
+      autoAlpha: isOpen ? 1 : 0,
+      scale: isOpen ? 1 : 0.98,
+      filter: isOpen ? "blur(0px)" : "blur(10px)",
+      duration: 0.33,
+      ease: "Power4.inOut",
+    });
+
+    //animate links
+    const hamLinks = document.getElementsByClassName("hamLinks");
+    gsap.to([hamLinks], {
+      autoAlpha: isOpen ? 1 : 0,
+      yPercent: isOpen ? 0 : -50,
+      filter: isOpen ? "blur(0px)" : "blur(10px)",
+      delay: 0.5,
+      stagger: 0.25,
+      ease: "Power1.Out",
+    });
+    gsap.to(hamFooter.current, {
+      autoAlpha: isOpen ? 1 : 0,
+      filter: isOpen ? "blur(0px)" : "blur(10px)",
+      delay: 1.25,
+      ease: "Power1.Out",
+    });
+  }, [isOpen]);
+
+  const handleMenu = (status) => {
+    return setIsOpen(!status);
+  };
+
   return (
     <header
       aria-label="Site Header"
-      className="bg-transparent fixed top-0 z-[999] w-screen pt-5 pb-5"
+      className="bg-transparent fixed top-0 z-[9999] w-screen pt-5 pb-5"
     >
-      <div className="mx-auto flex h-12 max-w-5xl items-center gap-8 px-4 sm:px-6 ">
+      <div className="mx-auto flex h-12 max-w-5xl items-center gap-8 px-4 sm:px-6 z-[999]">
         <div className="flex flex-1 items-center justify-center justify-between ">
           <MagneticButton
             {...settings}
@@ -77,10 +122,12 @@ export default function Nav() {
             </ul>
           </nav>
 
-          <nav aria-label="Site Nav Mobile">
+          <nav aria-label="Hamburger Menu" className="">
             <div
-              className={`navburger absolute top-0 right-0 transition duration-200 delay-150 ${
-                bgTrigger || smScreen ? "transition-opacity" : "opacity-0"
+              className={`navburger absolute top-[16px] right-0 transition duration-200 z-[99999] ${
+                isOpen || bgTrigger || smScreen
+                  ? "transition-opacity pointer-events-auto"
+                  : "opacity-0 pointer-events-none "
               }`}
             >
               <MagneticButton
@@ -88,10 +135,10 @@ export default function Nav() {
                 className="magnetic-button p-0 bg-tranparent touch-none rounded-full w-[100px] h-[100px] md:w-[200px] md:h-[200px] mr-[15px] md:mr-[-30px] lg:mr-[0] md:mt-[-50px] flex items-center justify-center z-99999"
               >
                 <button
-                  className={`hamburger ${btnBg} w-[80px] h-[80px] flex flex-col justify-center items-center rounded-full transform transition-all ring-0 ring-gray-300 hover:ring-8 hover:bg-dark group-focus:ring-4 ring-opacity-30 duration-300 delay-150 group ${
+                  className={`hamburger ${btnBg} w-[80px] h-[80px] flex flex-col justify-center items-center rounded-full transform transition-all ring-0 ring-dark hover:ring-8 hover:bg-dark group-focus:ring-4 ring-opacity-30 duration-300 delay-150 group ${
                     isOpen ? "is-active" : ""
                   }`}
-                  onClick={() => setIsOpen(!isOpen)}
+                  onClick={() => handleMenu(isOpen)}
                 >
                   <Hamburger />
                 </button>
@@ -99,6 +146,41 @@ export default function Nav() {
             </div>
           </nav>
         </div>
+      </div>
+
+      <div
+        ref={mobileNav}
+        className="mobileNav scale-[0.88] w-full h-full fixed top-0 left-0 opacity-0 display-none bg-ecru flex flex-col items-center justify-center border-[1rem] border-watermelon z-[666] overscroll-contain"
+      >
+        <nav
+          aria-label="Site Nav Desktop"
+          className="relative w-full h-full flex flex-col justify-between"
+        >
+          <ul
+            data-cursor="-lg"
+            className="flex-1 flex flex-col justify-center align-center"
+          >
+            {links.map((l) => (
+              <li key={l.name} className="w-[240px] mx-auto">
+                <MagneticButton
+                  {...settings}
+                  className="magnetic-button inline-block p-0 bg-tranparent touch-none px-0 py-[1rem] flex items-center justify-center"
+                >
+                  <NavLink
+                    to={l.url}
+                    onClick={() => handleMenu(isOpen)}
+                    className="hamLinks block -translate-y-1/2 text-watermelon font-lexend font-bold text-[40px] pb-[6px] border-b-[6px] border-transparent aria-[current=page]:border-watermelon aria-[current=page]:text-watermelon"
+                  >
+                    {l.name}
+                  </NavLink>
+                </MagneticButton>
+              </li>
+            ))}
+          </ul>
+          <div ref={hamFooter}>
+            <Footer motion={false} />
+          </div>
+        </nav>
       </div>
     </header>
   );
