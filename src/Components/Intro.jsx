@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
-import { useContext, useLayoutEffect, useRef } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useContext, useEffect, useRef } from "react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Cloud from "./Cloud";
 import TickerText from "./TickerText";
 import { Scroller } from "./Icons";
@@ -17,7 +17,7 @@ export default function Intro() {
   const introSection = useRef();
   const introGradient = useRef();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     let ctx = gsap.context(() => {
       if (transitionEnded) {
         const tl_cloud = gsap

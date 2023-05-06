@@ -1,5 +1,5 @@
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useLenis } from "@studio-freight/react-lenis";
 
 const useTrigger = ({

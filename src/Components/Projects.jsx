@@ -1,12 +1,12 @@
 import { gsap } from "gsap";
 import RollingText from "./RollingText";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect } from "react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { useEffect } from "react";
 
 export default function Projects() {
   gsap.registerPlugin(ScrollTrigger);
 
-  // useLayoutEffect(() => {
+  // useEffect(() => {
   //   const tl = gsap
   //     .timeline({
   //       scrollTrigger: {

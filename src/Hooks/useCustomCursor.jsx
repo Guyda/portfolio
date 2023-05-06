@@ -1,5 +1,5 @@
+import { gsap } from "gsap";
 import MouseFollower from "mouse-follower";
-import gsap from "gsap";
 import { useEffect } from "react";
 
 const useCustomCursor = () => {

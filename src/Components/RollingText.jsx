@@ -1,9 +1,8 @@
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { gsap } from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { useEffect, useRef } from "react";
 import { roll } from "../Helpers";
 import { Link } from "react-router-dom";
-import useOnScreen from "../Hooks/useOnScreen";
 // Strongly/Heavily inspired by: https://codepen.io/GreenSock/pen/rNjvgjo?editors=1010
 
 export default function RollingText({
@@ -18,7 +17,6 @@ export default function RollingText({
   gsap.registerPlugin(ScrollTrigger);
 
   const line = useRef(null);
-  const onScreen = useOnScreen(line);
 
   if (!el || !words) return null;
 
@@ -42,7 +40,7 @@ export default function RollingText({
       });
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     let ctx = gsap.context(() => {
       const tl_line = gsap
         .timeline({

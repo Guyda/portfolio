@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useContext, useLayoutEffect, useRef } from "react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { useContext, useEffect, useRef } from "react";
 import { TransitionContext } from "../Context/TransitionState";
 
 export default function Footer({ motion = true }) {
@@ -11,7 +11,7 @@ export default function Footer({ motion = true }) {
   const ftBlock = useRef();
   const ftContent = useRef();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     let ctx = gsap.context(() => {
       if (transitionEnded && motion) {
         const tl_footer = gsap

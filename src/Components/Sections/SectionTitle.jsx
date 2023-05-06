@@ -1,7 +1,7 @@
-import { useContext, useLayoutEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { Scroller } from "../Icons";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { TransitionContext } from "../../Context/TransitionState";
 
 export default function SectionTitle({ titles = {} }) {
@@ -14,7 +14,7 @@ export default function SectionTitle({ titles = {} }) {
   const introSection = useRef();
   const introGradient = useRef();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     let ctx = gsap.context(() => {
       if (transitionEnded) {
         const tl_title = gsap

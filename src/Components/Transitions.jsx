@@ -11,7 +11,7 @@ const Transitions = ({ children }) => {
   const mouse = useMousePosition();
   const nodeRef = useRef(null);
   const parentRef = useRef(null);
-  const body = document.body;
+  const body = typeof window !== "undefined" ? document.body : null;
   const { handleTransitionStatus } = useContext(TransitionContext);
 
   useEffect(() => {
@@ -21,8 +21,9 @@ const Transitions = ({ children }) => {
   const onEnter = () => {
     handleTransitionStatus(false);
     nodeRef.current.classList.add("page-fixed");
-    body.classList.add("overflow-hidden");
-
+    if (body) {
+      body.classList.add("overflow-hidden");
+    }
     parentRef.current.classList.add("z-[1]");
 
     let t = (mouse.mouseY / window.innerHeight) * 100;
@@ -53,8 +54,9 @@ const Transitions = ({ children }) => {
 
   const onEntered = () => {
     nodeRef.current.classList.remove("page-fixed");
-    body.classList.remove("overflow-hidden");
-
+    if (body) {
+      body.classList.remove("overflow-hidden");
+    }
     window.scrollTo(window.pageXOffset, 1);
     window.scrollTo(window.pageXOffset, 0);
     window.dispatchEvent(new Event("resize"));
@@ -63,8 +65,9 @@ const Transitions = ({ children }) => {
       clearProps: "all",
     });
     // removeClassByPrefix(body, "bg-");
-    // body.classList.add("bg-" + color);
-
+    // if(body) {
+    //  body.classList.add("bg-" + color);
+    // }
     return handleTransitionStatus(true);
   };
 

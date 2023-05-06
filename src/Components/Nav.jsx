@@ -38,11 +38,13 @@ export default function Nav() {
   };
 
   useEffect(() => {
-    const body = document.body;
-    if (isOpen) {
-      body.classList.add("overflow-hidden");
-    } else {
-      body.classList.remove("overflow-hidden");
+    const body = typeof window !== "undefined" ? document.body : null;
+    if (body) {
+      if (isOpen) {
+        body.classList.add("overflow-hidden");
+      } else {
+        body.classList.remove("overflow-hidden");
+      }
     }
 
     gsap.to(mobileNav.current, {

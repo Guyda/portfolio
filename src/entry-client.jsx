@@ -8,7 +8,8 @@ import { TransitionCtxProvider } from "./Context/TransitionState";
 import { HelmetProvider } from "react-helmet-async";
 const helmetContext = {};
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.hydrateRoot(
+  document.getElementById("root"),
   <React.StrictMode>
     <HelmetProvider context={helmetContext}>
       <ReactLenis root>
