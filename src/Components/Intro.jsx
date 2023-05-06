@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { useContext, useLayoutEffect, useRef } from "react";
-import { ScrollTrigger } from "gsap/all";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Cloud from "./Cloud";
 import TickerText from "./TickerText";
 import { Scroller } from "./Icons";

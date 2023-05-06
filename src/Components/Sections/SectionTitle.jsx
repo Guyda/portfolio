@@ -1,7 +1,7 @@
 import { useContext, useLayoutEffect, useRef } from "react";
 import { Scroller } from "../Icons";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TransitionContext } from "../../Context/TransitionState";
 
 export default function SectionTitle({ titles = {} }) {

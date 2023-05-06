@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import RollingText from "./RollingText";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect } from "react";
 
 export default function Projects() {

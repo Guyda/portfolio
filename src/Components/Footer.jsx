@@ -1,5 +1,5 @@
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useContext, useLayoutEffect, useRef } from "react";
 import { TransitionContext } from "../Context/TransitionState";
 

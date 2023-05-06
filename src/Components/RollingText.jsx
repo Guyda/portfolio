@@ -1,5 +1,5 @@
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useLayoutEffect, useRef } from "react";
 import { roll } from "../Helpers";
 import { Link } from "react-router-dom";
