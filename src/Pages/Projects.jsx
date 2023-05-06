@@ -1,11 +1,18 @@
 import Footer from "../Components/Footer";
 import RollingText from "../Components/RollingText";
+import SEO from "../Components/SEO";
 import { SectionTitle } from "../Components/Sections";
 import { projects } from "../Helpers";
 
 export default function Projects() {
   return (
     <div className="bg-persianblue">
+      <SEO
+        title="Projects - Guyda Bru, Full-Stack Developer"
+        description="20 years experience designing, developing, deploying"
+        name="guyda.com"
+        type="website"
+      />
       <SectionTitle
         titles={{
           title1: " Jack of",

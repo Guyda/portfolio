@@ -1,9 +1,17 @@
 import Footer from "../Components/Footer";
+import SEO from "../Components/SEO";
 import { SectionTitle } from "../Components/Sections";
 
 export default function About() {
   return (
     <div className="bg-daisybush">
+      <SEO
+        title="About - Guyda Bru, Full-Stack Developer"
+        description="20 years experience designing, developing, deploying"
+        name="guyda.com"
+        type="website"
+      />
+
       <SectionTitle
         titles={{
           title1: "Something",

@@ -1,11 +1,19 @@
 import Footer from "../Components/Footer";
 import Intro from "../Components/Intro";
 import RollingText from "../Components/RollingText";
+import SEO from "../Components/SEO";
 import { projects } from "../Helpers";
 
 export default function Home() {
   return (
     <div className="bg-watermelon">
+      <SEO
+        title="Intro - Guyda Bru, Full-Stack Developer"
+        description="20 years experience designing, developing, deploying"
+        name="guyda.com"
+        type="website"
+      />
+
       {/* TOP */}
       <Intro />
 
