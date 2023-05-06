@@ -1,45 +1,75 @@
 import Footer from "../Components/Footer";
 import RollingText from "../Components/RollingText";
+import { SectionTitle } from "../Components/Sections";
 import { projects } from "../Helpers";
 
 export default function Projects() {
   return (
     <div className="bg-persianblue">
-      <section className="block h-screen ">
-        <div className="intro-section relative box-border z-100 ">
-          <div className="intro-content block w-full text-center select-none z-10 h-screen flex flex-col items-center justify-center">
-            <h1 className="whitespace-nowrap w-full overflow-hidden relative box-border font-lexend  text-[0] font-bold flex flex-col">
-              <span className="text1 block text-ecru leading-none text-titlesr page-title ">
-                Selected
+      <SectionTitle
+        titles={{
+          title1: " Jack of",
+          color1: "text-ecru",
+          title2: "All Trades",
+          color2: "text-pearlaqua",
+          subtitle: (
+            <span className="static font-normal">
+              ...is a master of none, but oftentimes
+              <span className="inline-block sm:block">
+                better than a master of one.
               </span>
-              <span className="text2 block leading-none pb-[1rem] text-title mt-[-.5rem] md:mt-[-1rem] page-title-delayed text-pearlaqua">
-                Projects
-              </span>
-            </h1>
-            <div className="absolute top-0 left-0 w-full h-screen z-0 opacity-50 bg-hero-bg bg-repeat-x bg-contain" />
-          </div>
-        </div>
-      </section>
-      <section className={"block w-full py-40"}>
-        <div className="max-w-prose mx-auto text-ecru px-[1rem]">
-          <p className="font-zilla text-[18px] mb-[1rem]  text-center leading-relaxed">
-            Quisque consectetur ex sapien, eu tincidunt est vulputate non. Sed
-            hendrerit purus arcu, et ultricies leo viverra congue. Morbi
-            hendrerit, mauris vel bibendum efficitur, nibh nisi aliquet urna,
-            nec egestas lectus nisl et mi. Vivamus id felis quis enim iaculis
-            fringilla. Donec fermentum vitae nibh at condimentum.
-          </p>
-        </div>
-      </section>
+            </span>
+          ),
+          color3: "text-ecru",
+        }}
+      />
+
       <section className="block w-full py-40">
         <div className="max-w-5xl mx-auto text-ecru px-[1rem]">
-          {/* <h3 className="block font-normal sm:pb-[1rem] font-lexend text-[24px] md:pb-[2rem] page-title page-title overflow-hidden ">
+          <h3 className="block font-normal sm:pb-[1rem] font-lexend text-[24px] md:pb-[2rem] text-center page-title page-title overflow-hidden ">
             Selected Projects
-          </h3> */}
+          </h3>
         </div>
         {projects.map((p, i) => (
           <RollingText key={"projects_" + i} {...p} reverse={i % 2 == 0} />
         ))}
+      </section>
+
+      <section className="block w-full py-40">
+        <div className="max-w-screen-md mx-auto text-ecru px-[1rem]">
+          <h3 className="block font-normal pb-[6rem] font-lexend text-[24px] text-center page-title page-title overflow-hidden ">
+            Things I do
+          </h3>
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 md:gap-x-20 ">
+            <div className="grid-cols-1 text-center mb-[3rem]">
+              <h2 className="text-[2rem] font-bold pb-[2rem] font-lexend lg:text-[1.88rem]">
+                Design
+              </h2>
+              <ul className="font-zilla text-[18px]">
+                <li className="mb-[1rem] ">Ideation</li>
+                <li className="mb-[1rem] ">Visual Design</li>
+                <li className="mb-[1rem] ">HTML/CSS</li>
+                <li className="mb-[1rem] ">Bulma</li>
+                <li className="mb-[1rem] ">TailwindCSS</li>
+                <li className="mb-[1rem] ">Accessibility</li>
+              </ul>
+            </div>
+
+            <div className="grid-cols-1 text-center">
+              <h2 className="text-[2rem] font-bold pb-[2rem] font-lexend lg:text-[1.88rem]">
+                Deploy
+              </h2>
+              <ul className="font-zilla text-[18px]">
+                <li className="mb-[1rem] ">JavaScript</li>
+                <li className="mb-[1rem] ">Nginx</li>
+                <li className="mb-[1rem] ">Docker</li>
+                <li className="mb-[1rem] ">Google Cloud</li>
+                <li className="mb-[1rem] ">AWS</li>
+                <li className="mb-[1rem] ">REST API</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
       <Footer />
     </div>

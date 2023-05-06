@@ -108,11 +108,32 @@ export default function Nav() {
                 <li key={l.name}>
                   <MagneticButton
                     {...settings}
-                    className="magnetic-button p-0 bg-tranparent touch-none w-[90px] h-[30px] mr-[0] flex items-center justify-center"
+                    className="magnetic-button p-0 bg-tranparent touch-none w-[80px] h-[30px] mr-[0] flex items-center justify-center"
                   >
                     <NavLink
                       to={l.url}
-                      className="text-ecru pb-[6px] border-b-[3px] transition-all will-change-[border] duration-500 border-transparent aria-[current=page]:border-ecru aria-[current=page]:text-ecru"
+                      className={`
+                        relative
+                        text-ecru
+                        pb-[6px]
+                        after:transition-all
+                        after:duration-500
+                        after:w-0 
+                        after:-translate-x-1/2
+                        after:h-[3px]
+                        after:border-t-[3px]
+                        after:content-['']
+                        after:absolute
+                        after:bottom-[-1px]
+                        after:left-1/2
+                        after:border-ecru
+                        after:rounded-full 
+                        aria-[current=page]:text-ecru 
+                        aria-[current=page]:after:w-1/2
+                        aria-[current=page]:after:h-[3px]
+                        aria-[current=page]:after:border-t-[3px]
+                        aria-[current=page]:after:-translate-x-1/2
+                      `}
                     >
                       {l.name}
                     </NavLink>
@@ -169,7 +190,34 @@ export default function Nav() {
                   <NavLink
                     to={l.url}
                     onClick={() => handleMenu(isOpen)}
-                    className="hamLinks block -translate-y-1/2 text-watermelon font-lexend font-bold text-[40px] pb-[6px] border-b-[6px] border-transparent aria-[current=page]:border-watermelon aria-[current=page]:text-watermelon"
+                    className={`
+                      hamLinks
+                      block
+                      -translate-y-1/2
+                      text-watermelon
+                      font-lexend
+                      font-bold
+                      text-[40px]
+
+                      relative
+                      pb-[6px]
+                      after:transition-all
+                      after:duration-500
+                      after:w-0 
+                      after:-translate-x-1/2
+                      after:h-[6px]
+                      after:border-t-[6px]
+                      after:content-['']
+                      after:absolute
+                      after:bottom-0
+                      after:left-1/2
+                      after:border-watermelon
+                      after:rounded-full 
+                      aria-[current=page]:after:w-1/2
+                      aria-[current=page]:after:h-[6px]
+                      aria-[current=page]:after:border-t-[6px]
+                      aria-[current=page]:after:-translate-x-1/2
+                    `}
                   >
                     {l.name}
                   </NavLink>

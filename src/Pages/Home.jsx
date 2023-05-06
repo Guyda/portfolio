@@ -35,7 +35,7 @@ export default function Home() {
       {/* PROJECTS */}
       <section className="block w-full bg-watermelon py-40">
         <div className="max-w-5xl mx-auto text-ecru px-[1rem]">
-          <h3 className="block font-normal sm:pb-[1rem] font-lexend text-[24px] md:pb-[2rem]">
+          <h3 className="block font-normal sm:pb-[1rem] text-center font-lexend text-[24px] md:pb-[2rem]">
             Selected Projects
           </h3>
         </div>
