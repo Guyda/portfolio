@@ -8,9 +8,9 @@ const useCustomCursor = () => {
   useEffect(() => {
     if (window.matchMedia("(pointer:fine)").matches) {
       const cursor = new MouseFollower({
-        speed: 0.55,
-        visible: false,
-        visibleOnState: true,
+        speed: 0.66,
+        // visible: false,
+        // visibleOnState: true,
         // stateDetection: {
         //   "-hidden": "a, button",
         // },

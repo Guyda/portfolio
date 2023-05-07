@@ -1,6 +1,7 @@
 import Footer from "../Components/Footer";
 import RollingText from "../Components/RollingText";
 import SEO from "../Components/SEO";
+// import ScrollingText from "../Components/ScrollingText";
 import { SectionTitle } from "../Components/Sections";
 import { projects } from "../Helpers";
 
@@ -37,6 +38,9 @@ export default function Projects() {
             Selected Projects
           </h3>
         </div>
+        {/* {projects.map((p, i) => (
+          <ScrollingText key={"projects_" + i} {...p} reverse={i % 2 == 0} />
+        ))} */}
         {projects.map((p, i) => (
           <RollingText key={"projects_" + i} {...p} reverse={i % 2 == 0} />
         ))}

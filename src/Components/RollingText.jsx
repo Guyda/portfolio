@@ -1,8 +1,9 @@
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { roll } from "../Helpers";
 import { Link } from "react-router-dom";
+import { TransitionContext } from "../Context/TransitionState";
 // Strongly/Heavily inspired by: https://codepen.io/GreenSock/pen/rNjvgjo?editors=1010
 
 export default function RollingText({
@@ -16,6 +17,8 @@ export default function RollingText({
 }) {
   gsap.registerPlugin(ScrollTrigger);
 
+  const { transitionEnded } = useContext(TransitionContext);
+
   const line = useRef(null);
 
   if (!el || !words) return null;
@@ -25,20 +28,28 @@ export default function RollingText({
 
     let _el = "." + el + "1";
 
-    const roll1 = roll(_el, { duration }, reverse),
-      tl = ScrollTrigger.create({
-        trigger: document.querySelector(trigger),
-        onUpdate(self) {
-          if (self.direction !== direction) {
-            direction *= -1;
-            gsap.to([roll1], {
-              timeScale: direction,
-              overwrite: true,
-            });
-          }
-        },
-      });
-  }, []);
+    let ctx = gsap.context(() => {
+      if (transitionEnded) {
+        const roll1 = roll(_el, { duration }, reverse),
+          tl = ScrollTrigger.create({
+            trigger: document.querySelector(trigger),
+            onUpdate(self) {
+              if (self.direction !== direction) {
+                direction *= -1;
+                gsap.to([roll1], {
+                  timeScale: direction,
+                  overwrite: true,
+                });
+              }
+            },
+          });
+        return () => {
+          ctx.revert();
+          ctx.kill();
+        };
+      }
+    });
+  }, [transitionEnded]);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -75,10 +86,10 @@ export default function RollingText({
 
       <Link
         to={url}
-        className={`rollingtexts relative flex items-center font-lexend text-ecru font-black hover:cursor-none	 hover:after:content-[''] hover:after:bg-goldenyellow hover:after:w-full hover:after:h-full hover:after:absolute hover:after:z-0 py-[2rem] hover:text-watermelon will-change-[all] transition-all duration-300`}
+        className="rollingtexts relative flex flex-1 items-center font-lexend text-ecru font-black hover:cursor-none	 hover:after:content-[''] hover:after:bg-goldenyellow hover:after:w-full hover:after:h-full hover:after:absolute hover:after:z-0 py-[2rem] hover:text-watermelon will-change-[all] transition-all duration-300"
       >
         <span
-          className={`${el}1 relative block leading-none whitespace-nowrap pointer-none m-0 p-0 ${size} will-change-[transform] select-none px-[2rem] sm:px-[3rem] md:px-[4rem] box-border z-10`}
+          className={`${el}1 relative block flex-1 leading-none whitespace-nowrap pointer-none m-0 p-0 ${size} will-change-[transform] select-none px-[2rem] sm:px-[3rem] md:px-[4rem] box-border z-10`}
         >
           {words}
         </span>

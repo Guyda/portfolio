@@ -1,21 +1,25 @@
 import useScrollPosition from "../Hooks/useScrollPosition";
 import Hamburger from "./Hamburger";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import MagneticButton from "./MagneticButton";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import useWindowSize from "../Hooks/useWindowSize";
-import Footer from "./Footer";
+import MobileNav from "./MobileNav";
+import { links } from "../Helpers";
 import { gsap } from "gsap";
+import { TransitionContext } from "../Context/TransitionState";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const mobileNav = useRef(null);
-  const hamFooter = useRef(null);
+  const history = useNavigate();
+  const { handleTransitionStatus } = useContext(TransitionContext);
 
   const scrollPosition = useScrollPosition();
   const windowWidth = useWindowSize();
   const { width } = windowWidth;
+
+  const mobileNav = useRef(null);
 
   const bgTrigger = scrollPosition > 50 || isOpen;
   const smScreen = width < 768;
@@ -23,12 +27,6 @@ export default function Nav() {
   const siteName = bgTrigger
     ? "translate-y-[-100px] ease-in-out opacity-0"
     : "";
-  const links = [
-    { name: "Intro", url: "/" },
-    { name: "Projects", url: "/projects" },
-    { name: "About", url: "/about" },
-    { name: "Contact", url: "/contact" },
-  ];
 
   const settings = {
     scale: 2,
@@ -46,35 +44,24 @@ export default function Nav() {
         body.classList.remove("overflow-hidden");
       }
     }
-
-    gsap.to(mobileNav.current, {
-      autoAlpha: isOpen ? 1 : 0,
-      scale: isOpen ? 1 : 0.98,
-      filter: isOpen ? "blur(0px)" : "blur(10px)",
-      duration: 0.33,
-      ease: "Power4.inOut",
-    });
-
-    //animate links
-    const hamLinks = document.getElementsByClassName("hamLinks");
-    gsap.to([hamLinks], {
-      autoAlpha: isOpen ? 1 : 0,
-      yPercent: isOpen ? 0 : -50,
-      filter: isOpen ? "blur(0px)" : "blur(10px)",
-      delay: 0.5,
-      stagger: 0.25,
-      ease: "Power1.Out",
-    });
-    gsap.to(hamFooter.current, {
-      autoAlpha: isOpen ? 1 : 0,
-      filter: isOpen ? "blur(0px)" : "blur(10px)",
-      delay: 1.25,
-      ease: "Power1.Out",
-    });
   }, [isOpen]);
 
-  const handleMenu = (status) => {
-    return setIsOpen(!status);
+  const handleMenu = () => {
+    isOpen ? closeMobileNav() : setIsOpen(true);
+  };
+
+  const closeMobileNav = (url = null) => {
+    if (url) {
+      history(url, { replace: true });
+    }
+
+    gsap.to(mobileNav.current, {
+      autoAlpha: 0,
+      duration: 0.33,
+      onComplete: () => {
+        setIsOpen(false);
+      },
+    });
   };
 
   return (
@@ -114,28 +101,8 @@ export default function Nav() {
                   >
                     <NavLink
                       to={l.url}
-                      className={`
-                        relative
-                        text-ecru
-                        pb-[6px]
-                        after:transition-all
-                        after:duration-500
-                        after:w-0 
-                        after:-translate-x-1/2
-                        after:h-[3px]
-                        after:border-t-[3px]
-                        after:content-['']
-                        after:absolute
-                        after:bottom-[-1px]
-                        after:left-1/2
-                        after:border-ecru
-                        after:rounded-full 
-                        aria-[current=page]:text-ecru 
-                        aria-[current=page]:after:w-1/2
-                        aria-[current=page]:after:h-[3px]
-                        aria-[current=page]:after:border-t-[3px]
-                        aria-[current=page]:after:-translate-x-1/2
-                      `}
+                      className="relative text-ecru pb-[6px] after:transition-all after:duration-500 after:w-0  after:-translate-x-1/2 after:h-[3px] after:border-t-[3px] after:content-[''] after:absolute after:bottom-[-1px] after:left-1/2 after:border-ecru after:rounded-full  aria-[current=page]:text-ecru  aria-[current=page]:after:w-1/2 aria-[current=page]:after:h-[3px] aria-[current=page]:after:border-t-[3px] aria-[current=page]:after:-translate-x-1/2
+                      "
                     >
                       {l.name}
                     </NavLink>
@@ -171,67 +138,11 @@ export default function Nav() {
         </div>
       </div>
 
-      <div
-        ref={mobileNav}
-        className="mobileNav scale-[0.88] w-full h-full fixed top-0 left-0 opacity-0 display-none bg-ecru flex flex-col items-center justify-center border-[1rem] border-watermelon z-[666] overscroll-contain"
-      >
-        <nav
-          aria-label="Site Nav Desktop"
-          className="relative w-full h-full flex flex-col justify-between"
-        >
-          <ul
-            data-cursor="-lg"
-            className="flex-1 flex flex-col justify-center align-center"
-          >
-            {links.map((l) => (
-              <li key={l.name} className="w-[240px] mx-auto">
-                <MagneticButton
-                  {...settings}
-                  className="magnetic-button inline-block p-0 bg-tranparent touch-none px-0 py-[1rem] flex items-center justify-center"
-                >
-                  <NavLink
-                    to={l.url}
-                    onClick={() => handleMenu(isOpen)}
-                    className={`
-                      hamLinks
-                      block
-                      -translate-y-1/2
-                      text-watermelon
-                      font-lexend
-                      font-bold
-                      text-[40px]
-
-                      relative
-                      pb-[6px]
-                      after:transition-all
-                      after:duration-500
-                      after:w-0 
-                      after:-translate-x-1/2
-                      after:h-[6px]
-                      after:border-t-[6px]
-                      after:content-['']
-                      after:absolute
-                      after:bottom-0
-                      after:left-1/2
-                      after:border-watermelon
-                      after:rounded-full 
-                      aria-[current=page]:after:w-1/2
-                      aria-[current=page]:after:h-[6px]
-                      aria-[current=page]:after:border-t-[6px]
-                      aria-[current=page]:after:-translate-x-1/2
-                    `}
-                  >
-                    {l.name}
-                  </NavLink>
-                </MagneticButton>
-              </li>
-            ))}
-          </ul>
-          <div ref={hamFooter}>
-            <Footer motion={false} />
-          </div>
-        </nav>
-      </div>
+      {isOpen && (
+        <div ref={mobileNav}>
+          <MobileNav handleMobileLinks={(url) => closeMobileNav(url)} />
+        </div>
+      )}
     </header>
   );
 }
