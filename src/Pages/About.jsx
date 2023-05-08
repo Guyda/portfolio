@@ -26,26 +26,27 @@ export default function About() {
           <p className="font-zilla text-[18px] mb-[1rem]  text-center leading-relaxed">
             During my time in advertising I have been responsible for designing,
             animating, developing, and bringing concepts to life for local and
-            national clients such as{" "}
-            <span className="font-lexend font-normal">TD Bank</span>,{" "}
+            national clients such as
+            <span className="font-lexend font-normal">TD Bank</span>,
             <span className="font-lexend font-normal">
               Independence Blue Cross
             </span>
-            , <span className="font-lexend font-normal">Boiron</span>,{" "}
-            <span className="font-lexend font-normal">Bayer</span>,{" "}
+            , <span className="font-lexend font-normal">Boiron</span>,
+            <span className="font-lexend font-normal">Bayer</span>,
             <span className="font-lexend font-normal">
               Fine Wine & Good Spirits
             </span>
             , <span className="font-lexend font-normal">PECO</span>.
           </p>
           <p className="font-zilla text-[18px] text-center leading-relaxed">
-            Outside of working for the{" "}
+            I've been working at the{" "}
             <span className="font-lexend font-normal">
               Philadelphia Museum of Art
-            </span>
-            , I can be found trying to get out of Diamond rank in Rocket League,
-            gardening, giving out wrong-answers-only during trivia nights at my
-            local pub, or making crêpes.
+            </span>{" "}
+            for the last 6 years, but outside of that I can be found trying to
+            get out of Diamond rank in Rocket League, gardening, giving out
+            wrong-answers-only during trivia nights at my local brewery, or
+            making crêpes.
           </p>
         </div>
       </section>

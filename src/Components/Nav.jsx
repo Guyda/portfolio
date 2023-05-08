@@ -1,19 +1,17 @@
 import useScrollPosition from "../Hooks/useScrollPosition";
 import Hamburger from "./Hamburger";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import MagneticButton from "./MagneticButton";
 import { NavLink, useNavigate } from "react-router-dom";
 import useWindowSize from "../Hooks/useWindowSize";
 import MobileNav from "./MobileNav";
 import { links } from "../Helpers";
 import { gsap } from "gsap";
-import { TransitionContext } from "../Context/TransitionState";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
   const history = useNavigate();
-  const { handleTransitionStatus } = useContext(TransitionContext);
 
   const scrollPosition = useScrollPosition();
   const windowWidth = useWindowSize();
@@ -80,10 +78,11 @@ export default function Nav() {
               className={`will-change-[transform, opacity] block transform transition-all duration-500 ${siteName}`}
               to="/"
             >
-              <span className="sr-only">Home</span>
-
-              <span className="text-ecru font-zilla text-sitename">
+              <span className="text-ecru font-zilla font-bold text-sitename relative">
                 Guyda Bru
+                <span className="absolute font-lexend top-[-24px] p-[6px] rounded-[6px] flex items-center justify-center bg-dark text-ecru left-0 w-80px h-[20px] font-normal text-[10px] opacity-80">
+                  BETA SITE
+                </span>
               </span>
             </NavLink>
           </MagneticButton>
