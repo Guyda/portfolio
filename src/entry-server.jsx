@@ -6,20 +6,40 @@ import { TransitionCtxProvider } from "./Context/TransitionState";
 import { HelmetProvider } from "react-helmet-async";
 import App from "./App";
 import "./Styles/styles.scss";
-const helmetContext = {};
 
 export function render(url, context) {
-  return renderToString(
-    <StaticRouter location={url} context={context}>
-      <StrictMode>
-        <HelmetProvider context={helmetContext}>
+  const helmetContext = {};
+
+  const body = renderToString(
+    <StrictMode>
+      <HelmetProvider context={helmetContext}>
+        <StaticRouter location={url} context={context}>
           <ReactLenis root>
             <TransitionCtxProvider>
               <App />
             </TransitionCtxProvider>
           </ReactLenis>
-        </HelmetProvider>
-      </StrictMode>
-    </StaticRouter>
+        </StaticRouter>
+      </HelmetProvider>
+    </StrictMode>
   );
+
+  const helmet = helmetContext.helmet;
+
+  return {
+    body,
+    ctx: context,
+    head: [
+      helmet.title?.toString(),
+      helmet.base?.toString(),
+      helmet.meta?.toString(),
+      helmet.style?.toString(),
+      helmet.link?.toString(),
+      helmet.script?.toString(),
+      helmet.noscript?.toString(),
+    ].join(""),
+    titleAttr: helmet.titleAttributes?.toString(),
+    bodyAttr: helmet.bodyAttributes?.toString(),
+    htmlAttr: helmet.htmlAttributes?.toString(),
+  };
 }

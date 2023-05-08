@@ -74,14 +74,16 @@ export async function createServer(
       }
 
       const context = {};
-      const appHtml = render(url, context);
+      const result = render(url);
 
       if (context.url) {
         // Somewhere a `<Redirect>` was rendered
         return res.redirect(301, context.url);
       }
 
-      const html = template.replace(`<!--app-html-->`, appHtml);
+      const html = template
+        .replace(`<!--app-body-->`, result.body)
+        .replace(`<!--app-head-->`, result.head);
 
       res.status(200).set({ "Content-Type": "text/html" }).end(html);
     } catch (e) {
