@@ -13,7 +13,7 @@ export default function RollingText({
   reverse = false,
   size = "text-projects",
   trigger = "[data-scroll-container]",
-  url = "/projects",
+  url = "/work",
 }) {
   gsap.registerPlugin(ScrollTrigger);
 

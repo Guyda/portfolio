@@ -1,10 +1,10 @@
-import Footer from "../../Components/Footer";
-import RollingText from "../../Components/RollingText";
-import SEO from "../../Components/SEO";
-import { SectionTitle } from "../../Components/Sections";
-import { projects } from "../../routes";
+import Footer from "../Components/Footer";
+import RollingText from "../Components/RollingText";
+import SEO from "../Components/SEO";
+import { SectionTitle } from "../Components/Sections";
+import { projects } from "../routes";
 
-export default function ProjectsLanding() {
+export default function Projects() {
   return (
     <div className="bg-persianblue">
       <SEO

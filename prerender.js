@@ -13,21 +13,41 @@ const { render } = await import("./dist/server/entry-server.js");
 
 // determine routes to pre-render from src/pages
 const routesToPrerender = fs
-  .readdirSync(toAbsolute("src/pages"))
+  .readdirSync(toAbsolute("src/Pages"))
   .map((file) => {
     const name = file.replace(/\.jsx$/, "").toLowerCase();
     return name === "home" ? `/` : `/${name}`;
   });
 
+const subRoutes = fs.readdirSync(toAbsolute("src/Pages/work")).map((file) => {
+  const name = file.replace(/\.jsx$/, "").toLowerCase();
+  return `/${name}`;
+});
+
 (async () => {
   // pre-render each route...
-  for (const url of routesToPrerender) {
+  // for (const url of routesToPrerender) {
+  //   const context = {};
+  //   const result = render(url, context);
+
+  //   const html = template
+  //     .replace(`<!--app-body-->`, result.body)
+  //     .replace(`<!--app-head-->`, result.head);
+
+  //   const filePath = `dist/static${url === "/" ? "/index" : url}.html`;
+  //   fs.writeFileSync(toAbsolute(filePath), html);
+  //   console.log("pre-rendered:", filePath);
+  // }
+
+  for (const url of subRoutes) {
     const context = {};
-    const appHtml = await render(url, context);
+    const result = render(url, context);
 
-    const html = template.replace(`<!--app-html-->`, appHtml);
+    const html = template
+      .replace(`<!--app-body-->`, result.body)
+      .replace(`<!--app-head-->`, result.head);
 
-    const filePath = `dist/static${url === "/" ? "/index" : url}.html`;
+    const filePath = `dist/static/work/${url}.html`;
     fs.writeFileSync(toAbsolute(filePath), html);
     console.log("pre-rendered:", filePath);
   }

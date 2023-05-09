@@ -2,27 +2,24 @@ import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import Home from "./Pages/Home";
 import NotFound from "./Pages/NotFound";
-import {
-  ProjectsLanding,
-  IndependenceBlueCross,
-  Happierholidays,
-  Amerihealth,
-  TollBrothers,
-  Waln,
-  Fwgs,
-} from "./Pages/projects";
+import Projects from "./Pages/Work";
+import Amerihealth from "./Pages/work/Amerihealth";
+import Fwgs from "./Pages/work/Fwgs";
+import HappierHolidays from "./Pages/work/HappierHolidays";
+import IndependenceBlueCross from "./Pages/work/IndependenceBlueCross";
+import TollBrothers from "./Pages/work/TollBrothers";
+import Waln from "./Pages/work/Waln";
 import Transitions from "./Components/Transitions";
-import Project from "./Pages/project";
 
 export const projects = [
   {
-    component: <Project />,
+    component: <NotFound />,
     el: "projects-pma",
     url: "/work/philamuseum",
     words: "Philadelphia Museum of Art",
   },
   {
-    component: <Project />,
+    component: <NotFound />,
     el: "projects-jgj",
     url: "/work/johnson-publication",
     words: "Johnson Publication",
@@ -34,7 +31,7 @@ export const projects = [
     words: "Waln Interactive",
   },
   {
-    component: <Happierholidays />,
+    component: <HappierHolidays />,
     el: "projects-hh",
     url: "/work/happier-holidays",
     words: "Happier Holidays",
@@ -89,7 +86,7 @@ export const routes = [
     name: "work",
     element: (
       <Transitions>
-        <ProjectsLanding bg="persianblue" accent="pink" />
+        <Projects bg="persianblue" accent="pink" />
       </Transitions>
     ),
   },

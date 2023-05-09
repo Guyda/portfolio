@@ -13,7 +13,7 @@ export default function Waln() {
       />
       <ProjectIntro
         content={{
-          title: <>Waln Interactive</>,
+          title: "Waln Interactive",
           years: "2016",
           description:
             "This iPad kiosk app was done in partnership with the Philadelphia Art Museum's interactive department. The goal was to create some interactivity to the museum's visitors experience. My role was to design, and develop 2 type of experiences, the 1st one was to control a light display, and the other one was about giving more information about the art on display.",

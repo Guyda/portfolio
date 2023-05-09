@@ -13,7 +13,7 @@ export default function Fwgs() {
       />
       <ProjectIntro
         content={{
-          title: <>Fine Wine & Good Spirits</>,
+          title: "Fine Wine & Good Spirits",
           years: "2016",
           description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non rhoncus arcu. Morbi a commodo tellus, at imperdiet nulla. Ut sed dui dolor. Sed accumsan elementum magna eget blandit. Nam molestie ut augue tempus hendrerit. Suspendisse rhoncus finibus ex eu tincidunt.",

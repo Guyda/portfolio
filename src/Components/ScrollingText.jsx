@@ -10,7 +10,7 @@ export default function ScrollingText({
   reverse = false,
   size = "text-projects",
   trigger = "[data-scroll-container]",
-  url = "/projects",
+  url = "/work",
 }) {
   gsap.registerPlugin(ScrollTrigger);
 

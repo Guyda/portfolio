@@ -13,7 +13,7 @@ export default function TollBrothers() {
       />
       <ProjectIntro
         content={{
-          title: <>Cottages at State College</>,
+          title: "Cottages at State College",
           years: "2016",
           description:
             "A website to explain how their future student housing would accomodate about 1,000 residents in a self-contained neighborhood with an on-site community center full of premium amenities.",
