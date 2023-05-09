@@ -2,7 +2,7 @@ import Footer from "../Components/Footer";
 import Intro from "../Components/Intro";
 import RollingText from "../Components/RollingText";
 import SEO from "../Components/SEO";
-import { projects } from "../Helpers";
+import { projects } from "../routes";
 
 export default function Home() {
   return (
@@ -47,7 +47,7 @@ export default function Home() {
             Selected Projects
           </h3>
         </div>
-        {projects.map((p, i) => (
+        {projects.slice(0, 4).map((p, i) => (
           <RollingText key={"projects_" + i} {...p} reverse={i % 2 == 0} />
         ))}
       </section>

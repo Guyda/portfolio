@@ -28,6 +28,9 @@ export default {
       },
       backgroundImage: {
         "hero-bg": "url('/bg-gradient.png')",
+        aha: "url('/assets/aha/aha-header-bg.jpg')",
+        hh: "url('/assets/fwgshh/fwgshh-header.jpg')",
+        ibx: "url('/assets/ibx/ibx-header.jpg')",
       },
       transitionTimingFunction: {
         bezier: "cubic-bezier(0.7, 0, 0.2, 1)",

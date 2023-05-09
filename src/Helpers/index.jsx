@@ -65,26 +65,3 @@ export const links = [
   { name: "About", url: "/about" },
   { name: "Contact", url: "/contact" },
 ];
-
-export const projects = [
-  {
-    el: "projects-pma",
-    url: "/projects/pma",
-    words: "Philadelphia Museum of Art",
-  },
-  {
-    el: "projects-jgj",
-    url: "/projects/jgj",
-    words: "Johnson Publication",
-  },
-  {
-    el: "projects-fwgs",
-    url: "/projects/fwgs",
-    words: "Fine Wine & Good Spirits",
-  },
-  {
-    el: "projects-hh",
-    url: "/projects/hh",
-    words: "Happier Holidays",
-  },
-];

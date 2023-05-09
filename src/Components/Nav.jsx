@@ -67,7 +67,7 @@ export default function Nav() {
       aria-label="Site Header"
       className="bg-transparent fixed top-0 z-[9999] w-screen pt-5 pb-5"
     >
-      <div className="mx-auto flex h-12 max-w-5xl items-center gap-8 px-4 sm:px-6 z-[999]">
+      <div className="mx-auto flex h-12 max-w-5xl items-center gap-8 px-2 sm:px-0 z-[999]">
         <div className="flex flex-1 items-center justify-center justify-between ">
           <MagneticButton
             {...settings}

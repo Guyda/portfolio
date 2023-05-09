@@ -82,6 +82,12 @@
     animation: fadeIn 0.66s var(--bezier) forwards;
     animation-delay: 0.8s;
   }
+  .page-fadein-delay {
+    will-change: opacity, transform;
+    opacity: 0;
+    animation: fadeIndelay 0.66s var(--bezier) forwards;
+    animation-delay: 1s;
+  }
 }
 
 @keyframes revealTitle {
@@ -95,6 +101,16 @@
   }
 }
 @keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(25%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes fadeIndelay {
   0% {
     opacity: 0;
     transform: translateY(25%);
