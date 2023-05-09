@@ -61,7 +61,7 @@ export const removeClassByPrefix = (el, prefix) => {
 
 export const links = [
   { name: "Intro", url: "/" },
-  { name: "Projects", url: "/projects" },
+  { name: "Work", url: "/work" },
   { name: "About", url: "/about" },
   { name: "Contact", url: "/contact" },
 ];

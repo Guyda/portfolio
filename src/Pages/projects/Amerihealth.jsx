@@ -14,7 +14,7 @@ export default function Amerihealth() {
       <ProjectIntro
         content={{
           title: <>Amerihealth Administrators</>,
-          years: "2016",
+          years: "2015",
           description:
             "As a UX/UI Designer, I helped create Amerihealth Administrator's new website. Modernizing its look, reorganizing its content, and revisiting its overall architecture and navigation.",
           role: "UX/UI",

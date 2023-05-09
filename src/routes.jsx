@@ -7,6 +7,9 @@ import {
   IndependenceBlueCross,
   Happierholidays,
   Amerihealth,
+  TollBrothers,
+  Waln,
+  Fwgs,
 } from "./Pages/projects";
 import Transitions from "./Components/Transitions";
 import Project from "./Pages/project";
@@ -15,49 +18,49 @@ export const projects = [
   {
     component: <Project />,
     el: "projects-pma",
-    url: "/projects/philamuseum",
+    url: "/work/philamuseum",
     words: "Philadelphia Museum of Art",
   },
   {
     component: <Project />,
     el: "projects-jgj",
-    url: "/projects/johnson-publication",
+    url: "/work/johnson-publication",
     words: "Johnson Publication",
   },
   {
-    component: <Project />,
+    component: <Waln />,
     el: "projects-waln",
-    url: "/projects/waln",
-    words: "Waln Exhibit",
+    url: "/work/waln",
+    words: "Waln Interactive",
   },
   {
     component: <Happierholidays />,
     el: "projects-hh",
-    url: "/projects/happier-holidays",
+    url: "/work/happier-holidays",
     words: "Happier Holidays",
   },
   {
-    component: <Project />,
+    component: <Fwgs />,
     el: "projects-fwgs",
-    url: "/projects/fine-wine-and-good-spirits",
+    url: "/work/fine-wine-and-good-spirits",
     words: "Fine Wine & Good Spirits",
   },
   {
-    component: <Project />,
+    component: <TollBrothers />,
     el: "projects-toll",
-    url: "/projects/toll-brothers",
+    url: "/work/toll-brothers",
     words: "Toll Brothers",
   },
   {
     component: <Amerihealth />,
     el: "projects-amerihealth",
-    url: "/projects/amerihealth-administrators",
+    url: "/work/amerihealth-administrators",
     words: "Amerihealth Administrators",
   },
   {
     component: <IndependenceBlueCross />,
     el: "projects-ibx",
-    url: "/projects/ibx",
+    url: "/work/ibx",
     words: "Independence Blue Cross",
   },
 ];
@@ -82,8 +85,8 @@ export const routes = [
     ),
   },
   {
-    path: "/projects",
-    name: "projects",
+    path: "/work",
+    name: "work",
     element: (
       <Transitions>
         <ProjectsLanding bg="persianblue" accent="pink" />

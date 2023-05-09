@@ -14,7 +14,7 @@ export default function HappierHolidays() {
       <ProjectIntro
         content={{
           title: "Happier Holidays",
-          years: "2014–2016",
+          years: "2014 & 2015",
           description: (
             <>
               I designed and developed a website to complete an ad campaign for
