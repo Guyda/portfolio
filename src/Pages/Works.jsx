@@ -4,7 +4,7 @@ import SEO from "../Components/SEO";
 import { SectionTitle } from "../Components/Sections";
 import { projects } from "../routes";
 
-export default function Projects() {
+export default function Works() {
   return (
     <div className="bg-persianblue">
       <SEO

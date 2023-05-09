@@ -1,6 +1,5 @@
 // Pre-render the app into static HTML.
 // run `yarn generate` and then `dist/static` can be served as a static site.
-
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -19,27 +18,9 @@ const routesToPrerender = fs
     return name === "home" ? `/` : `/${name}`;
   });
 
-const subRoutes = fs.readdirSync(toAbsolute("src/Pages/work")).map((file) => {
-  const name = file.replace(/\.jsx$/, "").toLowerCase();
-  return `/${name}`;
-});
-
 (async () => {
   // pre-render each route...
-  // for (const url of routesToPrerender) {
-  //   const context = {};
-  //   const result = render(url, context);
-
-  //   const html = template
-  //     .replace(`<!--app-body-->`, result.body)
-  //     .replace(`<!--app-head-->`, result.head);
-
-  //   const filePath = `dist/static${url === "/" ? "/index" : url}.html`;
-  //   fs.writeFileSync(toAbsolute(filePath), html);
-  //   console.log("pre-rendered:", filePath);
-  // }
-
-  for (const url of subRoutes) {
+  for (const url of routesToPrerender) {
     const context = {};
     const result = render(url, context);
 
@@ -47,7 +28,7 @@ const subRoutes = fs.readdirSync(toAbsolute("src/Pages/work")).map((file) => {
       .replace(`<!--app-body-->`, result.body)
       .replace(`<!--app-head-->`, result.head);
 
-    const filePath = `dist/static/work/${url}.html`;
+    const filePath = `dist/static${url === "/" ? "/index" : url}.html`;
     fs.writeFileSync(toAbsolute(filePath), html);
     console.log("pre-rendered:", filePath);
   }

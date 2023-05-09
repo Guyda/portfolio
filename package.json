@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "node server",
-    "build": "npm run build:client && npm run build:server",
-    "build:client": "vite build --outDir dist/client",
-    "build:server": "vite build --ssr src/entry-server.jsx --outDir dist/server",
-    "generate": "vite build --outDir dist/static && npm run build:server && node prerender",
+    "build": "npm run build:spa && npm run build:ssr",
+    "build:spa": "rm -Rf dist/client && vite build --outDir dist/client",
+    "build:ssr": "rm -Rf dist/server && vite build --ssr src/entry-server.jsx --outDir dist/server",
+    "build:ssg": "npm run build:ssr && vite build --outDir dist/static && node prerender",
     "serve": "NODE_ENV=production node server",
     "debug": "node --inspect-brk server"
   },
@@ -17,8 +17,6 @@
   ],
   "dependencies": {
     "@studio-freight/react-lenis": "^0.0.15",
-    "devicon": "^2.15.1",
-    "devicons-react": "^1.2.5",
     "gsap": "^3.11.5",
     "mouse-follower": "^1.1.2",
     "react": "^18.2.0",
@@ -30,12 +28,12 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^3.1.0",
     "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.22",
-    "sass": "^1.59.3",
-    "tailwindcss": "^3.3.1",
-    "vite": "^4.3.3",
     "compression": "^1.7.4",
     "express": "^4.18.2",
-    "serve-static": "^1.15.0"
+    "postcss": "^8.4.22",
+    "sass": "^1.59.3",
+    "serve-static": "^1.15.0",
+    "tailwindcss": "^3.3.1",
+    "vite": "^4.3.3"
   }
 }

@@ -2,6 +2,7 @@ import { gsap } from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useContext, useEffect, useRef } from "react";
 import { TransitionContext } from "../Context/TransitionState";
+import { Codepen, Github, LinkedIn } from "./Icons";
 
 export default function Footer({ motion = true }) {
   gsap.registerPlugin(ScrollTrigger);
@@ -49,19 +50,19 @@ export default function Footer({ motion = true }) {
     {
       name: "Github",
       url: "/",
-      icon: "devicon-github-original",
+      icon: <Github />,
       class: "text-[32px]",
     },
     {
       name: "LinkedIn",
       url: "/",
-      icon: "devicon-linkedin-plain",
+      icon: <LinkedIn />,
       class: "text-[32px]",
     },
     {
       name: "Codepen",
       url: "/",
-      icon: "devicon-codepen-plain",
+      icon: <Codepen />,
       class: "text-[32px]",
     },
   ];
@@ -108,7 +109,9 @@ export default function Footer({ motion = true }) {
                   target="_blank"
                   className="text-watermelon transition hover:opacity-75"
                 >
-                  <i className={`${k.icon} ${k.class}`} />
+                  <div className="icon w-[28px] h-[28px] fill-watermelon">
+                    {k.icon}
+                  </div>
                 </a>
               </li>
             ))}
