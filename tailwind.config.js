@@ -42,6 +42,8 @@ export default {
       animation: {
         float: "float var(--cloud-timing) ease-in-out infinite",
         floatshadow: "floatshadow var(--cloud-timing) ease-in-out infinite",
+        floatCircle: "floatCircle 40s linear infinite",
+        "icon-circle": "icon-circle 40s linear infinite",
         ticker: "ticker 8s infinite",
         scrollerDot1: "scrollerDot1 1s ease-out infinite;",
         scrollerDot2: "scrollerDot2 1s ease-out infinite;",
@@ -56,6 +58,14 @@ export default {
           "0%": { opacity: "0.3" },
           "50%": { opacity: "0.15" },
           "100%": { opacity: "0.3" },
+        },
+        floatCircle: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        "icon-circle": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(-360deg)" },
         },
         ticker: {
           "15%": { transform: "translateY(-20%)" },

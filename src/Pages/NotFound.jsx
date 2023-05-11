@@ -1,5 +1,4 @@
 import Footer from "../Components/Footer";
-import Cloud from "../Components/Cloud";
 import SEO from "../Components/SEO";
 
 export default function NotFound() {
@@ -11,15 +10,14 @@ export default function NotFound() {
         name="guyda.com"
         type="website"
       />
-      <section className="block min-h-screen bg-watermelon">
-        <div className="intro-section relative box-border py-[15vh] flex flex-col items-center z-100 ">
+      <section className="block min-h-screen bg-dark">
+        <div className="intro-section relative box-border py-[40vh] flex flex-col items-center z-100 ">
           <div className="intro-content block w-full text-center font-lexend select-none z-10">
             <h1 className="whitespace-nowrap block relative box-border text-[0] font-bold overflow-hidden ">
-              <span className="text1 block text-ecru leading-none text-titlesr page-title ">
+              <span className="text1 block tewxt-ecru leading-none text-titlesr page-title ">
                 NotFound
               </span>
             </h1>
-            <Cloud />
           </div>
         </div>
       </section>

@@ -11,24 +11,18 @@ export default function About() {
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      gsap.fromTo(
-        projectButton.current,
-        {
-          autoAlpha: 0,
-          yPercent: 10,
+      gsap.from(projectButton.current, {
+        autoAlpha: 0,
+        yPercent: 30,
+        filter: "blur(10px)",
+        duration: 1,
+        ease: "Power4.out",
+        scrollTrigger: {
+          trigger: projectButton.current,
+          start: "top 75%",
+          end: "top 75%",
         },
-        {
-          autoAlpha: 1,
-          yPercent: 0,
-          duration: 0.8,
-          ease: "Power4.out",
-          scrollTrigger: {
-            trigger: projectButton.current,
-            start: "top 75%",
-            end: "top 75%",
-          },
-        }
-      );
+      });
     });
 
     return () => {
