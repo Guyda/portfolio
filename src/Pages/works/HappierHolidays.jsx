@@ -1,6 +1,6 @@
-import SEO from "../Components/SEO";
-import { ProjectIntro, ProjectPreview } from "../Components/Sections";
-import Footer from "../Components/Footer";
+import SEO from "../../Components/SEO";
+import { ProjectIntro, ProjectPreview } from "../../Components/Sections";
+import Footer from "../../Components/Footer";
 
 export default function HappierHolidays() {
   return (
@@ -21,9 +21,8 @@ export default function HappierHolidays() {
               the end of year's Holidays, on behalf of Fine Wine & Good Spirits.
               Offering discounted products, giving entertaining tips for
               parties, educating users on what wine would go better with
-              venison, or finding a gift for a love one. <br />
-              <br />I built a custom-made flat-file CMS for easy manipulations,
-              and quicker turn around.
+              venison, or finding a gift for a love one. I built a custom-made
+              flat-file CMS for easy manipulations, and quicker turn around.
             </>
           ),
           role: "UX/UI, Development",

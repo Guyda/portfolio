@@ -19,6 +19,7 @@ export default {
       colors: {
         ecru: "#F3F4E8",
         dark: "#343434",
+        darker: "#212121",
         watermelon: "#FC485A",
         persianblue: "#1541B3",
         goldenyellow: "#FBE10F",

@@ -1,6 +1,6 @@
-import SEO from "../Components/SEO";
-import { ProjectIntro, ProjectPreview } from "../Components/Sections";
-import Footer from "../Components/Footer";
+import SEO from "../../Components/SEO";
+import { ProjectIntro, ProjectPreview } from "../../Components/Sections";
+import Footer from "../../Components/Footer";
 
 export default function Waln() {
   return (

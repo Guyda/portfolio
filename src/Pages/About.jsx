@@ -124,6 +124,7 @@ export default function About() {
           className="w-[280px] text-center mx-auto text-ecru block mt-[6rem]"
         >
           <MagneticButton
+            data-cursor="-hidden"
             scale={2}
             tollerance={0.8}
             speed={0.3}

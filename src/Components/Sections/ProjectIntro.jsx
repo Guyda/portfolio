@@ -1,14 +1,14 @@
 export default function ProjectIntro({ content = {} }) {
   let { years, description, role, preview, title, bg = null } = content;
 
-  let _bg = bg
-    ? "block w-full relative h-full py-[240px] bg-dark before:content-[''] before:w-full before:h-full before:absolute before:top-0 before:left-0 before:bg-black before:opacity-60  bg-fixed bg-cover " +
-      bg
-    : "block w-full py-[240px] bg-dark";
+  // let _bg = bg
+  //   ? "block w-full relative h-full py-[240px] bg-dark before:content-[''] before:w-full before:h-full before:absolute before:top-0 before:left-0 before:bg-black before:opacity-60  bg-fixed bg-cover " +
+  //     bg
+  //   : "block w-full py-[240px] bg-dark";
 
   return (
-    <section className={_bg}>
-      <div className="max-w-screen-lg mx-auto text-ecru px-[1rem] z-[20]">
+    <section className="block w-full py-[150px] sm:py[200px] bg-ecru">
+      <div className="max-w-screen-lg mx-auto text-dark px-[1rem] z-[20]">
         <h1 className="whitespace-nowrap w-full overflow-hidden relative box-border font-lexend text-[0] font-bold flex flex-col pb-[2rem]">
           {title && (
             <span className="block text-titlesr page-title ">{title}</span>
@@ -19,7 +19,9 @@ export default function ProjectIntro({ content = {} }) {
             <span className="block font-lexend text-[13px] uppercase">
               Description
             </span>
-            <p className="font-zilla text-[18px]">{description}</p>
+            <p className="font-zilla text-[18px] pb-[2rem] md:pb-[0rem]">
+              {description}
+            </p>
           </div>
 
           <div className="page-fadein-delay">

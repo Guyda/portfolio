@@ -36,6 +36,11 @@ $mf-color-text: #fff !default;
       transform: scale(1) !important;
     }
   }
+  &.-xl {
+    &:before {
+      transform: scale(1.5) !important;
+    }
+  }
 
   &.-projects {
     &:before {

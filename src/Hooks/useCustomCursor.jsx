@@ -9,6 +9,10 @@ const useCustomCursor = () => {
     if (window.matchMedia("(pointer:fine)").matches) {
       const cursor = new MouseFollower({
         speed: 0.66,
+        skewing: 1,
+        skewingText: 1,
+        skewingIcon: 1,
+        skewingMedia: 1,
         // visible: false,
         // visibleOnState: true,
         // stateDetection: {

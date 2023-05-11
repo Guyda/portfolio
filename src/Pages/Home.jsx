@@ -13,24 +13,18 @@ export default function Home() {
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      gsap.fromTo(
-        projectButton.current,
-        {
-          autoAlpha: 0,
-          yPercent: 10,
+      gsap.from(projectButton.current, {
+        autoAlpha: 0,
+        yPercent: 30,
+        filter: "blur(10px)",
+        duration: 1,
+        ease: "Power4.out",
+        scrollTrigger: {
+          trigger: projectButton.current,
+          start: "top 75%",
+          end: "top 75%",
         },
-        {
-          autoAlpha: 1,
-          yPercent: 0,
-          duration: 0.8,
-          ease: "Power4.out",
-          scrollTrigger: {
-            trigger: projectButton.current,
-            start: "top 75%",
-            end: "top 75%",
-          },
-        }
-      );
+      });
     });
 
     return () => {
@@ -82,14 +76,17 @@ export default function Home() {
           </h3>
         </div>
         {/* TOP 4 */}
-        {projects.slice(0, 4).map((p, i) => (
-          <RollingText key={"projects_" + i} {...p} reverse={i % 2 == 0} />
-        ))}
+        {projects
+          .filter((p) => p.type === "main")
+          .map((p, i) => (
+            <RollingText key={"projects_" + i} {...p} reverse={i % 2 == 0} />
+          ))}
         <div
           ref={projectButton}
           className="w-[250px] text-center mx-auto text-ecru block mt-[6rem]"
         >
           <MagneticButton
+            data-cursor="-hidden"
             scale={2}
             tollerance={0.8}
             speed={0.3}

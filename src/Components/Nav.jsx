@@ -2,7 +2,7 @@ import useScrollPosition from "../Hooks/useScrollPosition";
 import Hamburger from "./Hamburger";
 import { useEffect, useRef, useState } from "react";
 import MagneticButton from "./MagneticButton";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import useWindowSize from "../Hooks/useWindowSize";
 import MobileNav from "./MobileNav";
 import { links } from "../Helpers";
@@ -10,6 +10,9 @@ import { gsap } from "gsap";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const location = useLocation();
+  const isWorkPage = location.pathname.includes("/works/");
 
   const history = useNavigate();
 
@@ -19,9 +22,10 @@ export default function Nav() {
 
   const mobileNav = useRef(null);
 
-  const bgTrigger = scrollPosition > 50 || isOpen;
   const smScreen = width < 768;
-  const btnBg = bgTrigger ? "bg-dark bg-opacity-50" : "bg-transparent";
+  const bgTrigger = scrollPosition > 50 || isOpen;
+  const btnBg =
+    bgTrigger || smScreen ? "bg-dark bg-opacity-50" : "bg-transparent";
   const siteName = bgTrigger
     ? "translate-y-[-100px] ease-in-out opacity-0"
     : "";
@@ -68,17 +72,23 @@ export default function Nav() {
       className="bg-transparent fixed top-0 z-[9999] w-screen pt-5 pb-5"
     >
       <div className="mx-auto flex h-12 max-w-5xl items-center gap-8 px-2 sm:px-0 z-[999]">
-        <div className="flex flex-1 items-center justify-center justify-between ">
+        <div className="flex flex-1 items-center justify-center justify-between">
           <MagneticButton
             {...settings}
             className="site-name magnetic-button p-0 bg-tranparent touch-none w-[100px] h-[60px] mr-[0] flex items-center justify-center"
           >
             <NavLink
-              data-cursor="-lg"
+              data-cursor="-xl"
               className={`will-change-[transform, opacity] block transform transition-all duration-500 ${siteName}`}
               to="/"
             >
-              <span className="text-ecru font-zilla font-bold text-sitename relative">
+              <span
+                className={
+                  isWorkPage
+                    ? "font-zilla font-bold text-sitename relative text-dark hover:text-ecru transition-all duration-150"
+                    : "font-zilla font-bold text-sitename relative text-ecru "
+                }
+              >
                 Guyda Bru
                 <span className="absolute font-lexend top-[-24px] p-[6px] rounded-[6px] flex items-center justify-center bg-dark text-ecru left-0 w-80px h-[20px] font-normal text-[10px] opacity-80">
                   BETA SITE
@@ -89,25 +99,26 @@ export default function Nav() {
 
           <nav aria-label="Site Nav Desktop" className="flex-1 justify-end ">
             <ul
-              data-cursor="-lg"
+              data-cursor="-xl"
               className={`hidden md:flex justify-end gap-2 font-lexend font-bold text-[.88rem] px-[1rem] will-change-[transform, opacity] transform transition-all duration-500 ${siteName}`}
             >
-              {links.map((l) => (
-                <li key={l.name}>
-                  <MagneticButton
-                    {...settings}
-                    className="magnetic-button p-0 bg-tranparent touch-none w-[80px] h-[30px] mr-[0] flex items-center justify-center"
-                  >
-                    <NavLink
-                      to={l.url}
-                      className="relative text-ecru pb-[6px] after:transition-all after:duration-500 after:w-0  after:-translate-x-1/2 after:h-[3px] after:border-t-[3px] after:content-[''] after:absolute after:bottom-[-1px] after:left-1/2 after:border-ecru after:rounded-full  aria-[current=page]:text-ecru  aria-[current=page]:after:w-1/2 aria-[current=page]:after:h-[3px] aria-[current=page]:after:border-t-[3px] aria-[current=page]:after:-translate-x-1/2
-                      "
+              {links.map((l) => {
+                let cls = isWorkPage
+                  ? "relative text-dark pb-[6px] after:transition-all after:duration-500 after:w-0  after:-translate-x-1/2 after:h-[3px] after:border-t-[3px] after:content-[''] after:absolute after:bottom-[-1px] after:left-1/2 after:border-dark after:rounded-full  aria-[current=page]:text-dark  aria-[current=page]:after:w-1/2 aria-[current=page]:after:h-[3px] aria-[current=page]:after:border-t-[3px] aria-[current=page]:after:-translate-x-1/2 hover:text-ecru transition-all duration-150"
+                  : "relative text-ecru pb-[6px] after:transition-all after:duration-500 after:w-0  after:-translate-x-1/2 after:h-[3px] after:border-t-[3px] after:content-[''] after:absolute after:bottom-[-1px] after:left-1/2 after:border-ecru after:rounded-full  aria-[current=page]:text-ecru  aria-[current=page]:after:w-1/2 aria-[current=page]:after:h-[3px] aria-[current=page]:after:border-t-[3px] aria-[current=page]:after:-translate-x-1/2";
+                return (
+                  <li key={l.name}>
+                    <MagneticButton
+                      {...settings}
+                      className="magnetic-button p-0 bg-tranparent touch-none w-[80px] h-[30px] mr-[0] flex items-center justify-center"
                     >
-                      {l.name}
-                    </NavLink>
-                  </MagneticButton>
-                </li>
-              ))}
+                      <NavLink to={l.url} className={cls}>
+                        {l.name}
+                      </NavLink>
+                    </MagneticButton>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 
