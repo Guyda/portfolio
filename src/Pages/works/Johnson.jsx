@@ -2,24 +2,23 @@ import SEO from "../../Components/SEO";
 import { ProjectIntro, ProjectPreview } from "../../Components/Sections";
 import Footer from "../../Components/Footer";
 
-export default function Waln() {
+export default function Johnson() {
   return (
     <div className="bg-ecru">
       <SEO
-        title="Waln Interactive (Philamuseum) - Guyda Bru, Full-Stack Developer"
+        title="Jonhson Publication - Guyda Bru, Full-Stack Developer"
         description="I developed an iPad kiosk app to improve the visitors' museum experience. My responsibilities included designing and creating two distinct experiences. The first one was a light display control feature, while the second one provided additional information about the displayed art pieces."
         name="Waln Interactive"
         type="website"
       />
       <ProjectIntro
         content={{
-          title: "Waln Interactive",
-          years: "2016",
+          title: "Jonhson Publication",
+          years: "2017–2018",
           description:
             "I developed an iPad kiosk app to improve the visitors' museum experience. My responsibilities included designing and creating two distinct experiences. The first one was a light display control feature, while the second one provided additional information about the displayed art pieces.",
           role: "UX/UI, Development",
           preview: null,
-          bg: "bg-waln",
         }}
       />
       <ProjectPreview

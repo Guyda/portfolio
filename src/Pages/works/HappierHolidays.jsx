@@ -7,7 +7,7 @@ export default function HappierHolidays() {
     <div className="bg-ecru">
       <SEO
         title="Happier Holidays - Guyda Bru, Full-Stack Developer"
-        description="Designed and developed a website to complete an ad campaign for the end of year's Holidays, on behalf of Fine Wine & Good Spirits. Offering discounted products, giving entertaining tips for parties, educating users on what wine would go better with venison, or finding a gift for a love one. I built a custom-made flat-file CMS for easy manipulations, and quicker turn around."
+        description="In support of Fine Wine & Good Spirits' holiday ad campaign, I took on the responsibility of designing and developing a website that would feature discounted products, entertaining party tips, and helpful wine-pairing recommendations, as well as suggestions for gift-giving. To ensure that the process was streamlined and efficient, I created a custom flat-file CMS that enabled easy manipulation and faster turnaround times."
         name="happier holidays"
         type="website"
       />
@@ -15,16 +15,8 @@ export default function HappierHolidays() {
         content={{
           title: "Happier Holidays",
           years: "2014 & 2015",
-          description: (
-            <>
-              I designed and developed a website to complete an ad campaign for
-              the end of year's Holidays, on behalf of Fine Wine & Good Spirits.
-              Offering discounted products, giving entertaining tips for
-              parties, educating users on what wine would go better with
-              venison, or finding a gift for a love one. I built a custom-made
-              flat-file CMS for easy manipulations, and quicker turn around.
-            </>
-          ),
+          description:
+            "In support of Fine Wine & Good Spirits' holiday ad campaign, I took on the responsibility of designing and developing a website that would feature discounted products, entertaining party tips, and helpful wine-pairing recommendations, as well as suggestions for gift-giving. To ensure that the process was streamlined and efficient, I created a custom flat-file CMS that enabled easy manipulation and faster turnaround times.",
           role: "UX/UI, Development",
           preview: null,
           bg: "bg-hh",

@@ -124,7 +124,7 @@ export default function Nav() {
 
           <nav aria-label="Hamburger Menu" className="">
             <div
-              className={`navburger absolute top-[16px] right-0 transition duration-200 z-[99999] ${
+              className={`navburger absolute top-0 right-0 transition duration-200 z-[99999] scale-[.88] md:scale-[1] ${
                 isOpen || bgTrigger || smScreen
                   ? "transition-opacity pointer-events-auto"
                   : "opacity-0 pointer-events-none "

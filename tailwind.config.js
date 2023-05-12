@@ -11,9 +11,9 @@ export default {
       fontSize: {
         "18xl": "clamp(80px, 18vw, 200px)",
         "25xl": "clamp(120px, 25vw, 360px)",
-        projects: "clamp(3rem, 18vw, 12rem)",
+        projects: "clamp(3rem, 22vw, 15rem)",
         sitename: "clamp(1rem, 18px, 1.25rem)",
-        titlesr: "clamp(.77rem, 77px, 7vw)",
+        titlesr: "clamp(.77rem, 75px, 6.66vw)",
         title: "clamp(1.2rem, 120px, 11vw)",
       },
       colors: {
@@ -42,7 +42,8 @@ export default {
       animation: {
         float: "float var(--cloud-timing) ease-in-out infinite",
         floatshadow: "floatshadow var(--cloud-timing) ease-in-out infinite",
-        floatCircle: "floatCircle 40s linear infinite",
+        floatCircle:
+          "floatCircle 40s linear infinite, floatFadein 2s 1s ease forwards",
         "icon-circle": "icon-circle 40s linear infinite",
         ticker: "ticker 8s infinite",
         scrollerDot1: "scrollerDot1 1s ease-out infinite;",
@@ -58,6 +59,10 @@ export default {
           "0%": { opacity: "0.3" },
           "50%": { opacity: "0.15" },
           "100%": { opacity: "0.3" },
+        },
+        floatFadein: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
         floatCircle: {
           "0%": { transform: "rotate(0deg)" },

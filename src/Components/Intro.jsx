@@ -29,7 +29,7 @@ export default function Intro() {
             },
           })
           .to(introCloud.current, {
-            yPercent: 70,
+            yPercent: 66,
           });
 
         const tl_title = gsap
@@ -101,7 +101,7 @@ export default function Intro() {
           </h1>
           <TickerText />
         </div>
-        <div className="intro-cloud z-20 h-[50vh]" ref={introCloud}>
+        <div className="intro-cloud z-60 h-[50vh]" ref={introCloud}>
           <Cloud />
         </div>
         <div

@@ -2,7 +2,7 @@ import { NextJS, ReactJS, Sass, Tailwind } from "./Icons";
 
 export default function Cloud() {
   return (
-    <div className="relative flex flex-col justify-center items-center min-h-[400px] cloud h-full top-1/2 -translate-y-1/2">
+    <div className="relative flex flex-col justify-center items-center min-h-[400px] overflow-hidden cloud h-full top-1/2 -translate-y-1/2">
       <div className="origin-center animate-float w-full max-w-[550px] max-h-[550px] mx-auto z-30">
         <svg
           width="550"
@@ -12,7 +12,6 @@ export default function Cloud() {
           xmlns="http://www.w3.org/2000/svg"
           style={{ width: "100%", height: "auto", padding: "0 2rem" }}
         >
-          {" "}
           <g clipPath="url(#clip0_682_895)">
             {" "}
             <path
@@ -345,7 +344,7 @@ export default function Cloud() {
       </div>
 
       <div
-        className={`animate-floatCircle absolute top-auto left-auto -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] mx-auto z-20 rounded-full block`}
+        className={`animate-floatCircle absolute top-auto left-auto -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] mx-auto z-20 rounded-full block opacity-0`}
       >
         <div
           className={`animate-icon-circle fill-ecru absolute top-auto left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60px] h-[60px]`}
@@ -356,21 +355,18 @@ export default function Cloud() {
           className={` animate-icon-circle fill-ecru absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 w-[60px] h-[60px] 
         `}
         >
-          {" "}
           <NextJS />
         </div>
         <div
           className={` animate-icon-circle fill-ecru absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[60px] h-[60px] 
         `}
         >
-          {" "}
           <Tailwind />
         </div>
         <div
           className={` animate-icon-circle fill-ecru absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-[60px] h-[60px] 
         `}
         >
-          {" "}
           <Sass />
         </div>
       </div>

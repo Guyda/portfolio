@@ -15,7 +15,7 @@ export default function ProjectIntro({ content = {} }) {
           )}
         </h1>
         <div className="flex flex-col md:flex-row">
-          <div className="flex-1 pr-[0] md:pr-[6rem] page-fadein">
+          <div className="flex-1 pr-[0] md:pr-[8rem] page-fadein">
             <span className="block font-lexend text-[13px] uppercase">
               Description
             </span>

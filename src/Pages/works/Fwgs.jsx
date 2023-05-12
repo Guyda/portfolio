@@ -7,7 +7,7 @@ export default function Fwgs() {
     <div className="bg-ecru">
       <SEO
         title="Fine Wine & Good Spirits - Guyda Bru, Full-Stack Developer"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non rhoncus arcu. Morbi a commodo tellus, at imperdiet nulla. Ut sed dui dolor. Sed accumsan elementum magna eget blandit. Nam molestie ut augue tempus hendrerit. Suspendisse rhoncus finibus ex eu tincidunt."
+        description="In Response to an advertising pitch, I revamped FWGS's homepage using the latest web design techniques. My approach involved repurposing existing content and proposing innovative ways to enhance the overall user experience."
         name="Fine Wine & Good Spirits"
         type="website"
       />
@@ -16,7 +16,7 @@ export default function Fwgs() {
           title: "Fine Wine & Good Spirits",
           years: "2016",
           description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non rhoncus arcu. Morbi a commodo tellus, at imperdiet nulla. Ut sed dui dolor. Sed accumsan elementum magna eget blandit. Nam molestie ut augue tempus hendrerit. Suspendisse rhoncus finibus ex eu tincidunt.",
+            "In Response to an advertising pitch, I revamped FWGS's homepage using the latest web design techniques. My approach involved repurposing existing content and proposing innovative ways to enhance the overall user experience.",
           role: "UX/UI",
           preview: null,
           bg: "bg-fwgs",

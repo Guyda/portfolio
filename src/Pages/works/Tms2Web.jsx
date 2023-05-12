@@ -2,24 +2,23 @@ import SEO from "../../Components/SEO";
 import { ProjectIntro, ProjectPreview } from "../../Components/Sections";
 import Footer from "../../Components/Footer";
 
-export default function Waln() {
+export default function TMS2WEB() {
   return (
     <div className="bg-ecru">
       <SEO
-        title="Waln Interactive (Philamuseum) - Guyda Bru, Full-Stack Developer"
-        description="I developed an iPad kiosk app to improve the visitors' museum experience. My responsibilities included designing and creating two distinct experiences. The first one was a light display control feature, while the second one provided additional information about the displayed art pieces."
+        title="TMS to Web - Guyda Bru, Full-Stack Developer"
+        description="React/NodeJS application that could facilitate the transfer of data from PMA's internal Collection database to Google Firestore. Tool that also uploads high-resolution JPG images to our online IIIF server (micr.io)."
         name="Waln Interactive"
         type="website"
       />
       <ProjectIntro
         content={{
-          title: "Waln Interactive",
-          years: "2016",
+          title: "TMS to Web",
+          years: "2020–2021",
           description:
-            "I developed an iPad kiosk app to improve the visitors' museum experience. My responsibilities included designing and creating two distinct experiences. The first one was a light display control feature, while the second one provided additional information about the displayed art pieces.",
+            "React/NodeJS application that could facilitate the transfer of data from PMA's internal Collection database to Google Firestore. Tool that also uploads high-resolution JPG images to our online IIIF server (micr.io).",
           role: "UX/UI, Development",
           preview: null,
-          bg: "bg-waln",
         }}
       />
       <ProjectPreview

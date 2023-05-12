@@ -1,10 +1,10 @@
 export default function TickerText() {
   let list = [
-    "Full-Stack Dev",
+    "Problem Solving",
     "UX/UI",
-    "Design",
+    "JavaScript",
     "Strategy",
-    "Full-Stack Dev",
+    "Problem Solving",
   ];
 
   return (

@@ -7,7 +7,7 @@ export default function TollBrothers() {
     <div className="bg-ecru">
       <SEO
         title="Amerihealth Administrators - Guyda Bru, Full-Stack Developer"
-        description="A website to explain how their future student housing would accomodate about 1,000 residents in a self-contained neighborhood with an on-site community center full of premium amenities."
+        description="Designed and developed a website to showcase Penn State's upcoming student housing project. The development would cater to around 1,000 residents and offer a self-contained neighborhood concept, complete with a community center featuring high-end amenities."
         name="happier holidays"
         type="website"
       />
@@ -16,7 +16,7 @@ export default function TollBrothers() {
           title: "Cottages at State College",
           years: "2016",
           description:
-            "A website to explain how their future student housing would accomodate about 1,000 residents in a self-contained neighborhood with an on-site community center full of premium amenities.",
+            "Designed and developed a website to showcase Penn State's upcoming student housing project. The development would cater to around 1,000 residents and offer a self-contained neighborhood concept, complete with a community center featuring high-end amenities.",
           role: "UX/UI, Development",
           preview: null,
           bg: "bg-tb",

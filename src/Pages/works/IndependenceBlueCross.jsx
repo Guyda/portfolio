@@ -16,7 +16,7 @@ export default function IndependenceBlueCross() {
           title: "Changing the Game",
           years: "2011",
           description:
-            "This project for Independence Blue Cross was dedicated to inform people of the recent changes in health care, following the new health reforms. My role was to design and develop an original experience using simple interactions, with aesthetically pleasing visuals and responsiveness.",
+            "My involvement in this Independence Blue Cross project centered around educating people about the latest health care changes brought about by recent reforms. As a designer and developer, I was tasked with creating an original experience that featured simple interactions, aesthetically pleasing visuals, and responsiveness.",
           role: "UX/UI, Development",
           preview: null,
           bg: "bg-ibx",

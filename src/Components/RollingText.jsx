@@ -86,7 +86,7 @@ export default function RollingText({
 
       <Link
         to={url}
-        className="rollingtexts relative flex flex-1 items-center font-lexend text-ecru font-black hover:cursor-none	 hover:after:content-[''] hover:after:bg-goldenyellow hover:after:w-full hover:after:h-full hover:after:absolute hover:after:z-0 py-[2rem] hover:text-watermelon will-change-[all] transition-all duration-300"
+        className="rollingtexts relative flex flex-1 items-center font-black font-lexend text-ecru font-black hover:cursor-none	 hover:after:content-[''] hover:after:bg-goldenyellow hover:after:w-full hover:after:h-full hover:after:absolute hover:after:z-0 py-[0rem] hover:text-watermelon will-change-[all] transition-all duration-300 uppercase"
       >
         <span
           className={`${el}1 relative block flex-1 leading-none whitespace-nowrap pointer-none m-0 p-0 ${size} will-change-[transform] select-none px-[2rem] sm:px-[3rem] md:px-[4rem] box-border z-10`}

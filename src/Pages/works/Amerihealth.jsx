@@ -7,7 +7,7 @@ export default function Amerihealth() {
     <div className="bg-ecru">
       <SEO
         title="Amerihealth Administrators - Guyda Bru, Full-Stack Developer"
-        description="As a UX/UI Designer, I helped create Amerihealth Administrator's new website. Modernizing its look, reorganizing its content, and revisiting its overall architecture and navigation."
+        description="Revamp of Amerihealth Administrator's website. My responsibilities involved modernizing the website's appearance, reorganizing its content, and revisiting its overall architecture and navigation."
         name="happier holidays"
         type="website"
       />
@@ -16,7 +16,7 @@ export default function Amerihealth() {
           title: "Amerihealth Administrators",
           years: "2015",
           description:
-            "As a UX/UI Designer, I helped create Amerihealth Administrator's new website. Modernizing its look, reorganizing its content, and revisiting its overall architecture and navigation.",
+            "Revamp of Amerihealth Administrator's website. My responsibilities involved modernizing the website's appearance, reorganizing its content, and revisiting its overall architecture and navigation.",
           role: "UX/UI",
           preview: null,
           bg: "bg-aha",

@@ -10,17 +10,20 @@ import IndependenceBlueCross from "./Pages/works/IndependenceBlueCross";
 import TollBrothers from "./Pages/works/TollBrothers";
 import Waln from "./Pages/works/Waln";
 import Transitions from "./Components/Transitions";
+import Philamuseum from "./Pages/works/Philamuseum";
+import Johnson from "./Pages/works/Johnson";
+import TMS2WEB from "./Pages/works/Tms2Web";
 
 export const projects = [
   {
-    component: <NotFound />,
+    component: <Philamuseum />,
     el: "projects-pma",
     url: "/works/philamuseum",
     words: "Philadelphia Museum of Art",
     type: "main",
   },
   {
-    component: <NotFound />,
+    component: <Johnson />,
     el: "projects-jgj",
     url: "/works/johnson-publication",
     words: "Johnson Publication",
@@ -41,39 +44,39 @@ export const projects = [
     type: "main",
   },
   {
-    component: <NotFound />,
+    component: <TMS2WEB />,
     el: "projects-tms2web",
-    url: "/works/data-flow",
+    url: "/works/tms-to-web",
     words: "TMS to Web",
-    desc: "Dolor sit amet, consectetur adipiscing elit. Donec non rhoncus arcu. Morbi a commodo tellus, at imperdiet nulla.",
+    desc: "React/NodeJS application that could facilitate the transfer of data from PMA's internal Collection database to Google Firestore. Tool that also uploads high-resolution JPG images to our online IIIF server (micr.io).",
   },
   {
     component: <Fwgs />,
     el: "projects-fwgs",
     url: "/works/fine-wine-and-good-spirits",
     words: "Fine Wine & Good Spirits",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non rhoncus arcu. Morbi a commodo tellus, at imperdiet nulla.",
+    desc: "In Response to an advertising pitch, I revamped FWGS's homepage using the latest web design techniques. My approach involved repurposing existing content and proposing innovative ways to enhance the overall user experience.",
   },
   {
     component: <TollBrothers />,
     el: "projects-toll",
     url: "/works/toll-brothers",
     words: "Toll Brothers",
-    desc: "A website to explain how their future student housing would accomodate about 1,000 residents in a self-contained neighborhood with an on-site community center full of premium amenities.",
+    desc: "Designed and developed a website to showcase Penn State's upcoming student housing project. The development would cater to around 1,000 residents and offer a self-contained neighborhood concept, complete with a community center featuring high-end amenities.",
   },
   {
     component: <Amerihealth />,
     el: "projects-amerihealth",
     url: "/works/amerihealth-administrators",
     words: "Amerihealth Administrators",
-    desc: "As a UX/UI Designer, I helped create Amerihealth Administrator's new website. Modernizing its look, reorganizing its content, and revisiting its overall architecture and navigation.",
+    desc: "Revamp of Amerihealth Administrator's website. My responsibilities involved modernizing the website's appearance, reorganizing its content, and revisiting its overall architecture and navigation.",
   },
   {
     component: <IndependenceBlueCross />,
     el: "projects-ibx",
     url: "/works/ibx",
     words: "Independence Blue Cross",
-    desc: "Inform people of the recent changes in health care, following the new health reforms",
+    desc: "My involvement in this Independence Blue Cross project centered around educating people about the latest health care changes brought about by recent reforms. As a designer and developer, I was tasked with creating an original experience that featured simple interactions, aesthetically pleasing visuals, and responsiveness.",
   },
 ];
 

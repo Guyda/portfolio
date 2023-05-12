@@ -58,10 +58,12 @@ export default function Home() {
 
             <div className="grid-cols-1">
               <p className="font-zilla text-[18px]">
-                I take pride in creating websites that not only look great but
-                also function exceptionally well. I'm all about optimizing
-                websites for speed and SEO, ensuring that your website is always
-                performing at its best.
+                I have perfected my ability to create websites that seamlessly
+                blend striking visual design with top-notch functionality. My
+                recent projects have been powered by React, NextJS, and
+                Tailwind. But, my web dev journey started with Flash
+                ActionScript and HTML/CSS. You could say I'm a seasoned
+                developer.
               </p>
             </div>
           </div>
