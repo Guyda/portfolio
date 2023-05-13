@@ -1,5 +1,5 @@
 import { StrictMode } from "react";
-import { hydrateRoot } from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import { BrowserRouter } from "react-router-dom";
 import { TransitionCtxProvider } from "./Context/TransitionState";
@@ -9,8 +9,7 @@ import "./Styles/styles.scss";
 
 const helmetContext = {};
 
-hydrateRoot(
-  document.getElementById("root"),
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <HelmetProvider context={helmetContext}>
       <ReactLenis root>
@@ -23,4 +22,19 @@ hydrateRoot(
     </HelmetProvider>
   </StrictMode>
 );
+
+// hydrateRoot(
+//   document.getElementById("root"),
+//   <StrictMode>
+//     <HelmetProvider context={helmetContext}>
+//       <ReactLenis root>
+//         <BrowserRouter>
+//           <TransitionCtxProvider>
+//             <App />
+//           </TransitionCtxProvider>
+//         </BrowserRouter>
+//       </ReactLenis>
+//     </HelmetProvider>
+//   </StrictMode>
+// );
 // console.log("hydrated");

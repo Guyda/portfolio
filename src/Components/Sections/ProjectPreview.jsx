@@ -1,7 +1,10 @@
 import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
 
-export default function ProjectPreview({ content = [] }) {
+export default function ProjectPreview({
+  classes = "project-preview",
+  content = [],
+}) {
   const pvWarped = useRef();
   const pvSection = useRef();
 
@@ -15,7 +18,7 @@ export default function ProjectPreview({ content = [] }) {
         marginTop: "-45px",
       });
 
-      const previews = gsap.utils.toArray(".project-preview");
+      const previews = gsap.utils.toArray("." + classes);
 
       previews.forEach((p) => {
         gsap.from(p, {
@@ -51,7 +54,7 @@ export default function ProjectPreview({ content = [] }) {
             key={"asset_" + i}
             className={"max-w-screen-lg block mx-auto my-[60px] p-[1rem] "}
           >
-            <img src={image} alt={alt} className="project-preview" />
+            <img src={image} alt={alt} className={classes} />
           </div>
         );
       })}
