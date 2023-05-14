@@ -8,15 +8,15 @@ const useCustomCursor = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const cursor = new MouseFollower({
-      speed: 0.66,
-      skewing: 1,
-      skewingText: 1,
-      skewingIcon: 1,
-      skewingMedia: 1,
-    });
+    let cursor = null;
     if (window.matchMedia("(pointer:fine)").matches) {
-      cursor.show();
+      cursor = new MouseFollower({
+        speed: 0.66,
+        skewing: 1,
+        skewingText: 1,
+        skewingIcon: 1,
+        skewingMedia: 1,
+      });
     }
     return () => cursor.destroy();
   }, [location]);

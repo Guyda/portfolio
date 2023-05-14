@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useContext, useEffect, useRef } from "react";
-import { roll } from "../Helpers";
+import { horizontalLoop } from "../Helpers";
 import { Link } from "react-router-dom";
 import { TransitionContext } from "../Context/TransitionState";
 // Strongly/Heavily inspired by: https://codepen.io/GreenSock/pen/rNjvgjo?editors=1010
@@ -20,35 +20,25 @@ export default function RollingText({
   const { transitionEnded } = useContext(TransitionContext);
 
   const line = useRef(null);
+  const myWords = [];
 
   if (!el || !words) return null;
 
   useEffect(() => {
-    let direction = 1;
-
-    let _el = "." + el + "1";
-
     let ctx = gsap.context(() => {
       if (transitionEnded) {
-        const roll1 = roll(_el, { duration }, reverse),
-          tl = ScrollTrigger.create({
-            trigger: document.querySelector(trigger),
-            onUpdate(self) {
-              if (self.direction !== direction) {
-                direction *= -1;
-                gsap.to([roll1], {
-                  timeScale: direction,
-                  overwrite: true,
-                });
-              }
-            },
-          });
-        return () => {
-          ctx.revert();
-          ctx.kill();
-        };
+        const loop = horizontalLoop(myWords, {
+          repeat: -1,
+          speed: 1,
+          paused: false,
+          reversed: reverse,
+        });
       }
     });
+    return () => {
+      ctx.revert();
+      ctx.kill();
+    };
   }, [transitionEnded]);
 
   useEffect(() => {
@@ -82,14 +72,22 @@ export default function RollingText({
       data-cursor-text={`<div class="flex flex-col items-center justify-center space-between">
           <span class="font-lexend text-sm leading-none pb-[8px]">View</span><span class="font-zilla text-lg leading-tight">${words}</span></div>`}
     >
-      <span className="sr-only">{words}</span>
-
       <Link
         to={url}
-        className="rollingtexts relative flex flex-1 items-center font-black font-lexend text-ecru font-black hover:cursor-none	 hover:after:content-[''] hover:after:bg-goldenyellow hover:after:w-full hover:after:h-full hover:after:absolute hover:after:z-0 py-[0rem] hover:text-watermelon will-change-[all] transition-all duration-300 uppercase"
+        className="rollingtexts relative flex flex-1 items-center font-black font-lexend text-ecru font-black hover:cursor-none	 hover:after:content-[''] hover:after:bg-goldenyellow hover:after:w-full hover:after:h-full hover:after:absolute hover:after:z-0 py-[0rem] hover:text-watermelon will-change-[all] transition-all duration-300 uppercase overflow-hidden w-full"
       >
+        <span className="sr-only">{words}</span>
         <span
-          className={`${el}1 relative block flex-1 leading-none whitespace-nowrap pointer-none m-0 p-0 ${size} will-change-[transform] select-none px-[2rem] sm:px-[3rem] md:px-[4rem] box-border z-10`}
+          aria-hidden
+          ref={(word) => myWords.push(word)}
+          className={`${el} relative inline-block flex-1 leading-none whitespace-nowrap pointer-none m-0 p-0 ${size} will-change-[transform] select-none px-[2rem] sm:px-[3rem] md:px-[4rem] box-border z-10`}
+        >
+          {words}
+        </span>
+        <span
+          aria-hidden
+          ref={(word) => myWords.push(word)}
+          className={`${el} relative inline-block flex-1 leading-none whitespace-nowrap pointer-none m-0 p-0 ${size} will-change-[transform] select-none px-[2rem] sm:px-[3rem] md:px-[4rem] box-border z-10`}
         >
           {words}
         </span>

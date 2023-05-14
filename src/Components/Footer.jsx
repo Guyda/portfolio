@@ -77,28 +77,6 @@ export default function Footer({ motion = true }) {
         ref={ftContent}
         className="w-full absolute top-0 left-0 w-full h-[300px] z-10 bg-ecru py-[4rem] "
       >
-        {/* <div className="flex items-center justify-center flex-col py-24 space-between text-center">
-          <h2 className="text-ecru font-lexend text-[2rem] sm:text-[3rem] pb-[1rem]">
-            Let's Keep in Touch!
-          </h2>
-          <p className="text-ecru font-zilla text-[1rem] px-[1rem]">
-            My inbox is always open like a welcoming home screen, ready and
-            waiting for your questions, ideas, or even just a casual "hello
-            world." So don't be a stranger - hit me up and let's chat about all
-            things web-related!
-          </p>
-          <MagneticButton
-            scale={2}
-            tollerance={0.8}
-            speed={0.3}
-            borderRadius="50%"
-            className="magnetic-button p-0 bg-tranparent touch-none p-[3rem] flex items-center justify-center"
-          >
-            <button className="bg-watermelon px-[1.75rem] py-[1.25rem] rounded-lg flex flex-col justify-center items-center transform transition-all text-ecru ring-0 ring-gray-300 hover:ring-8 hover:bg-goldenyellow group-focus:ring-4 ring-opacity-30 duration-300 delay-150 hover:text-dark">
-              contact@guyda.com
-            </button>
-          </MagneticButton>
-        </div> */}
         <div className="flex flex-col items-center justify-center">
           <ul className="align-center justify-center inline-flex flex-row gap-8 pb-[2rem]">
             {socials.map((k) => (
