@@ -48,7 +48,7 @@ export const projects = [
     el: "projects-tms2web",
     url: "/works/tms-to-web",
     words: "TMS to Web",
-    desc: "React/NodeJS application that could facilitate the transfer of data from PMA's internal Collection database to Google Firestore. Tool that also uploads high-resolution JPG images to our online IIIF server (micr.io).",
+    desc: "NodeJS/React application that has significantly streamlined the data flow between our internal collection database system and the website's collection object pages. This project also includes the upload of object images to an image server (IIIF).",
   },
   {
     component: <Fwgs />,
