@@ -26,7 +26,7 @@ export default function Contact() {
       />
       <SectionTitle
         titles={{
-          title1: "Let's be",
+          title1: "Let's get",
           color1: "text-ecru",
           title2: "in touch",
           color2: "text-daisybush",

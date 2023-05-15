@@ -74,7 +74,7 @@ export default function Home() {
       <section className="block w-full bg-watermelon py-40">
         <div className="max-w-5xl mx-auto text-ecru px-[1rem]">
           <h3 className="block font-normal sm:pb-[1rem] text-center font-lexend text-[24px] md:pb-[2rem]">
-            Some of the latest work I did
+            Some of my latest work
           </h3>
         </div>
         {/* TOP 4 */}
@@ -97,7 +97,7 @@ export default function Home() {
           >
             <Link
               to="/work"
-              className="bg-goldenyellow px-[2rem] py-[1rem] rounded-lg flex flex-col justify-center items-center transform transition-all text-watermelon font-bold ring-0 ring-gray-300 hover:ring-8 hover:bg-ecru group-focus:ring-4 ring-opacity-30 duration-300 delay-150 hover:text-dark"
+              className="bg-goldenyellow px-[2rem] py-[1rem] rounded-lg flex flex-col justify-center items-center transform transition-all text-watermelon font-bold ring-0 ring-gray-300 hover:ring-8 hover:bg-ecru group-focus:ring-4 ring-opacity-30 duration-300 delay-150 hover:text-dark font-zilla"
             >
               View more work
             </Link>
