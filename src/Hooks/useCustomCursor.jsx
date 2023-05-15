@@ -18,7 +18,7 @@ const useCustomCursor = () => {
         skewingMedia: 1,
       });
     }
-    return () => cursor.destroy();
+    return () => cursor && cursor.hide();
   }, [location]);
 
   return null;
