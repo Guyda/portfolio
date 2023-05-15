@@ -18,7 +18,7 @@ export default function Waln() {
           description:
             "I developed an iPad kiosk app to improve the visitors' museum experience. My responsibilities included designing and creating two distinct experiences. The first one was a light display control feature, while the second one provided additional information about the displayed art pieces.",
           role: "UX/UI, Development",
-          preview: null,
+          preview: "https://dev.guyda.com/waln-cabinet/",
           bg: "bg-waln",
         }}
       />

@@ -19,7 +19,7 @@ export default function Johnson() {
           description:
             "As the primary developer on the project, I led the development of the Johnson Publication, Philamuseum of Art's first digital publication. The objective was to create a Single-Page React application that included a range of advanced functionalities, such as zoomable images for comparisons using a IIIF server, dynamic footnotes within the text, chapter-based navigation, and an archival section containing 14,000 items.",
           role: "UX/UI, Development",
-          preview: null,
+          preview: "https://publications.philamuseum.org/jgj/vol1",
         }}
       />
 

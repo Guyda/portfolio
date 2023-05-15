@@ -39,12 +39,16 @@ export default function ProjectIntro({ content = {} }) {
             </span>
             {preview && (
               <>
-                <span className="block font-lexend text-[13px] uppercase">
-                  preview
-                </span>
-                <span className="block font-zilla text-[18px] mb-[2rem]">
-                  {preview}
-                </span>
+                <a
+                  href={preview}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  className="inline-block px-[1rem] py-[.5rem] rounded-[6px] bg-dark text-ecru hover:bg-watermelon hover:text-goldenyellow transition-all duration-300"
+                >
+                  <span className="block font-lexend text-[14px] text-center ">
+                    View Live
+                  </span>
+                </a>
               </>
             )}
           </div>

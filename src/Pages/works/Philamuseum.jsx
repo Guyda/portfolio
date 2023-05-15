@@ -19,7 +19,7 @@ export default function Philamuseum() {
           description:
             "My main responsibility in this project was to create the website's front-end. However, I was also heavily involved in the back-end processes, including the architecture of the entire site, the development approach, user-experience, and design reviews. I transformed the previous monolithic architecture into a micro-service architecture by decoupling the front-end and back-end and selecting appropriate web solutions for each challenge. I used React to develop the front-end, with Server-Side Rendering features, and managed the back-end through Sanity. Additionally, I created APIs to provide collection data and search functionality. This project was one of the most significant accomplishments in my career as a developer.",
           role: "UX/UI, Development",
-          preview: null,
+          preview: "https://philamuseum.org",
         }}
       />
 

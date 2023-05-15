@@ -18,7 +18,7 @@ export default function IndependenceBlueCross() {
           description:
             "My involvement in this Independence Blue Cross project centered around educating people about the latest health care changes brought about by recent reforms. As a designer and developer, I was tasked with creating an original experience that featured simple interactions, aesthetically pleasing visuals, and responsiveness.",
           role: "UX/UI, Development",
-          preview: null,
+          preview: "https://dev.guyda.com/change.ibx.com/",
           bg: "bg-ibx",
         }}
       />

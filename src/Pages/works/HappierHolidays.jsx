@@ -18,7 +18,7 @@ export default function HappierHolidays() {
           description:
             "In support of Fine Wine & Good Spirits' holiday ad campaign, I took on the responsibility of designing and developing a website that would feature discounted products, entertaining party tips, and helpful wine-pairing recommendations, as well as suggestions for gift-giving. To ensure that the process was streamlined and efficient, I created a custom flat-file CMS that enabled easy manipulation and faster turnaround times.",
           role: "UX/UI, Development",
-          preview: null,
+          preview: "https://dev.guyda.com/fwgshh_2014/",
           bg: "bg-hh",
         }}
       />
