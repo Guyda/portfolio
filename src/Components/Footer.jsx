@@ -2,7 +2,7 @@ import { gsap } from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useContext, useEffect, useRef } from "react";
 import { TransitionContext } from "../Context/TransitionState";
-import { Codepen, Github, LinkedIn } from "./Icons";
+import { Codepen, Email, LinkedIn } from "./Icons";
 
 export default function Footer({ motion = true }) {
   gsap.registerPlugin(ScrollTrigger);
@@ -11,6 +11,14 @@ export default function Footer({ motion = true }) {
   const ftWarped = useRef();
   const ftBlock = useRef();
   const ftContent = useRef();
+  const contact = useRef(null);
+
+  useEffect(() => {
+    const encEmail = "Z3V5ZGF2aWRAZ21haWwuY29t";
+    if (typeof window !== "undefined") {
+      contact.current.setAttribute("href", "mailto:".concat(atob(encEmail)));
+    }
+  }, []);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -48,20 +56,20 @@ export default function Footer({ motion = true }) {
 
   const socials = [
     {
-      name: "Github",
-      url: "/",
-      icon: <Github />,
+      name: "Email",
+      url: "email",
+      icon: <Email />,
       class: "text-[32px]",
     },
     {
       name: "LinkedIn",
-      url: "/",
+      url: "https://www.linkedin.com/in/guyda/",
       icon: <LinkedIn />,
       class: "text-[32px]",
     },
     {
       name: "Codepen",
-      url: "/",
+      url: "https://codepen.io/guy-david-bru",
       icon: <Codepen />,
       class: "text-[32px]",
     },
@@ -82,6 +90,7 @@ export default function Footer({ motion = true }) {
             {socials.map((k) => (
               <li key={k.name}>
                 <a
+                  ref={k.url === "email" ? contact : null}
                   href={k.url}
                   rel="noreferrer"
                   target="_blank"
