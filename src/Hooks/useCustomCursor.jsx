@@ -18,7 +18,11 @@ const useCustomCursor = () => {
         skewingMedia: 1,
       });
     }
-    return () => cursor && cursor.hide();
+    return () => {
+      if (window.matchMedia("(pointer:fine)").matches) {
+        cursor && cursor.destroy();
+      }
+    };
   }, [location]);
 
   return null;
